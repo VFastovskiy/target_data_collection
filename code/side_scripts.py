@@ -195,3 +195,30 @@ def visualize_dataframe(df, columns_list):
     for p in ax.patches:
         ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()),
                     ha='center', va='center', xytext=(0, 10), textcoords='offset points')
+
+
+
+
+
+
+
+def vz_tree_diagram(csv_paths, columns_list):
+    for csv in csv_paths:
+        df = pd.read_csv(csv)
+        protein_names = df['Protein_Name'].unique().tolist()
+        print(len(protein_names))
+
+        if len(protein_names) < 50:
+            # Create a single sunburst diagram
+            fig = px.sunburst(df, path=columns_list)
+            df_name = os.path.splitext(os.path.basename(csv))[0]
+            output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
+            plotly.io.write_image(fig, output_path, format='svg')
+        else:
+            # Split DataFrame by protein names and create sunburst diagram for each chunk
+            protein_name_chunks = split_dataframe_by_protein_names(df, chunk_size=50)
+            for i, chunk in enumerate(protein_name_chunks, 1):
+                fig = px.sunburst(chunk, path=columns_list)
+                df_name = os.path.splitext(os.path.basename(csv))[0]
+                output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_{i}.svg'
+                plotly.io.write_image(fig, output_path, format='svg')
