@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
 import glob
+import plotly.express as px
+import plotly
 
 
 
@@ -114,12 +116,15 @@ def plot_unique_vals(unique_values_dict, columns_list):
         ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()),
                     ha='center', va='center', xytext=(0, 10), textcoords='offset points')
 
+    #fig = px.sunburst(unique_values_df, path=columns_list)
+
     plt.savefig('../results/step1_pdf_parsing/plots/unique_vals_with_comparison.png')
+    #fig.write_image('../results/step1_pdf_parsing/plots/tree_diagram.png')
 
 
 
 
-def visualize_comparison_of_csvs(csv_paths, columns_list):
+def vz_comparison_of_csvs(csv_paths, columns_list):
 
     df_list, unique_values_dict = csv_to_unique_vals_dict(csv_paths, columns_list)
     common_unique_values = csv_to_common_vals_dict(df_list, columns_list)
@@ -272,24 +277,36 @@ def parsing(parsing_flag, pdf_path):
         if named_df_list:
             for df in named_df_list:
                 if not save_dataframe_to_csv(df, str(df.name)):
-                    success_flag = False
+                    parsing_flag = False
                     print(f'Failed to save DataFrame {df.name}.')
                     break
         else:
             print('Error during reading the .pdf file occurred.')
     else:
-        print('Parsing was skipped of done previously')
+        print('Parsing was skipped or done previously')
+
+
+
+def vz_tree_diagram(csv_paths, columns_list):
+    for csv in csv_paths:
+        df = pd.read_csv(csv)
+        fig = px.sunburst(df, path=columns_list)
+        fig.show()
+        # df_name = f'{os.path.splitext(os.path.basename(csv))[0]}'
+        #output_path = '../results/step1_pdf_parsing/plots/output.png'
+        #plotly.io.write_image(fig, output_path, format='png')
 
 
 
 
-def visualization(success_flag, csv_directory):
-    if success_flag:
+def visualization(vz_flag, csv_directory):
+    if vz_flag:
         csv_paths = glob.glob(os.path.join(csv_directory, '*.csv'))
 
         # Plotting reports and writing DataFrames to CSV
-        columns_list = ['PDB_ID', 'Chemical_ID', 'Protein_Name']
-        visualize_comparison_of_csvs(csv_paths, columns_list)
+        columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
+        vz_comparison_of_csvs(csv_paths, columns_list)
+        vz_tree_diagram(csv_paths, columns_list)
     else:
         print('Visualization was skipped of done previously.')
 
@@ -304,7 +321,7 @@ def main():
     csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs')
 
     # Flags for controlling
-    success_flag = True
+    vz_flag = True
     parsing_flag = False
     mapping_flag = False
 
@@ -312,13 +329,16 @@ def main():
     parsing(parsing_flag, pdf_path)
 
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
-    visualization(success_flag, csv_directory)
+    visualization(vz_flag, csv_directory)
 
     # Step 3. Mapping: PDB ID -> UniProt ID
-    csv_path = glob.glob(os.path.join(csv_directory, '*.csv'))
-    for csv in csv_path:
-        df_name = f'{os.path.splitext(os.path.basename(csv_path))[0]}'
-        df = pd.read_csv(csv_path)
+    if mapping_flag:
+        csv_path = glob.glob(os.path.join(csv_directory, '*.csv'))
+        for csv in csv_path:
+            df_name = f'{os.path.splitext(os.path.basename(csv_path))[0]}'
+            df = pd.read_csv(csv_path)
+
+
 
 
 

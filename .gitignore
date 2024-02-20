@@ -4,3 +4,6 @@
 # Ignore all XML files
 *.xml
 
+# Ignore venv files
+venv/
+
