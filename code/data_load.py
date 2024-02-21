@@ -36,6 +36,7 @@ class NamedDataFrame(pd.DataFrame):
 
 
 
+
 def csv_to_unique_vals_dict(csv_paths, columns_list):
     df_list = []
     unique_values_dict = {}
@@ -54,6 +55,7 @@ def csv_to_unique_vals_dict(csv_paths, columns_list):
 
 
 
+
 def csv_to_common_vals_dict(df_list, columns_list):
     common_unique_values = {}
 
@@ -67,6 +69,7 @@ def csv_to_common_vals_dict(df_list, columns_list):
                 common_unique_values[column] = unique_values_column.copy()
 
     return common_unique_values
+
 
 
 
@@ -98,6 +101,7 @@ def plot_common_vals(common_unique_values):
     plt.ylabel('Number of Common Unique Values')
 
     plt.savefig('../results/step1_pdf_parsing/plots/common_vals.svg')
+
 
 
 
@@ -134,6 +138,7 @@ def vz_comparison_of_csvs(csv_paths, columns_list):
 
 
 
+
 def rename_dataframe_columns(dataframe, original_column_names, new_column_names):
     """
     Rename columns in a DataFrame based on specified old and new column names.
@@ -163,6 +168,7 @@ def rename_dataframe_columns(dataframe, original_column_names, new_column_names)
 
         # Add a new row at the first place
         return pd.concat([pd.DataFrame(new_row, index=[0]), dataframe], ignore_index=True)
+
 
 
 
@@ -217,6 +223,7 @@ def read_pdf_and_create_dataframe(page_from, page_till, pdf_path):
 
 
 
+
 def parse_pdf(pdf_path):
 
     # Setting page numbers of the source PDF for each DataFrame to be formed: [start_page, end_page+1]
@@ -235,6 +242,7 @@ def parse_pdf(pdf_path):
             print(f'Error during reading the .pdf file into a DataFrame: {name}')
 
     return named_df_list
+
 
 
 
@@ -269,7 +277,6 @@ def save_dataframe_to_csv(dataframe, file_name, directory='../results/step1_pdf_
 
 
 
-
 def parsing(parsing_flag, pdf_path):
 
     if parsing_flag:
@@ -285,6 +292,65 @@ def parsing(parsing_flag, pdf_path):
             print('Error during reading the .pdf file occurred.')
     else:
         print('Parsing was skipped or done previously')
+
+
+
+
+
+def set_annotation(columns_list, df):
+    annotations = []
+
+    rev_column_list = columns_list[::-1]
+    for level, column in enumerate(rev_column_list):
+        num_unique_values = len(df[column].unique())
+        annotation = {
+            'text': f'<b>{column}</b>',
+            'x': 0.5,
+            'y': 1.05 - 0.17 * level,  # Adjust the vertical position
+            'xref': 'paper',
+            'yref': 'paper',
+            'showarrow': False,
+            'font': {'size': 10}
+        }
+        annotations.append(annotation)
+
+    return annotations
+
+
+
+
+
+def build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_name):
+    # Create a single sunburst diagram
+    top_proteins = pdb_counts.head(len(protein_names_df))
+    fig = px.sunburst(df, path=columns_list)
+
+    # Add annotations for levels of hierarchy
+    annotations = set_annotation(columns_list, df)
+    fig.update_layout(annotations=annotations)
+
+    output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
+    plotly.io.write_image(fig, output_path, format='svg')
+
+
+
+
+
+def build_tree_with_split(protein_names_df, df, columns_list, df_name):
+    chunks = [protein_names_df[i:i + 4] for i in range(0, len(protein_names_df), 4)]
+
+    for i, chunk_proteins in enumerate(chunks, 1):
+        # Plot sunburst diagram for each chunk
+        chunk_df = df[df['Protein_Name'].isin(chunk_proteins['Protein_Name'])]
+        fig = px.sunburst(chunk_df, path=columns_list)
+
+        # Add annotations for levels of hierarchy
+        annotations = set_annotation(columns_list, df)
+        fig.update_layout(annotations=annotations)
+
+        output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_{i}.svg'
+        plotly.io.write_image(fig, output_path, format='svg')
+
 
 
 
@@ -305,58 +371,12 @@ def vz_tree_diagram(csv_paths, columns_list):
 
         if len(protein_names_df) < 50:
             # Create a single sunburst diagram
-            top_proteins = pdb_counts.head(len(protein_names_df))
-            fig = px.sunburst(df, path=columns_list)
+            build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_name)
 
-            # Add annotations for levels of hierarchy
-            annotations = []
-            rev_column_list = columns_list[::-1]
-            for level, column in enumerate(rev_column_list):
-                num_unique_values = len(df[column].unique())
-                annotation = {
-                    'text': f'<b>{column}</b>',
-                    'x': 0.5,
-                    'y': 1.05 - 0.17 * level,  # Adjust the vertical position
-                    'xref': 'paper',
-                    'yref': 'paper',
-                    'showarrow': False,
-                    'font': {'size': 10}
-                }
-                annotations.append(annotation)
-
-            fig.update_layout(annotations=annotations)
-
-            output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
-            plotly.io.write_image(fig, output_path, format='svg')
         else:
             # Split DataFrame into chunks of 4 protein_names and create sunburst diagram for each chunk
-            chunks = [protein_names_df[i:i+4] for i in range(0, len(protein_names_df), 4)]
+            build_tree_with_split(protein_names_df, df, columns_list, df_name)
 
-            for i, chunk_proteins in enumerate(chunks, 1):
-                # Plot sunburst diagram for each chunk
-                chunk_df = df[df['Protein_Name'].isin(chunk_proteins['Protein_Name'])]
-                fig = px.sunburst(chunk_df, path=columns_list)
-
-                # Add annotations for levels of hierarchy
-                annotations = []
-                rev_column_list = columns_list[::-1]
-                for level, column in enumerate(rev_column_list):
-                    num_unique_values = len(df[column].unique())
-                    annotation = {
-                        'text': f'<b>{column}</b>',
-                        'x': 0.5,
-                        'y': 1.05 - 0.17 * level,  # Adjust the vertical position
-                        'xref': 'paper',
-                        'yref': 'paper',
-                        'showarrow': False,
-                        'font': {'size': 10}
-                    }
-                    annotations.append(annotation)
-
-                fig.update_layout(annotations=annotations)
-
-                output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_{i}.svg'
-                plotly.io.write_image(fig, output_path, format='svg')
 
 
 
@@ -395,7 +415,19 @@ def vz_pdb_id_distribution(csv_paths):
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_pdb_id_distribution.svg'
         plt.savefig(output_path)
 
-def vz_intersections():
+
+
+
+
+def vz_intersections(csv_paths, columns_list):
+    df_list = []
+    for csv in csv_paths:
+        df = pd.read_csv(csv)
+        df_list.append(df)
+
+    common_unique_vals = csv_to_common_vals_dict(df_list, columns_list)
+    print(common_unique_vals)
+
 
 
 
@@ -406,12 +438,13 @@ def visualization(vz_flag, csv_directory):
 
         # Plotting reports and writing DataFrames to CSV
         columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
-        #vz_comparison_of_csvs(csv_paths, columns_list)
-        #vz_pdb_id_distribution(csv_paths)
-        #vz_tree_diagram(csv_paths, columns_list)
-        vz_intersections()
+        vz_comparison_of_csvs(csv_paths, columns_list)
+        vz_pdb_id_distribution(csv_paths)
+        vz_tree_diagram(csv_paths, columns_list)
+        #vz_intersections(csv_paths, columns_list)
     else:
         print('Visualization was skipped of done previously.')
+
 
 
 
