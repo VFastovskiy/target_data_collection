@@ -6,6 +6,7 @@ import seaborn as sns
 from tqdm import tqdm
 import glob
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly
 import math
 
@@ -92,8 +93,8 @@ def plot_common_vals(common_unique_values):
     # Set x-axis labels and title
     ax.set_xticks(range(len(common_unique_values)))
     ax.set_xticklabels(common_unique_values.keys())
-    plt.title('Comparison of Common Unique Values')
-    plt.xlabel('Columns')
+    #plt.title('Comparison of Common Unique Values')
+    #plt.xlabel('Columns')
     plt.ylabel('Number of Common Unique Values')
 
     plt.savefig('../results/step1_pdf_parsing/plots/common_vals.svg')
@@ -108,19 +109,16 @@ def plot_unique_vals(unique_values_dict, columns_list):
     # Plotting a bar chart with specified colors
     colors = sns.dark_palette("navy", n_colors=len(columns_list))
     ax = unique_values_df.plot(kind='bar', rot=0, color=colors)
-    plt.title('Comparison of Unique Values')
-    plt.xlabel('Columns')
+    #plt.title('Comparison of Unique Values')
     plt.ylabel('Number of Unique Values')
 
     # Annotate each bar with a number of elements
     for p in ax.patches:
         ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()),
-                    ha='center', va='center', xytext=(0, 10), textcoords='offset points')
-
-    #fig = px.sunburst(unique_values_df, path=columns_list)
+                    ha='center', va='center', xytext=(0, 5), textcoords='offset points', clip_on=False)
 
     plt.savefig('../results/step1_pdf_parsing/plots/unique_vals_with_comparison.svg')
-    #fig.write_image('../results/step1_pdf_parsing/plots/tree_diagram.png')
+
 
 
 
@@ -291,75 +289,74 @@ def parsing(parsing_flag, pdf_path):
 
 
 
-def split_dataframe_by_protein_names_and_chemical_ids(df, chunk_size_proteins=50, max_chemical_ids_per_plot=100):
-    chunks = []
-    current_chunk_proteins = []
-    current_chunk_chemical_ids = set()
-    current_chunk_pdb_ids = set()
-
-    for index, row in df.iterrows():
-        current_chunk_proteins.append(row['Protein_Name'])
-        current_chunk_chemical_ids.add(row['Chemical_ID'])
-        current_chunk_pdb_ids.add(row['PDB_ID'])
-
-        if (
-            len(current_chunk_proteins) >= chunk_size_proteins
-            or len(current_chunk_chemical_ids) >= max_chemical_ids_per_plot
-            or len(current_chunk_pdb_ids) >= max_chemical_ids_per_plot
-        ):
-            chunks.append((current_chunk_proteins.copy(), current_chunk_chemical_ids.copy()))
-            current_chunk_proteins.clear()
-            current_chunk_chemical_ids.clear()
-            current_chunk_pdb_ids.clear()
-
-    # If there are remaining proteins, add them to the last chunk
-    if current_chunk_proteins:
-        chunks.append((current_chunk_proteins, current_chunk_chemical_ids))
-
-    # Convert chunks back to DataFrame chunks
-    return chunks
-
-def find_top_proteins(df, column, n=5, ascending=False):
-    # Rank protein names by the specified column
-    ranked_proteins = df.groupby('Protein_Name')[column].count().sort_values(ascending=ascending).index.tolist()
-
-    # Return the top n proteins
-    return ranked_proteins[:n]
-
 def vz_tree_diagram(csv_paths, columns_list):
     for csv in csv_paths:
         df = pd.read_csv(csv)
-        protein_names = df['Protein_Name'].unique().tolist()
         df_name = os.path.splitext(os.path.basename(csv))[0]
 
-        if len(protein_names) < 50:
+        # Group by 'Protein_Name' and count the number of unique 'PDB_ID'
+        pdb_counts = df.groupby('Protein_Name')['PDB_ID'].nunique().reset_index()
+
+        # Sort the DataFrame by the number of PDB IDs in descending order
+        pdb_counts = pdb_counts.sort_values(by='PDB_ID', ascending=False)
+
+        # Create a new DataFrame with protein names in sorted order
+        protein_names_df = pdb_counts[['Protein_Name']]
+
+        if len(protein_names_df) < 50:
             # Create a single sunburst diagram
+            top_proteins = pdb_counts.head(len(protein_names_df))
             fig = px.sunburst(df, path=columns_list)
+
+            # Add annotations for levels of hierarchy
+            annotations = []
+            rev_column_list = columns_list[::-1]
+            for level, column in enumerate(rev_column_list):
+                num_unique_values = len(df[column].unique())
+                annotation = {
+                    'text': f'<b>{column}</b>',
+                    'x': 0.5,
+                    'y': 1.05 - 0.17 * level,  # Adjust the vertical position
+                    'xref': 'paper',
+                    'yref': 'paper',
+                    'showarrow': False,
+                    'font': {'size': 10}
+                }
+                annotations.append(annotation)
+
+            fig.update_layout(annotations=annotations)
+
             output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
             plotly.io.write_image(fig, output_path, format='svg')
         else:
-            # Split DataFrame by protein names and chemical IDs, create sunburst diagram for each chunk
-            protein_chemical_chunks = split_dataframe_by_protein_names_and_chemical_ids(df, chunk_size_proteins=50, max_chemical_ids_per_plot=100)
+            # Split DataFrame into chunks of 4 protein_names and create sunburst diagram for each chunk
+            chunks = [protein_names_df[i:i+4] for i in range(0, len(protein_names_df), 4)]
 
-            # Plot the first tree diagram with the top 5 protein names (descending order)
-            top_proteins1 = find_top_proteins(df, column='PDB_ID', n=5, ascending=False)
-            fig1 = px.sunburst(df[df['Protein_Name'].isin(top_proteins1)], path=columns_list)
-            output_path1 = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_1.svg'
-            plotly.io.write_image(fig1, output_path1, format='svg')
+            for i, chunk_proteins in enumerate(chunks, 1):
+                # Plot sunburst diagram for each chunk
+                chunk_df = df[df['Protein_Name'].isin(chunk_proteins['Protein_Name'])]
+                fig = px.sunburst(chunk_df, path=columns_list)
 
-            for i, (chunk_proteins, chunk_chemical_ids) in enumerate(protein_chemical_chunks, 2):
-                # Plot subsequent tree diagrams for the remaining chunks
-                chunk_df = df[(df['Protein_Name'].isin(chunk_proteins)) & (df['Chemical_ID'].isin(chunk_chemical_ids))]
-                top_proteins = find_top_proteins(chunk_df, column='PDB_ID', n=5, ascending=True)
-                fig = px.sunburst(chunk_df[chunk_df['Protein_Name'].isin(top_proteins)], path=columns_list)
+                # Add annotations for levels of hierarchy
+                annotations = []
+                rev_column_list = columns_list[::-1]
+                for level, column in enumerate(rev_column_list):
+                    num_unique_values = len(df[column].unique())
+                    annotation = {
+                        'text': f'<b>{column}</b>',
+                        'x': 0.5,
+                        'y': 1.05 - 0.17 * level,  # Adjust the vertical position
+                        'xref': 'paper',
+                        'yref': 'paper',
+                        'showarrow': False,
+                        'font': {'size': 10}
+                    }
+                    annotations.append(annotation)
+
+                fig.update_layout(annotations=annotations)
+
                 output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_{i}.svg'
                 plotly.io.write_image(fig, output_path, format='svg')
-
-
-
-
-
-
 
 
 
@@ -398,7 +395,7 @@ def vz_pdb_id_distribution(csv_paths):
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_pdb_id_distribution.svg'
         plt.savefig(output_path)
 
-
+def vz_intersections():
 
 
 
@@ -409,9 +406,10 @@ def visualization(vz_flag, csv_directory):
 
         # Plotting reports and writing DataFrames to CSV
         columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
-        vz_comparison_of_csvs(csv_paths, columns_list)
-        vz_pdb_id_distribution(csv_paths)
+        #vz_comparison_of_csvs(csv_paths, columns_list)
+        #vz_pdb_id_distribution(csv_paths)
         #vz_tree_diagram(csv_paths, columns_list)
+        vz_intersections()
     else:
         print('Visualization was skipped of done previously.')
 
