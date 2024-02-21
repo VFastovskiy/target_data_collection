@@ -7,6 +7,8 @@ from tqdm import tqdm
 import glob
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.subplots as sp
+from plotly.subplots import make_subplots
 import plotly
 import math
 
@@ -356,26 +358,36 @@ def build_tree_with_split(protein_names_df, df, columns_list, df_name):
 
 
 def vz_tree_diagram(csv_paths, columns_list):
-    for csv in csv_paths:
-        df = pd.read_csv(csv)
-        df_name = os.path.splitext(os.path.basename(csv))[0]
+    df_list = []
 
-        # Group by 'Protein_Name' and count the number of unique 'PDB_ID'
-        pdb_counts = df.groupby('Protein_Name')['PDB_ID'].nunique().reset_index()
+    vz_flag = True
 
-        # Sort the DataFrame by the number of PDB IDs in descending order
-        pdb_counts = pdb_counts.sort_values(by='PDB_ID', ascending=False)
+    if vz_flag:
+        for csv in csv_paths:
+            df = pd.read_csv(csv)
+            df_list.append(df)
+            df_name = os.path.splitext(os.path.basename(csv))[0]
 
-        # Create a new DataFrame with protein names in sorted order
-        protein_names_df = pdb_counts[['Protein_Name']]
+            # Group by 'Protein_Name' and count the number of unique 'PDB_ID'
+            pdb_counts = df.groupby('Protein_Name')['PDB_ID'].nunique().reset_index()
 
-        if len(protein_names_df) < 50:
-            # Create a single sunburst diagram
-            build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_name)
+            # Sort the DataFrame by the number of PDB IDs in descending order
+            pdb_counts = pdb_counts.sort_values(by='PDB_ID', ascending=False)
 
-        else:
-            # Split DataFrame into chunks of 4 protein_names and create sunburst diagram for each chunk
-            build_tree_with_split(protein_names_df, df, columns_list, df_name)
+            # Create a new DataFrame with protein names in sorted order
+            protein_names_df = pdb_counts[['Protein_Name']]
+
+
+            if len(protein_names_df) < 50:
+                # Create a single sunburst diagram
+                build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_name)
+
+            else:
+                # Split DataFrame into chunks of 4 protein_names and create sunburst diagram for each chunk
+                build_tree_with_split(protein_names_df, df, columns_list, df_name)
+
+
+
 
 
 
@@ -419,14 +431,77 @@ def vz_pdb_id_distribution(csv_paths):
 
 
 
+def build_tree_for_common_elements(common_elements_dict, df_name, columns_list, df_list):
+    for df in df_list:
+        filtered_df = df[columns_list]
+
+        # Lists of values for each column
+        protein_name_list = common_elements_dict['Protein_Name']
+        pdb_id_list = common_elements_dict['PDB_ID']
+        chemical_id_list = common_elements_dict['Chemical_ID']
+
+        # Initialize a mask with True values
+        mask = pd.Series([True] * len(filtered_df), index=filtered_df.index)
+
+        # Apply filtering for each condition
+        for column, values in common_elements_dict.items():
+            mask &= filtered_df[column].isin(values)
+
+        # Filter the DataFrame based on the combined mask
+        plot_df = filtered_df[mask]
+
+        fig = px.sunburst(plot_df, path=columns_list)
+
+        # Add annotations for levels of hierarchy
+        annotations = set_annotation(columns_list, plot_df)
+        fig.update_layout(annotations=annotations)
+
+        output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
+        plotly.io.write_image(fig, output_path, format='svg')
+        #print(plot_df)
+
+
+
 def vz_intersections(csv_paths, columns_list):
+
     df_list = []
+    common_values = []
+
+    # Create a function to check if any value in a row is in the common values list
+    def check_common_values(row):
+        return any(val in row.values for val in common_values)
+
     for csv in csv_paths:
         df = pd.read_csv(csv)
+        df = df[columns_list]
         df_list.append(df)
+        df_name = os.path.splitext(os.path.basename(csv))[0]
 
-    common_unique_vals = csv_to_common_vals_dict(df_list, columns_list)
-    print(common_unique_vals)
+    common_vals_dict = csv_to_common_vals_dict(df_list, columns_list)
+    for values_list in common_vals_dict.values():
+        common_values.extend(values_list)
+
+    # Iterate over each DataFrame in df_list
+    for i, df in enumerate(df_list):
+        # Apply the check_common_values function to filter rows
+        filtered_df = df[df.apply(check_common_values, axis=1)]
+        #protein_list = filtered_df['Protein_Name'].unique().tolist()
+        #print(filtered_df)
+        #print(protein_list)
+
+        fig = px.sunburst(filtered_df, path=columns_list)
+
+        # Add annotations for levels of hierarchy
+        annotations = set_annotation(columns_list, filtered_df)
+        fig.update_layout(annotations=annotations)
+
+        output_path = f'../results/step1_pdf_parsing/plots/{i}_tree_diagram_intersection.svg'
+        plotly.io.write_image(fig, output_path, format='svg')
+
+
+
+
+
 
 
 
@@ -438,10 +513,10 @@ def visualization(vz_flag, csv_directory):
 
         # Plotting reports and writing DataFrames to CSV
         columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
-        vz_comparison_of_csvs(csv_paths, columns_list)
-        vz_pdb_id_distribution(csv_paths)
-        vz_tree_diagram(csv_paths, columns_list)
-        #vz_intersections(csv_paths, columns_list)
+        #vz_comparison_of_csvs(csv_paths, columns_list)
+        #vz_pdb_id_distribution(csv_paths)
+        #vz_tree_diagram(csv_paths, columns_list)
+        vz_intersections(csv_paths, columns_list)
     else:
         print('Visualization was skipped of done previously.')
 
