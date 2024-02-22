@@ -11,6 +11,8 @@ import plotly.subplots as sp
 from plotly.subplots import make_subplots
 import plotly
 import math
+import networkx as nx
+from matplotlib import cm
 
 
 
@@ -462,12 +464,44 @@ def build_tree_for_common_elements(common_elements_dict, df_name, columns_list, 
 
 
 
+def vz_graph(df, columns_list, df_name):
+    # Assuming your filtered_df has columns: 'Protein_Name', 'PDB_ID', 'Chemical_ID'
+    G = nx.Graph()
+
+    # Add nodes and edges to the graph
+    for _, row in df.iterrows():
+        protein_name = row[columns_list[0]]
+        pdb_id = row[columns_list[1]]
+        chemical_id = row[columns_list[2]]
+
+        G.add_node(protein_name, level=1)  # Assign level 1 to protein_name
+        G.add_node(pdb_id, level=2)        # Assign level 2 to pdb_id
+        G.add_edge(protein_name, pdb_id)
+
+        G.add_node(chemical_id, level=3)   # Assign level 3 to chemical_id
+        G.add_edge(pdb_id, chemical_id)
+
+    # Draw the graph with different colors for each level
+    levels = nx.get_node_attributes(G, 'level')
+    colors = [levels[node] for node in G.nodes]
+
+    # Adjust the scale parameter to control the length of edges
+    pos = nx.fruchterman_reingold_layout(G, scale=10.0, k=0.11, seed=43)
+
+    nx.draw(G, pos, with_labels=True, font_size=4, node_color=colors, cmap=plt.cm.spring, node_size=60, font_color='black', font_weight='bold', width=0.5)
+
+    # Save the graph as an SVG file
+    output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
+    plt.savefig(output_path, format='svg')
+
+
+
+
 def vz_intersections(csv_paths, columns_list):
-
     df_list = []
-    common_values = []
+    common_values = set()
 
-    # Create a function to check if any value in a row is in the common values list
+    # Check if any value in a row is in the common values list
     def check_common_values(row):
         return any(val in row.values for val in common_values)
 
@@ -479,17 +513,26 @@ def vz_intersections(csv_paths, columns_list):
 
     common_vals_dict = csv_to_common_vals_dict(df_list, columns_list)
     for values_list in common_vals_dict.values():
-        common_values.extend(values_list)
+        common_values.update(values_list)
 
-    # Iterate over each DataFrame in df_list
+    print(common_values)
+
     for i, df in enumerate(df_list):
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-        #protein_list = filtered_df['Protein_Name'].unique().tolist()
-        #print(filtered_df)
-        #print(protein_list)
 
-        fig = px.sunburst(filtered_df, path=columns_list)
+
+        vz_graph(filtered_df, columns_list, str(i))
+
+
+
+        # Create a dictionary to map specific elements to colors
+        color_discrete_map = {}
+        for val in common_values:
+            color_discrete_map[val] = 'yellow'
+        print(color_discrete_map)
+
+        fig = px.sunburst(filtered_df, path=columns_list, color_discrete_map=color_discrete_map)
 
         # Add annotations for levels of hierarchy
         annotations = set_annotation(columns_list, filtered_df)
@@ -497,7 +540,6 @@ def vz_intersections(csv_paths, columns_list):
 
         output_path = f'../results/step1_pdf_parsing/plots/{i}_tree_diagram_intersection.svg'
         plotly.io.write_image(fig, output_path, format='svg')
-
 
 
 
