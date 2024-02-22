@@ -481,18 +481,44 @@ def vz_graph(df, columns_list, df_name):
         G.add_node(chemical_id, level=3)   # Assign level 3 to chemical_id
         G.add_edge(pdb_id, chemical_id)
 
+    # STEP 1
     # Draw the graph with different colors for each level
     levels = nx.get_node_attributes(G, 'level')
     colors = [levels[node] for node in G.nodes]
 
-    # Adjust the scale parameter to control the length of edges
-    pos = nx.fruchterman_reingold_layout(G, scale=10.0, k=0.11, seed=43)
+    # Create a list of edge colors based on the levels of the connected nodes
+    edge_colors = [levels[u] for u, v in G.edges]
 
-    nx.draw(G, pos, with_labels=True, font_size=4, node_color=colors, cmap=plt.cm.spring, node_size=60, font_color='black', font_weight='bold', width=0.5)
+    # Adjust the scale parameter to control the length of edges
+    pos = nx.fruchterman_reingold_layout(G, scale=10.0, k=0.11, seed=127)
+
+    nx.draw(G, pos, with_labels=True, font_size=4, node_color=colors, cmap=plt.cm.spring,
+            node_size=60, font_color='black', font_weight='bold', width=0.5, edge_color=edge_colors)
 
     # Save the graph as an SVG file
     output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
     plt.savefig(output_path, format='svg')
+
+    # Identify connected components (subgraphs)
+    subgraphs = list(nx.connected_components(G))
+
+    # Draw each connected component separately
+    for i, subgraph_nodes in enumerate(subgraphs):
+        subgraph = G.subgraph(subgraph_nodes)
+
+        # Assign distinct colors to edges based on their levels
+        edge_colors = [levels[u] for u, v in subgraph.edges]
+
+        # Save each subgraph as an SVG file
+        output_path = f'../results/step1_pdf_parsing/plots/{df_name}_subgraph_{i + 1}.svg'
+        plt.figure()
+        pos_subgraph = nx.fruchterman_reingold_layout(subgraph, scale=10.0, k=0.11, seed=127)
+        nx.draw(subgraph, pos_subgraph, with_labels=True, font_size=4, node_size=60, font_color='black',
+                font_weight='bold', width=0.5, edge_color=edge_colors)
+        plt.savefig(output_path, format='svg')
+
+
+
 
 
 
@@ -510,19 +536,25 @@ def vz_intersections(csv_paths, columns_list):
         df = df[columns_list]
         df_list.append(df)
         df_name = os.path.splitext(os.path.basename(csv))[0]
+        #print(df_name)
 
     common_vals_dict = csv_to_common_vals_dict(df_list, columns_list)
     for values_list in common_vals_dict.values():
         common_values.update(values_list)
 
-    print(common_values)
+    #print(common_values)
 
     for i, df in enumerate(df_list):
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-
-
         vz_graph(filtered_df, columns_list, str(i))
+
+        #desired_values = ['p38a', 'Lck', 'BTK']
+        #desired_values = ['p38a']
+        #simplified_graph_df = filtered_df[filtered_df['Protein_Name'].isin(desired_values)]
+        #print(simplified_graph_df['Protein_Name'].unique().tolist())
+        #print(simplified_graph_df)
+        #vz_graph(simplified_graph_df, columns_list, str(i+2))
 
 
 
@@ -530,7 +562,7 @@ def vz_intersections(csv_paths, columns_list):
         color_discrete_map = {}
         for val in common_values:
             color_discrete_map[val] = 'yellow'
-        print(color_discrete_map)
+        #print(color_discrete_map)
 
         fig = px.sunburst(filtered_df, path=columns_list, color_discrete_map=color_discrete_map)
 
@@ -538,7 +570,7 @@ def vz_intersections(csv_paths, columns_list):
         annotations = set_annotation(columns_list, filtered_df)
         fig.update_layout(annotations=annotations)
 
-        output_path = f'../results/step1_pdf_parsing/plots/{i}_tree_diagram_intersection.svg'
+        output_path = f'../results/step1_pdf_parsing/plots/{i}_tree_diagram_common.svg'
         plotly.io.write_image(fig, output_path, format='svg')
 
 
@@ -559,6 +591,7 @@ def visualization(vz_flag, csv_directory):
         #vz_pdb_id_distribution(csv_paths)
         #vz_tree_diagram(csv_paths, columns_list)
         vz_intersections(csv_paths, columns_list)
+
     else:
         print('Visualization was skipped of done previously.')
 
