@@ -335,3 +335,50 @@ def vz_graph(df, columns_list, df_name, common_values):
         nx.draw(subgraph, pos_subgraph, with_labels=True, font_size=4, node_size=20, font_color='black',
                 font_weight='bold', width=0.5, edge_color=edge_colors)
         plt.savefig(output_path, format='svg')
+
+
+
+
+
+
+
+
+
+
+
+
+   # STEP 2
+    # Identify connected components (subgraphs)
+    # STEP 2
+    # Identify connected components (subgraphs)
+    subgraphs = list(nx.connected_components(G))
+
+    # Draw each connected component separately
+    for i, subgraph_nodes in enumerate(subgraphs):
+        subgraph = G.subgraph(subgraph_nodes)
+
+        levels = nx.get_node_attributes(subgraph, 'level')
+        colors = [levels[node] for node in subgraph.nodes]
+
+        # Create a list of node colors based on common_values
+        node_colors = ['red' if node in common_values else 'grey' for node in subgraph.nodes]
+
+        # Assign distinct colors to edges based on their levels
+        edge_colors = [levels[u] for u, v in subgraph.edges]
+
+        # Save each subgraph as an SVG file
+        output_path = f'../results/step1_pdf_parsing/plots/{df_name}_subgraph_{i + 1}.svg'
+        plt.figure()
+
+        # Adjust the scale parameter to control the length of edges
+        pos = nx.fruchterman_reingold_layout(subgraph, scale=0.5, k=0.05, seed=131)
+
+        nx.draw(subgraph, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
+                node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
+
+        # Draw node labels above the nodes
+        labels = {node: node for node in subgraph.nodes}
+        nx.draw_networkx_labels(subgraph, pos, labels, font_size=3, font_color='black', font_weight='bold',
+                                verticalalignment='bottom')
+
+        plt.savefig(output_path, format='svg')

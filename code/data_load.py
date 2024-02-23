@@ -13,6 +13,8 @@ import plotly
 import math
 import networkx as nx
 from matplotlib import cm
+import numpy as np
+import matplotlib.gridspec as gridspec
 
 
 
@@ -39,8 +41,6 @@ class NamedDataFrame(pd.DataFrame):
 
 
 
-
-
 def csv_to_unique_vals_dict(csv_paths, columns_list):
     df_list = []
     unique_values_dict = {}
@@ -58,8 +58,6 @@ def csv_to_unique_vals_dict(csv_paths, columns_list):
 
 
 
-
-
 def csv_to_common_vals_dict(df_list, columns_list):
     common_unique_values = {}
 
@@ -73,8 +71,6 @@ def csv_to_common_vals_dict(df_list, columns_list):
                 common_unique_values[column] = unique_values_column.copy()
 
     return common_unique_values
-
-
 
 
 
@@ -108,8 +104,6 @@ def plot_common_vals(common_unique_values):
 
 
 
-
-
 def plot_unique_vals(unique_values_dict, columns_list):
     # Convert the dictionary to a DataFrame for plotting
     unique_values_df = pd.DataFrame(unique_values_dict)
@@ -129,8 +123,6 @@ def plot_unique_vals(unique_values_dict, columns_list):
 
 
 
-
-
 def vz_comparison_of_csvs(csv_paths, columns_list):
 
     df_list, unique_values_dict = csv_to_unique_vals_dict(csv_paths, columns_list)
@@ -138,8 +130,6 @@ def vz_comparison_of_csvs(csv_paths, columns_list):
 
     plot_common_vals(common_unique_values)
     plot_unique_vals(unique_values_dict, columns_list)
-
-
 
 
 
@@ -172,8 +162,6 @@ def rename_dataframe_columns(dataframe, original_column_names, new_column_names)
 
         # Add a new row at the first place
         return pd.concat([pd.DataFrame(new_row, index=[0]), dataframe], ignore_index=True)
-
-
 
 
 
@@ -226,8 +214,6 @@ def read_pdf_and_create_dataframe(page_from, page_till, pdf_path):
 
 
 
-
-
 def parse_pdf(pdf_path):
 
     # Setting page numbers of the source PDF for each DataFrame to be formed: [start_page, end_page+1]
@@ -246,8 +232,6 @@ def parse_pdf(pdf_path):
             print(f'Error during reading the .pdf file into a DataFrame: {name}')
 
     return named_df_list
-
-
 
 
 
@@ -279,8 +263,6 @@ def save_dataframe_to_csv(dataframe, file_name, directory='../results/step1_pdf_
 
 
 
-
-
 def parsing(parsing_flag, pdf_path):
 
     if parsing_flag:
@@ -296,8 +278,6 @@ def parsing(parsing_flag, pdf_path):
             print('Error during reading the .pdf file occurred.')
     else:
         print('Parsing was skipped or done previously')
-
-
 
 
 
@@ -322,8 +302,6 @@ def set_annotation(columns_list, df):
 
 
 
-
-
 def build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_name):
     # Create a single sunburst diagram
     top_proteins = pdb_counts.head(len(protein_names_df))
@@ -335,8 +313,6 @@ def build_tree_without_split(pdb_counts, df, protein_names_df, columns_list, df_
 
     output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram.svg'
     plotly.io.write_image(fig, output_path, format='svg')
-
-
 
 
 
@@ -354,8 +330,6 @@ def build_tree_with_split(protein_names_df, df, columns_list, df_name):
 
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_tree_diagram_part_{i}.svg'
         plotly.io.write_image(fig, output_path, format='svg')
-
-
 
 
 
@@ -387,10 +361,6 @@ def vz_tree_diagram(csv_paths, columns_list):
             else:
                 # Split DataFrame into chunks of 4 protein_names and create sunburst diagram for each chunk
                 build_tree_with_split(protein_names_df, df, columns_list, df_name)
-
-
-
-
 
 
 
@@ -428,8 +398,6 @@ def vz_pdb_id_distribution(csv_paths):
 
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_pdb_id_distribution.svg'
         plt.savefig(output_path)
-
-
 
 
 
@@ -492,15 +460,30 @@ def vz_graph(df, columns_list, df_name, common_values):
     # Create a list of edge colors based on the levels of the connected nodes
     edge_colors = [levels[u] for u, v in G.edges]
 
-    # Adjust the scale parameter to control the length of edges
+    plt.figure()
     pos = nx.fruchterman_reingold_layout(G, scale=8.0, k=0.10, seed=131)
 
     nx.draw(G, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
             node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
 
-    # Draw node labels above the nodes
-    labels = {node: node for node in G.nodes}
-    nx.draw_networkx_labels(G, pos, labels, font_size=3, font_color='black', font_weight='bold', verticalalignment='bottom')
+
+    # Draw node labels above the nodes for level 1 nodes
+    labels_level_1 = {node: node for node, level in levels.items() if level == 1}
+    node_label_color_level_1 = 'black'
+    nx.draw_networkx_labels(G, pos, labels_level_1, font_size=5, font_color=node_label_color_level_1,
+                            font_weight='bold', verticalalignment='bottom')
+
+    # Draw node labels above the nodes for level 2 nodes
+    labels_level_2 = {node: node for node, level in levels.items() if level == 2}
+    node_label_colors_level_2 = 'green'
+    nx.draw_networkx_labels(G, pos, labels_level_2, font_size=5, font_color=node_label_colors_level_2,
+                            font_weight='bold', verticalalignment='bottom')
+
+    # Draw node labels above the nodes for level 3 nodes
+    labels_level_3 = {node: node for node, level in levels.items() if level == 3}
+    node_label_colors_level_3 = 'purple'
+    nx.draw_networkx_labels(G, pos, labels_level_3, font_size=5, font_color= node_label_colors_level_3,
+                            font_weight='bold', verticalalignment='bottom')
 
     # Save the graph as an SVG file
     output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
@@ -510,7 +493,13 @@ def vz_graph(df, columns_list, df_name, common_values):
 
     # STEP 2
     # Identify connected components (subgraphs)
+    # STEP 2
+    # Identify connected components (subgraphs)
     subgraphs = list(nx.connected_components(G))
+
+    # Define the layout for the main figure with graph and subplots
+    fig = plt.figure(figsize=(12, 8))
+    gs = gridspec.GridSpec(2, 2, width_ratios=[1, 1], height_ratios=[1, 0.5])
 
     # Draw each connected component separately
     for i, subgraph_nodes in enumerate(subgraphs):
@@ -523,26 +512,49 @@ def vz_graph(df, columns_list, df_name, common_values):
         node_colors = ['red' if node in common_values else 'grey' for node in subgraph.nodes]
 
         # Assign distinct colors to edges based on their levels
-        edge_colors = [levels[u] for u, v in subgraph.edges]
+        # edge_colors = [levels[u] for u, v in subgraph.edges]
+
+        # Define the position for the subplots
+        ax0 = plt.subplot(gs[0, 0])
+        ax1 = plt.subplot(gs[0, 1])
+        ax2 = plt.subplot(gs[1, :])
 
         # Save each subgraph as an SVG file
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_subgraph_{i + 1}.svg'
-        plt.figure()
 
         # Adjust the scale parameter to control the length of edges
         pos = nx.fruchterman_reingold_layout(subgraph, scale=0.5, k=0.05, seed=131)
 
-        nx.draw(subgraph, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
-                node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
+        # Draw subgraph on the main figure
+        nx.draw(subgraph, pos, with_labels=False, font_size=14, node_color=node_colors, cmap=plt.cm.spring,
+                node_size=10, font_color='black', font_weight='bold', width=0.5, edge_color='black', ax=ax0)
 
-        # Draw node labels above the nodes
-        labels = {node: node for node in subgraph.nodes}
-        nx.draw_networkx_labels(subgraph, pos, labels, font_size=3, font_color='black', font_weight='bold',
-                                verticalalignment='bottom')
+        # Draw node labels above the nodes for each level
+        for level_value in set(levels.values()):
+            labels_level = {node: node for node, level in levels.items() if level == level_value}
+            node_label_color_level = 'black' if level_value == 1 else 'green' if level_value == 2 else 'purple'
+            nx.draw_networkx_labels(G, pos, labels_level, font_size=8 if level_value == 1 else 5,
+                                    font_color=node_label_color_level, font_weight='bold', verticalalignment='bottom',
+                                    ax=ax0)
 
+        # Plot degree rank plot
+        degree_sequence = sorted((d for n, d in subgraph.degree()), reverse=True)
+        ax1.plot(degree_sequence, "b-", marker="o")
+        ax1.set_title("Degree Rank Plot")
+        ax1.set_ylabel("Degree")
+        ax1.set_xlabel("Rank")
+
+        # Plot degree histogram
+        ax2.bar(*np.unique(degree_sequence, return_counts=True))
+        ax2.set_title("Degree Histogram")
+        ax2.set_xlabel("Degree")
+        ax2.set_ylabel("# of Nodes")
+
+        # Save the main figure with graph and subplots as an SVG file
         plt.savefig(output_path, format='svg')
 
-
+        # Clear the figure for the next iteration
+        plt.clf()
 
 
 
@@ -570,19 +582,11 @@ def vz_intersections(csv_paths, columns_list):
     #print(common_values)
 
     for i, df in enumerate(df_list):
+        name_for_all_dataset = f'all_dataset_{i}'
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-        #vz_graph(df, columns_list, 'all_dataset', common_values)
+        vz_graph(df, columns_list, name_for_all_dataset, common_values)
         vz_graph(filtered_df, columns_list, str(i), common_values)
-
-        #desired_values = ['p38a', 'Lck', 'BTK']
-        #desired_values = ['p38a']
-        #simplified_graph_df = filtered_df[filtered_df['Protein_Name'].isin(desired_values)]
-        #print(simplified_graph_df['Protein_Name'].unique().tolist())
-        #print(simplified_graph_df)
-        #vz_graph(simplified_graph_df, columns_list, str(i+2))
-
-
 
         # Create a dictionary to map specific elements to colors
         color_discrete_map = {}
@@ -598,10 +602,6 @@ def vz_intersections(csv_paths, columns_list):
 
         output_path = f'../results/step1_pdf_parsing/plots/{i}_tree_diagram_common.svg'
         plotly.io.write_image(fig, output_path, format='svg')
-
-
-
-
 
 
 
