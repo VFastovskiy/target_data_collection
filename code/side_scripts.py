@@ -260,3 +260,78 @@ def vz_graph(df, columns_list, df_name):
     # Save the graph as an SVG file
     output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
     plt.savefig(output_path, format='svg')
+
+
+
+
+
+
+
+
+
+
+def vz_graph(df, columns_list, df_name, common_values):
+    # Assuming your filtered_df has columns: 'Protein_Name', 'PDB_ID', 'Chemical_ID'
+    G = nx.Graph()
+
+    # Add nodes and edges to the graph
+    for _, row in df.iterrows():
+        protein_name = row[columns_list[0]]
+        pdb_id = row[columns_list[1]]
+        chemical_id = row[columns_list[2]]
+
+        G.add_node(protein_name, level=1)  # Assign level 1 to protein_name
+        G.add_node(pdb_id, level=2)        # Assign level 2 to pdb_id
+        G.add_edge(protein_name, pdb_id)
+
+        G.add_node(chemical_id, level=3)   # Assign level 3 to chemical_id
+        G.add_edge(pdb_id, chemical_id)
+
+    # STEP 1
+    # Draw the graph with different colors for each level
+    levels = nx.get_node_attributes(G, 'level')
+    colors = [levels[node] for node in G.nodes]
+
+    # Create a list of node colors based on common_values
+    node_colors = ['red' if node in common_values else 'grey' for node in G.nodes]
+
+    # Create a list of edge colors based on the levels of the connected nodes
+    edge_colors = [levels[u] for u, v in G.edges]
+
+    # Adjust the scale parameter to control the length of edges
+    pos = nx.fruchterman_reingold_layout(G, scale=8.0, k=0.10, seed=127)
+
+    nx.draw(G, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
+            node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
+
+    # Draw node labels above the nodes
+    labels = {node: node for node in G.nodes}
+    nx.draw_networkx_labels(G, pos, labels, font_size=4, font_color='black', font_weight='bold', verticalalignment='bottom')
+
+    # Save the graph as an SVG file
+    output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
+    plt.savefig(output_path, format='svg')
+
+
+
+
+    # STEP 2. Making a list of Subgraphs
+    # Identify connected components (subgraphs)
+    subgraphs = list(nx.connected_components(G))
+
+    # Draw each connected component separately
+    for i, subgraph_nodes in enumerate(subgraphs):
+        subgraph = G.subgraph(subgraph_nodes)
+
+        # Assign distinct colors to edges based on their levels
+        edge_colors = [levels[u] for u, v in subgraph.edges]
+
+        # Create a list of node colors based on common_values
+        node_colors = ['red' if node in common_values else 'grey' for node in G.nodes]
+
+        # Save each subgraph as an SVG file
+        output_path = f'../results/step1_pdf_parsing/plots/{df_name}_subgraph_{i + 1}.svg'
+        pos_subgraph = nx.fruchterman_reingold_layout(subgraph, scale=5.0, k=0.10, seed=127)
+        nx.draw(subgraph, pos_subgraph, with_labels=True, font_size=4, node_size=20, font_color='black',
+                font_weight='bold', width=0.5, edge_color=edge_colors)
+        plt.savefig(output_path, format='svg')

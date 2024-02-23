@@ -464,7 +464,7 @@ def build_tree_for_common_elements(common_elements_dict, df_name, columns_list, 
 
 
 
-def vz_graph(df, columns_list, df_name):
+def vz_graph(df, columns_list, df_name, common_values):
     # Assuming your filtered_df has columns: 'Protein_Name', 'PDB_ID', 'Chemical_ID'
     G = nx.Graph()
 
@@ -486,19 +486,29 @@ def vz_graph(df, columns_list, df_name):
     levels = nx.get_node_attributes(G, 'level')
     colors = [levels[node] for node in G.nodes]
 
+    # Create a list of node colors based on common_values
+    node_colors = ['red' if node in common_values else 'grey' for node in G.nodes]
+
     # Create a list of edge colors based on the levels of the connected nodes
     edge_colors = [levels[u] for u, v in G.edges]
 
     # Adjust the scale parameter to control the length of edges
-    pos = nx.fruchterman_reingold_layout(G, scale=10.0, k=0.11, seed=127)
+    pos = nx.fruchterman_reingold_layout(G, scale=8.0, k=0.10, seed=131)
 
-    nx.draw(G, pos, with_labels=True, font_size=4, node_color=colors, cmap=plt.cm.spring,
-            node_size=60, font_color='black', font_weight='bold', width=0.5, edge_color=edge_colors)
+    nx.draw(G, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
+            node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
+
+    # Draw node labels above the nodes
+    labels = {node: node for node in G.nodes}
+    nx.draw_networkx_labels(G, pos, labels, font_size=3, font_color='black', font_weight='bold', verticalalignment='bottom')
 
     # Save the graph as an SVG file
     output_path = f'../results/step1_pdf_parsing/plots/{df_name}_common_vals_graph.svg'
     plt.savefig(output_path, format='svg')
 
+
+
+    # STEP 2
     # Identify connected components (subgraphs)
     subgraphs = list(nx.connected_components(G))
 
@@ -506,15 +516,30 @@ def vz_graph(df, columns_list, df_name):
     for i, subgraph_nodes in enumerate(subgraphs):
         subgraph = G.subgraph(subgraph_nodes)
 
+        levels = nx.get_node_attributes(subgraph, 'level')
+        colors = [levels[node] for node in subgraph.nodes]
+
+        # Create a list of node colors based on common_values
+        node_colors = ['red' if node in common_values else 'grey' for node in subgraph.nodes]
+
         # Assign distinct colors to edges based on their levels
         edge_colors = [levels[u] for u, v in subgraph.edges]
 
         # Save each subgraph as an SVG file
         output_path = f'../results/step1_pdf_parsing/plots/{df_name}_subgraph_{i + 1}.svg'
         plt.figure()
-        pos_subgraph = nx.fruchterman_reingold_layout(subgraph, scale=10.0, k=0.11, seed=127)
-        nx.draw(subgraph, pos_subgraph, with_labels=True, font_size=4, node_size=60, font_color='black',
-                font_weight='bold', width=0.5, edge_color=edge_colors)
+
+        # Adjust the scale parameter to control the length of edges
+        pos = nx.fruchterman_reingold_layout(subgraph, scale=0.5, k=0.05, seed=131)
+
+        nx.draw(subgraph, pos, with_labels=False, font_size=3, node_color=node_colors, cmap=plt.cm.spring,
+                node_size=10, font_color='black', font_weight='bold', width=1, edge_color=edge_colors)
+
+        # Draw node labels above the nodes
+        labels = {node: node for node in subgraph.nodes}
+        nx.draw_networkx_labels(subgraph, pos, labels, font_size=3, font_color='black', font_weight='bold',
+                                verticalalignment='bottom')
+
         plt.savefig(output_path, format='svg')
 
 
@@ -547,7 +572,8 @@ def vz_intersections(csv_paths, columns_list):
     for i, df in enumerate(df_list):
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-        vz_graph(filtered_df, columns_list, str(i))
+        #vz_graph(df, columns_list, 'all_dataset', common_values)
+        vz_graph(filtered_df, columns_list, str(i), common_values)
 
         #desired_values = ['p38a', 'Lck', 'BTK']
         #desired_values = ['p38a']
@@ -617,7 +643,8 @@ def main():
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
     visualization(vz_flag, csv_directory)
 
-    # Step 3. Mapping: PDB ID -> UniProt ID
+    # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
+    # The goal is to collect binding data from few resources
     if mapping_flag:
         csv_path = glob.glob(os.path.join(csv_directory, '*.csv'))
         for csv in csv_path:
