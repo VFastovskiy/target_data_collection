@@ -585,7 +585,7 @@ def vz_intersections(csv_paths, columns_list):
         name_for_all_dataset = f'all_dataset_{i}'
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-        vz_graph(df, columns_list, name_for_all_dataset, common_values)
+        #vz_graph(df, columns_list, name_for_all_dataset, common_values)
         vz_graph(filtered_df, columns_list, str(i), common_values)
 
         # Create a dictionary to map specific elements to colors
