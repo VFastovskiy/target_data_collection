@@ -15,6 +15,7 @@ import networkx as nx
 from matplotlib import cm
 import numpy as np
 import matplotlib.gridspec as gridspec
+import mplcursors
 
 
 
@@ -493,8 +494,6 @@ def vz_graph(df, columns_list, df_name, common_values):
 
     # STEP 2
     # Identify connected components (subgraphs)
-    # STEP 2
-    # Identify connected components (subgraphs)
     subgraphs = list(nx.connected_components(G))
 
     # Define the layout for the main figure with graph and subplots
@@ -585,7 +584,7 @@ def vz_intersections(csv_paths, columns_list):
         name_for_all_dataset = f'all_dataset_{i}'
         # Apply the check_common_values function to filter rows
         filtered_df = df[df.apply(check_common_values, axis=1)]
-        #vz_graph(df, columns_list, name_for_all_dataset, common_values)
+        vz_graph(df, columns_list, name_for_all_dataset, common_values)
         vz_graph(filtered_df, columns_list, str(i), common_values)
 
         # Create a dictionary to map specific elements to colors
