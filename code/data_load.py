@@ -16,6 +16,8 @@ from matplotlib import cm
 import numpy as np
 import matplotlib.gridspec as gridspec
 import mplcursors
+import requests
+import xml.etree.ElementTree as ET
 
 
 
@@ -618,7 +620,30 @@ def visualization(vz_flag, csv_directory):
         vz_intersections(csv_paths, columns_list)
 
     else:
-        print('Visualization was skipped of done previously.')
+        print('Visualization was skipped or done previously.')
+
+
+
+
+def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
+    api_url = "https://bindingdb.org/axis2/services/BDBService/getLigandsByUniprot"
+
+    params = {"uniprot": uniprot_id, "response": "application/xml"}
+
+    if affinity_cutoff is not None:
+        params["IC50cutoff"] = affinity_cutoff
+
+    response = requests.get(api_url, params=params)
+
+    if response.status_code == 200:
+        output_file_path = f"../results/step2_data_collection/ligands_data_{uniprot_id}.xml"
+        with open(output_file_path, "w") as xml_file:
+            xml_file.write(response.text)
+        print(f"XML response written to {output_file_path}")
+        return 1
+    else:
+        print(f"Error for UNIPROT ID {uniprot_id}: {response.status_code} - {response.text}")
+        return 0
 
 
 
@@ -632,9 +657,10 @@ def main():
     csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs')
 
     # Flags for controlling
-    vz_flag = True
+    vz_flag = False
     parsing_flag = False
     mapping_flag = False
+    data_collection_flag = True
 
     # Step 1. Parsing: pdf -> csv; cvs files creating at ../results/step1_pdf_parsing/no_mapping_csvs
     parsing(parsing_flag, pdf_path)
@@ -651,9 +677,17 @@ def main():
             df = pd.read_csv(csv_path)
 
 
-
+    # Step 4. Data collection for a chosen target CDK2 (Protein_Name) P24941 (Uniprot_ID)
+    # 4.1. bindingDB request
+    if data_collection_flag:
+        uniprot_id = 'P24941'
+        affinity_cutoff = None
+        if get_data_from_binding_db(uniprot_id, affinity_cutoff):
+            binding_db_response_parsing()
 
 
 
 if __name__ == "__main__":
     main()
+
+
