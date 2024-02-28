@@ -35,7 +35,7 @@ def plot_common_vals(common_unique_values):
 
 
 
-def plot_unique_vals(unique_values_dict, columns_list):
+def plot_unique_vals(unique_values_dict, columns_list, sf_concatination_flag):
     # Convert the dictionary to a DataFrame for plotting
     unique_values_df = pd.DataFrame(unique_values_dict)
 
@@ -50,5 +50,8 @@ def plot_unique_vals(unique_values_dict, columns_list):
         ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()),
                     ha='center', va='center', xytext=(0, 5), textcoords='offset points', clip_on=False)
 
-    plt.savefig('../results/step1_pdf_parsing/plots/unique_vals_with_comparison.svg')
+    if sf_concatination_flag:
+        plt.savefig('../results/step1_pdf_parsing/plots/joined/unique_vals_joined_scaffolds.svg')
+    else:
+        plt.savefig('../results/step1_pdf_parsing/plots/unique_vals_with_comparison.svg')
 

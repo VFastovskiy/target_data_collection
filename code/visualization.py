@@ -3,12 +3,12 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import plotting
+from plotting import plot_common_vals, plot_unique_vals
 
 
 
 
-def vz_pdb_id_distribution(csv_paths, sf_concatination_flag):
+def vz_pdb_id_distribution(csv_paths, sf_concatination_flag, columns_list):
 
     for csv in csv_paths:
         df = pd.read_csv(csv)
@@ -41,6 +41,8 @@ def vz_pdb_id_distribution(csv_paths, sf_concatination_flag):
 
         if sf_concatination_flag:
             output_path = f'../results/step1_pdf_parsing/plots/joined/{df_name}_pdb_id_distribution.svg'
+            df_list, unique_values_dict = csv_to_unique_vals_dict(csv_paths, columns_list)
+            plot_unique_vals(unique_values_dict, columns_list, sf_concatination_flag)
         else:
             output_path = f'../results/step1_pdf_parsing/plots/{df_name}_pdb_id_distribution.svg'
 
@@ -93,7 +95,7 @@ def vz_comparison_of_csvs(csv_paths, columns_list):
     common_unique_values = csv_to_common_vals_dict(df_list, columns_list)
 
     plot_common_vals(common_unique_values)
-    plot_unique_vals(unique_values_dict, columns_list)
+    plot_unique_vals(unique_values_dict, columns_list, False)
 
 
 
@@ -106,7 +108,7 @@ def visualization(vz_flag, sf_concatination_flag, csv_directory):
     columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
 
     if vz_flag & sf_concatination_flag:
-        vz_pdb_id_distribution(csv_paths, True)
+        vz_pdb_id_distribution(csv_paths, True, columns_list)
 
     elif vz_flag and not sf_concatination_flag:
         # Plotting reports and writing DataFrames to CSV
