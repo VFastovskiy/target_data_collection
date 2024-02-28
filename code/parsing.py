@@ -45,7 +45,10 @@ def save_dataframe_to_csv(dataframe, file_name, directory='../results/step1_pdf_
         os.makedirs(directory, exist_ok=True)
 
         # Construct the full path for the CSV file
-        csv_file_path = os.path.join(directory, f'{file_name}.csv')
+        if file_name == 'concatenated_scaffolds':
+            csv_file_path = os.path.join('../results/step1_pdf_parsing/no_mapping_csvs/joined', f'{file_name}.csv')
+        else:
+            csv_file_path = os.path.join(directory, f'{file_name}.csv')
 
         # Write the DataFrame to the CSV file
         dataframe.to_csv(csv_file_path, index=False)
@@ -169,7 +172,7 @@ def parsing(parsing_flag, pdf_path):
 
             for df in named_df_list:
                 if save_dataframe_to_csv(df, str(df.name)):
-                    df = df['Chemical_ID', 'PDB_ID', 'Protein_Name']
+                    df = df[['Chemical_ID', 'PDB_ID', 'Protein_Name']]
                     scaffolds_to_concat.append(df)
                 else:
                     parsing_flag = False

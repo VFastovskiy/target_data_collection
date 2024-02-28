@@ -1,4 +1,5 @@
 from parsing import parsing
+from visualization import visualization
 
 
 
@@ -456,26 +457,6 @@ def vz_intersections(csv_paths, columns_list):
 
 
 
-def visualization(vz_flag, csv_directory):
-    if vz_flag:
-        csv_paths = glob.glob(os.path.join(csv_directory, '*.csv'))
-
-        # Plotting reports and writing DataFrames to CSV
-        columns_list = ['Protein_Name', 'PDB_ID', 'Chemical_ID']
-        #vz_comparison_of_csvs(csv_paths, columns_list)
-        #vz_pdb_id_distribution(csv_paths)
-        #vz_tree_diagram(csv_paths, columns_list)
-        vz_intersections(csv_paths, columns_list)
-
-    else:
-        print('Visualization was skipped or done previously.')
-
-
-
-
-
-
-
 
 def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
 
@@ -600,10 +581,11 @@ def main():
     current_dir = os.path.dirname(__file__)
     pdf_path = os.path.join(current_dir, '../data/data.pdf')
     csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs')
+    joined_csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs/joined')
 
     # Flags for controlling
-    parsing_flag = True
-    vz_flag = False
+    parsing_flag = False
+    vz_flag = True
     mapping_flag = False
     data_collection_flag = False
 
@@ -611,7 +593,9 @@ def main():
     parsing(parsing_flag, pdf_path)
 
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
-    visualization(vz_flag, csv_directory)
+    if vz_flag:
+        visualization(True, True, joined_csv_directory)
+    #visualization(vz_flag, sf_concatination_flag, csv_directory)
 
     # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
     # The goal is to collect binding data from a few resources
