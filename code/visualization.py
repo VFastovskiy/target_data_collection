@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotting
 
 
 
@@ -38,13 +39,64 @@ def vz_pdb_id_distribution(csv_paths, sf_concatination_flag):
         for i, v in enumerate(top_proteins['PDB_ID']):
             ax.text(i, v + 0.1, str(v), ha='center', va='bottom', fontsize=8)
 
-
         if sf_concatination_flag:
             output_path = f'../results/step1_pdf_parsing/plots/joined/{df_name}_pdb_id_distribution.svg'
         else:
             output_path = f'../results/step1_pdf_parsing/plots/{df_name}_pdb_id_distribution.svg'
 
         plt.savefig(output_path)
+
+
+
+def csv_to_unique_vals_dict(csv_paths, columns_list):
+    df_list = []
+    unique_values_dict = {}
+
+    for csv_path in csv_paths:
+        df_name = f'{os.path.splitext(os.path.basename(csv_path))[0]}'
+        df = pd.read_csv(csv_path)
+        df_list.append(df)
+
+        # Get unique values for the specified columns and present it as a {'column_key': num_of_unique_val}
+        unique_values = df[columns_list].apply(lambda x: len(x.unique())).to_dict()
+        unique_values_dict[df_name] = unique_values
+
+    return df_list, unique_values_dict
+
+
+
+
+def csv_to_common_vals_dict(df_list, columns_list):
+    common_unique_values = {}
+
+    for df in df_list:
+        for column in df[columns_list].columns:
+            unique_values_column = set(df[column].unique())
+
+            if column in common_unique_values:
+                common_unique_values[column].intersection_update(unique_values_column)
+            else:
+                common_unique_values[column] = unique_values_column.copy()
+
+    return common_unique_values
+
+
+
+
+
+
+
+
+def vz_comparison_of_csvs(csv_paths, columns_list):
+
+    df_list, unique_values_dict = csv_to_unique_vals_dict(csv_paths, columns_list)
+    common_unique_values = csv_to_common_vals_dict(df_list, columns_list)
+
+    plot_common_vals(common_unique_values)
+    plot_unique_vals(unique_values_dict, columns_list)
+
+
+
 
 
 
@@ -56,12 +108,12 @@ def visualization(vz_flag, sf_concatination_flag, csv_directory):
     if vz_flag & sf_concatination_flag:
         vz_pdb_id_distribution(csv_paths, True)
 
-    #elif vz_flag and not sf_concatination_flag:
+    elif vz_flag and not sf_concatination_flag:
         # Plotting reports and writing DataFrames to CSV
-        #vz_comparison_of_csvs(csv_paths, columns_list)
+        vz_comparison_of_csvs(csv_paths, columns_list)
         #vz_pdb_id_distribution(csv_paths)
         #vz_tree_diagram(csv_paths, columns_list)
         #vz_intersections(csv_paths, columns_list)
 
-    #else:
-    #    print('Visualization was skipped or done previously.')
+    else:
+        print('Visualization was skipped or done previously.')

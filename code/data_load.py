@@ -54,81 +54,6 @@ def csv_to_unique_vals_dict(csv_paths, columns_list):
 
 
 
-def csv_to_common_vals_dict(df_list, columns_list):
-    common_unique_values = {}
-
-    for df in df_list:
-        for column in df[columns_list].columns:
-            unique_values_column = set(df[column].unique())
-
-            if column in common_unique_values:
-                common_unique_values[column].intersection_update(unique_values_column)
-            else:
-                common_unique_values[column] = unique_values_column.copy()
-
-    return common_unique_values
-
-
-
-def plot_common_vals(common_unique_values):
-    # Plotting a bar chart with specified colors
-    fig, ax = plt.subplots()
-    colors = sns.dark_palette("navy", n_colors=len(common_unique_values))
-
-    # Iterate over the common_unique_values dictionary
-    for i, (column_name, values_list) in enumerate(common_unique_values.items()):
-        bar_height = len(values_list)
-
-        # Plot each bar
-        ax.bar(i, bar_height, color=colors[i], label=column_name)
-
-        # Annotate each bar with the exact number and list of elements (inside the bar)
-        annotation_text = f'{bar_height}\n'
-        annotation_text += '\n'.join(values_list)
-
-        ax.text(i, bar_height / 2, annotation_text,
-                ha='center', va='center', color='white')
-
-    # Set x-axis labels and title
-    ax.set_xticks(range(len(common_unique_values)))
-    ax.set_xticklabels(common_unique_values.keys())
-    #plt.title('Comparison of Common Unique Values')
-    #plt.xlabel('Columns')
-    plt.ylabel('Number of Common Unique Values')
-
-    plt.savefig('../results/step1_pdf_parsing/plots/common_vals.svg')
-
-
-
-def plot_unique_vals(unique_values_dict, columns_list):
-    # Convert the dictionary to a DataFrame for plotting
-    unique_values_df = pd.DataFrame(unique_values_dict)
-
-    # Plotting a bar chart with specified colors
-    colors = sns.dark_palette("navy", n_colors=len(columns_list))
-    ax = unique_values_df.plot(kind='bar', rot=0, color=colors)
-    #plt.title('Comparison of Unique Values')
-    plt.ylabel('Number of Unique Values')
-
-    # Annotate each bar with a number of elements
-    for p in ax.patches:
-        ax.annotate(f'{int(p.get_height())}', (p.get_x() + p.get_width() / 2., p.get_height()),
-                    ha='center', va='center', xytext=(0, 5), textcoords='offset points', clip_on=False)
-
-    plt.savefig('../results/step1_pdf_parsing/plots/unique_vals_with_comparison.svg')
-
-
-
-def vz_comparison_of_csvs(csv_paths, columns_list):
-
-    df_list, unique_values_dict = csv_to_unique_vals_dict(csv_paths, columns_list)
-    common_unique_values = csv_to_common_vals_dict(df_list, columns_list)
-
-    plot_common_vals(common_unique_values)
-    plot_unique_vals(unique_values_dict, columns_list)
-
-
-
 
 
 
@@ -595,7 +520,7 @@ def main():
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
     if vz_flag:
         visualization(True, True, joined_csv_directory)
-    #visualization(vz_flag, sf_concatination_flag, csv_directory)
+        visualization(True, False, csv_directory)
 
     # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
     # The goal is to collect binding data from a few resources
