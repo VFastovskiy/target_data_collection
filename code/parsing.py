@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-import tqdm
+from tqdm import tqdm
 import tabula as tb
 
 
@@ -25,7 +25,6 @@ class NamedDataFrame(pd.DataFrame):
         """
         super().__init__(*args, **kwargs)
         self.name = None
-
 
 
 
@@ -54,8 +53,6 @@ def save_dataframe_to_csv(dataframe, file_name, directory='../results/step1_pdf_
     except Exception as e:
         print(f'Error saving DataFrame to a CSV: {e}')
         return False
-
-
 
 
 
@@ -88,8 +85,6 @@ def rename_dataframe_columns(dataframe, original_column_names, new_column_names)
 
         # Add a new row at the first place
         return pd.concat([pd.DataFrame(new_row, index=[0]), dataframe], ignore_index=True)
-
-
 
 
 
@@ -142,7 +137,6 @@ def read_pdf_and_create_dataframe(page_from, page_till, pdf_path):
 
 
 
-
 def parse_pdf(pdf_path):
 
     # Setting page numbers of the source PDF for each DataFrame to be formed: [start_page, end_page+1]
@@ -167,14 +161,28 @@ def parse_pdf(pdf_path):
 def parsing(parsing_flag, pdf_path):
 
     if parsing_flag:
+
         named_df_list = parse_pdf(pdf_path)
+        scaffolds_to_concat = []
 
         if named_df_list:
+
             for df in named_df_list:
-                if not save_dataframe_to_csv(df, str(df.name)):
+                if save_dataframe_to_csv(df, str(df.name)):
+                    df = df['Chemical_ID', 'PDB_ID', 'Protein_Name']
+                    scaffolds_to_concat.append(df)
+                else:
                     parsing_flag = False
                     print(f'Failed to save DataFrame {df.name}.')
                     break
+
+            concatenated_df = pd.DataFrame()
+
+            for df in scaffolds_to_concat:
+                concatenated_df = pd.concat([concatenated_df, df], ignore_index=True)
+
+            save_dataframe_to_csv(concatenated_df, 'concatenated_scaffolds')
+
         else:
             print('Error during reading the .pdf file occurred.')
     else:
