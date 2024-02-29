@@ -148,6 +148,20 @@ def write_to_csv(data, output_file, header):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def main():
 
     # Get the directory of the current script and construct the relative paths
@@ -186,23 +200,49 @@ def main():
     # The goal is to collect binding data from a few resources by corresponding ids
 
     # 3.1. PDB_ID -> UniProt ID
+    json_formed = True
 
     if mapping_flag:
-        pdb_entries = pd.read_csv(joined_csv)
-        pdb_id_list = pdb_entries['PDB_ID'].unique().tolist()
 
-        job_id = submit_id_mapping(from_db="PDB", to_db="UniProtKB", ids=pdb_id_list)
+        # 1. Retrieve a JSON formatted response from Uniprot Mapper
+        if not json_formed:
+            pdb_entries = pd.read_csv(joined_csv)
+            pdb_id_list = pdb_entries['PDB_ID'].unique().tolist()
 
-        if check_id_mapping_results_ready(job_id):
-            link = get_id_mapping_results_link(job_id)
-            results = get_id_mapping_results_search(link)
+            job_id = submit_id_mapping(from_db="PDB", to_db="UniProtKB", ids=pdb_id_list)
 
-            output_file = "../results/step2_mapping/id_mapping_results.json"
+            if check_id_mapping_results_ready(job_id):
+                link = get_id_mapping_results_link(job_id)
+                results = get_id_mapping_results_search(link)
 
-            with open(output_file, "w") as output_file:
-                json.dump(results, output_file, indent=2)
+                output_file = "../results/step2_mapping/pdb_to_uniprot_mapping_results.json"
+
+                with open(output_file, "w") as output_file:
+                    json.dump(results, output_file, indent=2)
+
+
+        # 2. Converting response to a CSV file PDB_ID : UniProt_ID
+        input_file = '../results/step2_mapping/pdb_to_uniprot_mapping_results.json'
+
+        with open(input_file, 'r') as file:
+            json_data = json.load(file)
+
+        data = []
+        for result in json_data['results']:
+            pdb_id = result['from']
+            uniprot_id = result['to']['primaryAccession']
+            organism = result['to']['organism']['scientificName'] if result['to']['organism'][
+                                                                             'taxonId'] == 9606 else None
+            data.append({'pdb_id': pdb_id, 'uniprot_id': uniprot_id, 'organism': organism})
+
+        df = pd.DataFrame(data)
+        output_file = '../results/step2_mapping/pdb_to_uniprot_mapping_results.csv'
+
+        df.to_csv(output_file, index=False)
+
 
         print('mapping done')
+
 
 
 
