@@ -18,4 +18,4 @@ def script_to_notebook(script_file, notebook_file):
 
 
 # Replace 'your_script.py' and 'output_notebook.ipynb' with your actual filenames
-script_to_notebook('data_load.py', 'data_load.ipynb')
+script_to_notebook('main.py', 'data_load.ipynb')

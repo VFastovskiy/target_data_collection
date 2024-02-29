@@ -1,27 +1,13 @@
 from parsing import parsing
 from visualization import visualization
+from uniprot_request import submit_id_mapping, \
+    check_id_mapping_results_ready, \
+    get_id_mapping_results_link, \
+    get_id_mapping_results_search
 
-
-
-
-import tabula as tb
 import pandas as pd
 import os
-import matplotlib.pyplot as plt
-import seaborn as sns
-from tqdm import tqdm
 import glob
-import plotly.express as px
-import plotly.graph_objects as go
-import plotly.subplots as sp
-from plotly.subplots import make_subplots
-import plotly
-import math
-import networkx as nx
-from matplotlib import cm
-import numpy as np
-import matplotlib.gridspec as gridspec
-import mplcursors
 import requests
 import xml.etree.ElementTree as ET
 import csv
@@ -32,6 +18,26 @@ from tempfile import TemporaryDirectory
 from rdkit.Chem import PandasTools
 from chembl_webresource_client.new_client import new_client
 from tqdm.auto import tqdm
+import time
+import re
+import json
+import zlib
+from urllib.parse import urlparse, parse_qs, urlencode
+from requests.adapters import HTTPAdapter, Retry
+
+
+POLLING_INTERVAL = 3
+API_URL = "https://rest.uniprot.org"
+
+
+retries = Retry(total=5, backoff_factor=0.25, status_forcelist=[500, 502, 503, 504])
+session = requests.Session()
+session.mount("https://", HTTPAdapter(max_retries=retries))
+
+
+
+
+
 
 
 
@@ -111,12 +117,6 @@ def get_data_from_chembl(uniprot_id, affinity_cutoff=None):
 
 
 
-
-
-
-
-
-
 def parse_bindingdb_response(xml_content, filter):
     root = ET.fromstring(xml_content)
 
@@ -148,42 +148,73 @@ def write_to_csv(data, output_file, header):
 
 
 
-
-
-
-
 def main():
 
     # Get the directory of the current script and construct the relative paths
     current_dir = os.path.dirname(__file__)
     pdf_path = os.path.join(current_dir, '../data/data.pdf')
     csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs')
+    joined_csv = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs/joined/concatenated_scaffolds.csv')
     joined_csv_directory = os.path.join(current_dir, '../results/step1_pdf_parsing/no_mapping_csvs/joined')
 
     # Flags for controlling
     parsing_flag = False
-    vz_flag = True
-    mapping_flag = False
+    vz_flag = False
+    mapping_flag = True
     data_collection_flag = False
+
+
+
+
 
     # Step 1. Parsing: pdf -> csv; cvs files creating at ../results/step1_pdf_parsing/no_mapping_csvs
     parsing(parsing_flag, pdf_path)
+
+
+
+
 
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
     if vz_flag:
         visualization(True, True, joined_csv_directory)
         visualization(True, False, csv_directory)
 
-    # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
-    # The goal is to collect binding data from a few resources
 
-    # 3.1. Protein Name -> UniProt ID
+
+
+    # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
+    # The goal is to collect binding data from a few resources by corresponding ids
+
+    # 3.1. PDB_ID -> UniProt ID
 
     if mapping_flag:
-        csv_path = glob.glob(os.path.join(csv_directory, '*.csv'))
-        for csv in csv_path:
-            df_name = f'{os.path.splitext(os.path.basename(csv_path))[0]}'
-            df = pd.read_csv(csv_path)
+        pdb_entries = pd.read_csv(joined_csv)
+        pdb_id_list = pdb_entries['PDB_ID'].unique().tolist()
+
+        job_id = submit_id_mapping(from_db="PDB", to_db="UniProtKB", ids=pdb_id_list)
+
+        if check_id_mapping_results_ready(job_id):
+            link = get_id_mapping_results_link(job_id)
+            results = get_id_mapping_results_search(link)
+
+            output_file = "../results/step2_mapping/id_mapping_results.json"
+
+            with open(output_file, "w") as output_file:
+                json.dump(results, output_file, indent=2)
+
+        print('mapping done')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     # Step 4. Data collection for a chosen target CDK2 (Protein_Name) P24941 (Uniprot_ID)

@@ -6,4 +6,4 @@
 
 # Ignore venv files
 venv/
-
+results/step2_mapping/
