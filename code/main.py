@@ -1,6 +1,6 @@
 from parsing import parsing
 from visualization import visualization
-from uniprot_request import submit_id_mapping, \
+from uniprot_mapper_request import submit_id_mapping, \
     check_id_mapping_results_ready, \
     get_id_mapping_results_link, \
     get_id_mapping_results_search
@@ -144,15 +144,48 @@ def write_to_csv(data, output_file, header):
         writer.writerows(data)
 
 
+def uniprot_mapper(id_name, from_db, to_db, csv):
+    # Retrieve a JSON formatted response from Uniprot Mapper
+    id_entries = pd.read_csv(csv)
+    id_list = id_entries[id_name].unique().tolist()
+
+    job_id = submit_id_mapping(from_db=from_db, to_db=to_db, ids=id_list)
+
+    if check_id_mapping_results_ready(job_id):
+        link = get_id_mapping_results_link(job_id)
+        results = get_id_mapping_results_search(link)
+
+        json_response_path = f'../results/step2_mapping/{from_db}_to_{to_db}_mapping_results.json'
+
+        with open(json_response_path, "w") as json_response:
+            json.dump(results, json_response, indent=2)
+
+        return json_response_path
 
 
 
+def parse_pdb_to_uniprot_json(from_db, to_db, input_file):
+    # Converting response to a CSV file PDB_ID : UniProt_ID
+    with open(input_file, 'r') as file:
+        json_data = json.load(file)
 
+    data = []
 
+    for result in json_data['results']:
+        pdb_id = result['from']
+        uniprot_id = result['to']['primaryAccession']
+        organism = result['to']['organism']['scientificName'] if result['to']['organism']['taxonId'] == 9606 else None
+        data.append({'PDB_ID': pdb_id, 'UNIPROT_ID': uniprot_id, 'ORGANISM': organism})
 
+    df = pd.DataFrame(data)
 
+    # 3. Remove Primary Accessions which: 1) not Homo Sapiens 2) Experimentally characterized proteins (starts from P)
+    df = df[(df['ORGANISM'] == 'Homo sapiens') & (df['UNIPROT_ID'].str.startswith('P'))]
 
+    output_file_path = f'../results/step2_mapping/{from_db}_to_{to_db}_mapping_results_clean.csv'
+    df.to_csv(output_file_path, index=False)
 
+    return output_file_path
 
 
 
@@ -178,14 +211,8 @@ def main():
     data_collection_flag = False
 
 
-
-
-
     # Step 1. Parsing: pdf -> csv; cvs files creating at ../results/step1_pdf_parsing/no_mapping_csvs
     parsing(parsing_flag, pdf_path)
-
-
-
 
 
     # Step 2. Visualisation of csv: unique and common vals for a list of columns
@@ -194,51 +221,38 @@ def main():
         visualization(True, False, csv_directory)
 
 
-
-
     # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
     # The goal is to collect binding data from a few resources by corresponding ids
 
-    # 3.1. PDB_ID -> UniProt ID
-    json_formed = True
-
     if mapping_flag:
 
-        # 1. Retrieve a JSON formatted response from Uniprot Mapper
-        if not json_formed:
-            pdb_entries = pd.read_csv(joined_csv)
-            pdb_id_list = pdb_entries['PDB_ID'].unique().tolist()
+        # 3.1. PDB_ID -> UniProt_ID
 
-            job_id = submit_id_mapping(from_db="PDB", to_db="UniProtKB", ids=pdb_id_list)
+        # Retrieve a JSON formatted response from Uniprot Mapper
+        json_response_path = uniprot_mapper('PDB_ID', 'PDB', 'UniProtKB', joined_csv)
 
-            if check_id_mapping_results_ready(job_id):
-                link = get_id_mapping_results_link(job_id)
-                results = get_id_mapping_results_search(link)
+        # Converte response to a CSV file (columns: PDB_ID, UniProt_ID, Organism)
+        pdb_to_uniprot_mapping = parse_pdb_to_uniprot_json('PDB', 'UniProtKB', json_response_path)
 
-                output_file = "../results/step2_mapping/pdb_to_uniprot_mapping_results.json"
-
-                with open(output_file, "w") as output_file:
-                    json.dump(results, output_file, indent=2)
+        #pdb_to_uniprot_mapping = '../results/step2_mapping/PDB_to_UniProtKB_mapping_results_clean.csv'
 
 
-        # 2. Converting response to a CSV file PDB_ID : UniProt_ID
-        input_file = '../results/step2_mapping/pdb_to_uniprot_mapping_results.json'
+        # 3.2. UniProt_ID -> ChEMBL_ID
+        #json_response_path = uniprot_mapper('UNIPROT_ID', 'UniProtKB AC/ID', 'ChEMBL', pdb_to_uniprot_mapping)
 
-        with open(input_file, 'r') as file:
-            json_data = json.load(file)
+        # Converte response to a CSV file (columns: PDB_ID, UniProt_ID, Organism)
+        #parse_pdb_to_uniprot_json('PDB', 'UniProtKB', json_response_path)
 
-        data = []
-        for result in json_data['results']:
-            pdb_id = result['from']
-            uniprot_id = result['to']['primaryAccession']
-            organism = result['to']['organism']['scientificName'] if result['to']['organism'][
-                                                                             'taxonId'] == 9606 else None
-            data.append({'pdb_id': pdb_id, 'uniprot_id': uniprot_id, 'organism': organism})
 
-        df = pd.DataFrame(data)
-        output_file = '../results/step2_mapping/pdb_to_uniprot_mapping_results.csv'
 
-        df.to_csv(output_file, index=False)
+
+
+
+
+
+
+
+
 
 
         print('mapping done')
