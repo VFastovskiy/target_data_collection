@@ -188,7 +188,14 @@ def parse_pdb_to_uniprot_json(from_db, to_db, input_file):
     return output_file_path
 
 
+def parse_uniprot_to_chembl_json(from_bd, to_bd, json_response_input):
+    with open(json_response_input, 'r') as file:
+        json_data = json.load(file)
 
+    data = [{"uniprot_id": entry["from"], "chembl_id": entry["to"]} for entry in json_data["results"]]
+    df = pd.DataFrame(data)
+    output_file_path = f'../results/step2_mapping/{from_bd}_to_{to_bd}_mapping_results_clean.csv'
+    df.to_csv(output_file_path, index=False)
 
 
 
@@ -234,14 +241,14 @@ def main():
         # Converte response to a CSV file (columns: PDB_ID, UniProt_ID, Organism)
         pdb_to_uniprot_mapping = parse_pdb_to_uniprot_json('PDB', 'UniProtKB', json_response_path)
 
-        #pdb_to_uniprot_mapping = '../results/step2_mapping/PDB_to_UniProtKB_mapping_results_clean.csv'
-
 
         # 3.2. UniProt_ID -> ChEMBL_ID
-        #json_response_path = uniprot_mapper('UNIPROT_ID', 'UniProtKB AC/ID', 'ChEMBL', pdb_to_uniprot_mapping)
+        json_response_path = uniprot_mapper('UNIPROT_ID', 'UniProtKB_AC-ID', 'ChEMBL', pdb_to_uniprot_mapping)
 
-        # Converte response to a CSV file (columns: PDB_ID, UniProt_ID, Organism)
-        #parse_pdb_to_uniprot_json('PDB', 'UniProtKB', json_response_path)
+        # Converte response to a CSV file (columns: UniProt_ID, C)
+        parse_uniprot_to_chembl_json('UniProtKB_AC-ID', 'ChEMBL', json_response_path)
+
+
 
 
 
@@ -285,5 +292,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
