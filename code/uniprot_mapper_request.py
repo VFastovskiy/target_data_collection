@@ -2,6 +2,7 @@ import re
 import time
 import json
 import zlib
+import pandas as pd
 from xml.etree import ElementTree
 from urllib.parse import urlparse, parse_qs, urlencode
 import requests
@@ -170,3 +171,22 @@ def get_id_mapping_results_stream(url):
     )
     return decode_results(request, file_format, compressed)
 
+
+
+def uniprot_mapper(id_name, from_db, to_db, csv):
+    # Retrieve a JSON formatted response from Uniprot Mapper
+    id_entries = pd.read_csv(csv)
+    id_list = id_entries[id_name].unique().tolist()
+
+    job_id = submit_id_mapping(from_db=from_db, to_db=to_db, ids=id_list)
+
+    if check_id_mapping_results_ready(job_id):
+        link = get_id_mapping_results_link(job_id)
+        results = get_id_mapping_results_search(link)
+
+        json_response_path = f'../results/step2_mapping/{from_db}_to_{to_db}_mapping_results.json'
+
+        with open(json_response_path, "w") as json_response:
+            json.dump(results, json_response, indent=2)
+
+        return json_response_path

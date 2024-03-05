@@ -1,9 +1,6 @@
 from parsing import parsing
 from visualization import visualization
-from uniprot_mapper_request import submit_id_mapping, \
-    check_id_mapping_results_ready, \
-    get_id_mapping_results_link, \
-    get_id_mapping_results_search
+from uniprot_mapper_request import uniprot_mapper
 
 import pandas as pd
 import os
@@ -58,9 +55,28 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
 
             if data_rows:
                 header = ["Monomer_ID", "SMILES", "Affinity_Type", "Affinity_Value"]
-                output_file_path = f"../results/step2_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}.csv"
+                output_file_path = f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}.csv"
                 write_to_csv(data_rows, output_file_path, header)
                 print(f"Data written to {output_file_path}")
+
+                input_file_path = output_file_path
+                df = pd.read_csv(input_file_path)
+
+                # Filter rows where the last column contains '>' or '<'
+                filtered_df = df[~df['Affinity_Value'].str.contains('[<>]')]
+
+                # Save the filtered DataFrame to a new CSV file
+                output_file_path = f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}_clean.csv"
+                filtered_df.to_csv(output_file_path, index=False)
+
+
+                input_file_path = output_file_path
+                smiles_column = filtered_df['SMILES']
+
+                # Save SMILES to a .smi file with each SMILES on a new line
+                with open(f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}_clean.smi", "w") as smi_file:
+                    for smiles in smiles_column:
+                        smi_file.write(f"{smiles}\n")
             else:
                 print("No data to write.")
     else:
@@ -136,6 +152,8 @@ def parse_bindingdb_response(xml_content, filter):
 
 
 
+
+
 def write_to_csv(data, output_file, header):
 
     with open(output_file, 'w', newline='') as csv_file:
@@ -143,24 +161,6 @@ def write_to_csv(data, output_file, header):
         writer.writerow(header)
         writer.writerows(data)
 
-
-def uniprot_mapper(id_name, from_db, to_db, csv):
-    # Retrieve a JSON formatted response from Uniprot Mapper
-    id_entries = pd.read_csv(csv)
-    id_list = id_entries[id_name].unique().tolist()
-
-    job_id = submit_id_mapping(from_db=from_db, to_db=to_db, ids=id_list)
-
-    if check_id_mapping_results_ready(job_id):
-        link = get_id_mapping_results_link(job_id)
-        results = get_id_mapping_results_search(link)
-
-        json_response_path = f'../results/step2_mapping/{from_db}_to_{to_db}_mapping_results.json'
-
-        with open(json_response_path, "w") as json_response:
-            json.dump(results, json_response, indent=2)
-
-        return json_response_path
 
 
 
@@ -186,6 +186,8 @@ def parse_pdb_to_uniprot_json(from_db, to_db, input_file):
     df.to_csv(output_file_path, index=False)
 
     return output_file_path
+
+
 
 
 def parse_uniprot_to_chembl_json(from_bd, to_bd, json_response_input):
@@ -214,26 +216,24 @@ def main():
     # Flags for controlling
     parsing_flag = False
     vz_flag = False
-    mapping_flag = True
-    data_collection_flag = False
+    mapping_flag = False
+    data_collection_flag = True
 
 
     # Step 1. Parsing: pdf -> csv; cvs files creating at ../results/step1_pdf_parsing/no_mapping_csvs
+    # Visualisation of csv: unique and common vals for a list of columns
     parsing(parsing_flag, pdf_path)
 
-
-    # Step 2. Visualisation of csv: unique and common vals for a list of columns
     if vz_flag:
         visualization(True, True, joined_csv_directory)
         visualization(True, False, csv_directory)
 
 
-    # Step 3. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
+    # Step 2. Mapping: PDB ID -> UniProt ID + BindingDB ID + Chembl ID
     # The goal is to collect binding data from a few resources by corresponding ids
-
     if mapping_flag:
 
-        # 3.1. PDB_ID -> UniProt_ID
+        # 2.1. PDB_ID -> UniProt_ID
 
         # Retrieve a JSON formatted response from Uniprot Mapper
         json_response_path = uniprot_mapper('PDB_ID', 'PDB', 'UniProtKB', joined_csv)
@@ -242,50 +242,24 @@ def main():
         pdb_to_uniprot_mapping = parse_pdb_to_uniprot_json('PDB', 'UniProtKB', json_response_path)
 
 
-        # 3.2. UniProt_ID -> ChEMBL_ID
+        # 2.2. UniProt_ID -> ChEMBL_ID
         json_response_path = uniprot_mapper('UNIPROT_ID', 'UniProtKB_AC-ID', 'ChEMBL', pdb_to_uniprot_mapping)
 
-        # Converte response to a CSV file (columns: UniProt_ID, C)
+        # Converte response to a CSV file (columns: UniProt_ID, ChEMBL_ID)
         parse_uniprot_to_chembl_json('UniProtKB_AC-ID', 'ChEMBL', json_response_path)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        print('mapping done')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # Step 4. Data collection for a chosen target CDK2 (Protein_Name) P24941 (Uniprot_ID)
-    # 4.1. bindingDB request
+    # Step 3. Data collection for a chosen target CDK2 (Protein_Name) P24941 (Uniprot_ID)
+    # 3.1. bindingDB request
     if data_collection_flag:
         uniprot_id = 'P24941'
         chembl_id = 'CHEMBL301'
         affinity_cutoff = None
-        #get_data_from_binding_db(uniprot_id, affinity_cutoff)
-        get_data_from_chembl(uniprot_id, affinity_cutoff)
+        get_data_from_binding_db(uniprot_id, affinity_cutoff)
+        #get_data_from_chembl(uniprot_id, affinity_cutoff)
+
+
 
 
 
