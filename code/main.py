@@ -42,6 +42,7 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
 
     filters_list = ['IC50', 'Ki']
 
+    #1. Make a request to BindingDB
     api_url = "https://bindingdb.org/axis2/services/BDBService/getLigandsByUniprot"
     params = {"uniprot": uniprot_id, "response": "application/xml"}
     if affinity_cutoff is not None:
@@ -50,12 +51,17 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
 
 
     if response.status_code == 200:
+
+        xml_file_path = f'../results/step3_data_collection/bindingdb_xml_response_{uniprot_id}.xml'
+        with open(xml_file_path, 'w', encoding='utf-8') as xml_file:
+            xml_file.write(response.text)
+
         for filter in filters_list:
             data_rows = parse_bindingdb_response(response.text, filter)
 
             if data_rows:
-                header = ["Monomer_ID", "SMILES", "Affinity_Type", "Affinity_Value"]
-                output_file_path = f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}.csv"
+                header = ["Monomer_ID", "SMILES", "Affinity_Type", "Affinity_Unit", "Affinity_Value"] #"Affinity_Unit"
+                output_file_path = f"../results/step3_data_collection/bindingdb_{uniprot_id}_{filter}.csv"
                 write_to_csv(data_rows, output_file_path, header)
                 print(f"Data written to {output_file_path}")
 
@@ -63,13 +69,19 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
                 df = pd.read_csv(input_file_path)
 
                 # Filter rows where the last column contains '>' or '<'
-                filtered_df = df[~df['Affinity_Value'].str.contains('[<>]')]
+                filtered_df = df.loc[~df['Affinity_Value'].str.contains('[<>]')]
+
+                # If 'Ki' values are stored as strings, convert them to numeric for sorting
+                filtered_df['Affinity_Value'] = pd.to_numeric(filtered_df['Affinity_Value'], errors='coerce')
+
+                # Use .loc to avoid SettingWithCopyWarning
+                filtered_df = filtered_df.sort_values(by='Affinity_Value', ascending=False)
 
                 # Save the filtered DataFrame to a new CSV file
-                output_file_path = f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}_clean.csv"
+                output_file_path = f"../results/step3_data_collection/bindingdb_{uniprot_id}_{filter}_clean.csv"
                 filtered_df.to_csv(output_file_path, index=False)
 
-
+                # Collect SMILES strings for a STD
                 input_file_path = output_file_path
                 smiles_column = filtered_df['SMILES']
 
@@ -141,11 +153,17 @@ def parse_bindingdb_response(xml_content, filter):
         monomer_id = hit.find('./bdb:monomerid', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'}).text
         smiles = hit.find('./bdb:smiles', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'}).text
         affinity_type = hit.find('./bdb:affinity_type', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'}).text
+        #affinity_unit = hit.find('./bdb:affinity_unit', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'}).text
         affinity_value = hit.find('./bdb:affinity', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'}).text.strip()
+
+        # Extracting affinity unit from the affinity_type element
+        #affinity_unit_element = hit.find('./bdb:affinity_type', namespaces={'bdb': 'http://ws.bindingdb.org/xsd'})
+
+        affinity_unit = 'nM'
 
         # Only consider entries with filterVal as affinity type
         if affinity_type == filter:
-            data_rows.append([monomer_id, smiles, affinity_type, affinity_value])
+            data_rows.append([monomer_id, smiles, affinity_type, affinity_unit, affinity_value]) # affinity_unit
 
     return data_rows
 
@@ -179,7 +197,8 @@ def parse_pdb_to_uniprot_json(from_db, to_db, input_file):
 
     df = pd.DataFrame(data)
 
-    # 3. Remove Primary Accessions which: 1) not Homo Sapiens 2) Experimentally characterized proteins (starts from P)
+    # 1) Remove Primary Accessions which not Homo Sapiens
+    # 2) Keep only experimentally characterized proteins (starts from P)
     df = df[(df['ORGANISM'] == 'Homo sapiens') & (df['UNIPROT_ID'].str.startswith('P'))]
 
     output_file_path = f'../results/step2_mapping/{from_db}_to_{to_db}_mapping_results_clean.csv'
