@@ -1,0 +1,32 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+7458,Oc1ccc(cc1)-c1cc(=O)c2c(O)cc(O)cc2o1,Ki,nM,390
+7459,Oc1cc(O)c2c(c1)oc(cc2=O)-c1ccc(O)c(O)c1,Ki,nM,890
+7460,Oc1cc(O)c2c(c1)oc(-c1ccc(O)c(O)c1)c(O)c2=O,Ki,nM,660
+7461,Oc1cc(O)c2c(c1)oc(cc2=O)-c1ccccc1,Ki,nM,42
+7462,Oc1ccc(cc1)-c1oc2cc(O)cc(O)c2c(=O)c1O,Ki,nM,750
+15236,Oc1cc(O)c2c(c1)oc(-c1cc(O)c(O)c(O)c1)c(O)c2=O,Ki,nM,370
+23414,COc1ccc(cc1O)-c1cc(=O)c2c(O)cc(O)cc2o1,Ki,nM,89
+23415,COc1ccc(cc1)-c1cc(=O)c2c(O)cc(O)cc2o1,Ki,nM,45
+50014323,O=c1cc(oc2c3ccccc3ccc12)-c1ccccc1,Ki,nM,45
+50025321,COc1cc2oc(cc(=O)c2c(O)c1OC)-c1ccc(O)c(O)c1,Ki,nM,>800
+50061117,CCCCCc1cc(O)c-2c(OC(C)(C)c3ccc(C)cc-23)c1,Ki,nM,541
+50085541,COc1ccc(\C=C\c2cc(O)cc(O)c2)cc1,Ki,nM,160
+50113259,Cc1cc2c(ccc3c2oc(cc3=O)-c2ccccc2)o1,Ki,nM,430
+50113260,Cc1cc2c(cc(O)c3c2oc(cc3=O)-c2ccccc2)o1,Ki,nM,470
+50113261,O=c1cc(oc2c3cccnc3ccc12)-c1ccccc1,Ki,nM,40
+50131688,COc1cc(OC)cc(\C=C\c2ccc(O)cc2)c1,Ki,nM,570
+50134461,COc1ccc(cc1O)-c1cc(=O)c2c(OC)c(OC)c(OC)cc2o1,Ki,nM,630
+50239591,CCCCN1CCN(C1=O)c1ccc(cc1)S(=O)(=O)Oc1cc(OC)cc(OC)c1,Ki,nM,490.00
+50239592,CCCCN1CCN(C1=O)c1ccc(cc1)S(=O)(=O)Oc1cc(OC)c(OC)c(OC)c1,Ki,nM,540.00
+50239593,CCCN1CCN(C1=O)c1ccc(cc1)S(=O)(=O)Oc1cc(OC)c(OC)c(OC)c1,Ki,nM,240.00
+50247221,COc1ccc(\C=C\c2cc(O)cc(O)c2)cc1OC,Ki,nM,90
+50252422,COc1cc(O)cc(\C=C\c2ccc(O)cc2)c1,Ki,nM,130
+50318484,"CCCCCc1cc(O)c([C@@H]2C=C(C)CC[C@H]2C(C)=C)c(O)c1 |r,t:11|",Ki,nM,150
+50344054,COc1ccc(cc1O)-c1cc(=O)c2c(O)c(OC)c(OC)cc2o1,Ki,nM,210
+50418082,CC#Cc1ccc(cc1)-c1ccccc1,Ki,nM,220
+50432670,Oc1cc(oc2cccc(=O)c12)-c1cccc(OCC#C)c1,Ki,nM,130
+50432672,Oc1cc2OCC=Cc2c2oc(cc(=O)c12)-c1ccccc1 |c:6|,Ki,nM,110
+50432677,O=c1cc(oc2c3C=CCOc3ccc12)-c1ccccc1 |c:7|,Ki,nM,270
+50452361,COc1cc(\C=C\C(=O)c2ccncc2)cc(OC)c1OC,Ki,nM,280
+50585331,CC(C)CN1CCN(C1=O)c1ccc(cc1)S(=O)(=O)Oc1cc(Cl)cc(Cl)c1,Ki,nM,500
+50585332,CC(C)CN1CCN(C1=O)c1ccc(cc1)S(=O)(=O)Oc1cc(Br)cc(Br)c1,Ki,nM,300

@@ -382,3 +382,26 @@ def vz_graph(df, columns_list, df_name, common_values):
                                 verticalalignment='bottom')
 
         plt.savefig(output_path, format='svg')
+
+
+
+
+
+
+
+
+
+
+
+
+        #print(proteins_data_points)
+
+        proteins_data_points = {'P00519': {'IC50': 2181, 'Ki': 641},
+                                'P00352': {'IC50': 224, 'Ki': 11},
+                                'P48730': {'IC50': 1529, 'Ki': 3},
+                                'P00533': {'IC50': 9192, 'Ki': 209},
+                                'P08246': {'IC50': 1718, 'Ki': 776},
+                                'P29320': {'IC50': 9, 'Ki': 0},
+                                'P00742': {'IC50': 1821, 'Ki': 2556},
+                                'P04035': {'IC50': 168, 'Ki': 9},
+                                'P01116': {'IC50': 3117, 'Ki': 6}}

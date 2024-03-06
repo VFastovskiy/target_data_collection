@@ -1,0 +1,776 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+4814,CCN(CC)CCNC(=O)c1c(C)[nH]c(\C=C2/C(=O)Nc3ccc(F)cc23)c1C,Ki,nM,4.0
+13216,Cc1nc(Nc2ncc(s2)C(=O)Nc2c(C)cccc2Cl)cc(n1)N1CCN(CCO)CC1,Ki,nM,620
+13530,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)CC1,Ki,nM,14
+31095,Cc1[nH]c(\C=C2/C(=O)Nc3ccc(F)cc23)c(C)c1C(=O)NC[C@H](O)CN1CCOCC1,Ki,nM,250
+31096,CN[C@H]1C[C@@H]2O[C@](C)([C@H]1OC)n1c3ccccc3c3c4CNC(=O)c4c4c5ccccc5n2c4c13,Ki,nM,640
+342152,Cc1[nH]c(nc1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccncc1,Ki,nM,500
+342153,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342154,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342158,Cc1nc([nH]c1-c1ccc(F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342159,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(F)cc1,Ki,nM,500
+342162,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C2CC2)c([nH]1)-c1ccccc1,Ki,nM,500
+342163,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C2CC2)c([nH]1)-c1ccccc1,Ki,nM,500
+342164,N#Cc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C2CC2)c([nH]1)-c1ccccc1,Ki,nM,500
+342165,FC(F)Oc1cccc(c1)-c1nnc([nH]1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342169,Cc1nc([nH]c1-c1cccc(OC(F)(F)F)c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342172,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nnc([nH]1)-c1ccc(F)cc1,Ki,nM,500
+342175,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1cccc(OC(F)(F)F)c1,Ki,nM,500
+342176,COc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342177,Cc1nc([nH]c1-c1cccc(F)c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342178,COc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342179,COc1ccc(cc1F)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342180,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1cccc(F)c1,Ki,nM,500
+342181,Cc1nc([nH]c1-c1ccc(F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342182,COc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342183,COc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342184,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342185,CCOc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342186,CCOc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342187,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342188,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342190,COc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342191,COc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342192,COc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342193,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342197,Cc1nc([nH]c1-c1ccccc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342198,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342200,CCOc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342201,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342202,COc1ccc(cc1OC)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342203,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(Cl)cc1,Ki,nM,500
+342204,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342205,COc1ccc(cc1OC)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342208,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342209,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342210,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(OC)c1,Ki,nM,500
+342211,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342212,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342213,COc1ncc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342214,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+342215,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342216,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)S(N)(=O)=O,Ki,nM,500
+342217,CNC(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342218,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342219,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(c1)S(N)(=O)=O,Ki,nM,500
+342220,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342221,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342222,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342223,CCC1(CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1nc(C)c([nH]1)-c1ccc(OC)cc1,Ki,nM,500
+342224,CCC1(CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342225,Cc1nc([nH]c1-c1ccc(F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342226,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342227,CCc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342228,CCc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342229,CCc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342230,Cc1nc([nH]c1-c1ccc(C)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342231,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342232,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(F)cc1,Ki,nM,500
+342233,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342234,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342235,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342236,Cc1nc([nH]c1-c1ccc2OCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342237,Cc1nc([nH]c1-c1ccc2OCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342238,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc2OCOc2c1,Ki,nM,500
+342239,CC(=O)Nc1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342240,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342241,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C,Ki,nM,500
+342242,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(C)nc1,Ki,nM,500
+342243,CCOc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342244,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(c1)N1CCOCC1,Ki,nM,500
+342245,CC1CCN(CC1)c1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342246,CC(C)Oc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccccc1,Ki,nM,500
+342247,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(c1)N1CCCC1,Ki,nM,500
+342248,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(OC(F)(F)F)c1,Ki,nM,500
+342249,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(F)c1,Ki,nM,500
+342250,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(Cl)c1,Ki,nM,500
+342251,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(NS(C)(=O)=O)c1,Ki,nM,500
+342252,Cc1nc([nH]c1-c1ccc2OCCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342253,Cc1nc([nH]c1-c1ccc(OC(F)(F)F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342254,Cc1nc([nH]c1-c1ccc(OC(F)(F)F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342255,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(OC(F)(F)F)cc1,Ki,nM,500
+342256,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(C)cc1,Ki,nM,500
+342257,Cc1nc([nH]c1-c1ccc(C)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342258,Cc1ccc(s1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342259,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(OC(C)C)cc1,Ki,nM,500
+342260,CC(C)Oc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342261,CC(C)Oc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342262,CCOc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342263,CCOc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342264,CCOc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342265,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(c1)C(F)(F)F,Ki,nM,500
+342266,Cc1nc([nH]c1-c1ccccc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccc(c1)C(F)(F)F,Ki,nM,500
+342267,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342268,COCc1cc(ccc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342269,CCc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342270,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342271,COc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342272,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(C)c(OC)c1,Ki,nM,500
+342273,COc1cc(ccc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342274,COc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342275,Cc1nc([nH]c1-c1ccc(F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342276,COc1ccc(cc1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342277,Cc1nc([nH]c1-c1ccc2OC(F)(F)Oc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342278,Cc1nc([nH]c1-c1ccc2OC(F)(F)Oc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342279,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc2OC(F)(F)Oc2c1,Ki,nM,500
+342280,COc1ccc(cn1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342281,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342282,COc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342283,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342284,Cc1nc([nH]c1-c1ccc(OC(F)(F)F)cc1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342285,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(C)s1,Ki,nM,500
+342286,Cc1ccc(s1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342287,Cc1nc([nH]c1-c1ccc(Cl)s1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342289,Cc1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc2OCCOc2c1,Ki,nM,500
+342290,Cc1nn(C)cc1-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(OC(F)(F)F)cc1,Ki,nM,500
+342291,COc1cccc(c1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342292,COc1cccc(c1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342294,CCOc1cc(ccc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342296,COc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342299,COc1cccc(c1)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342300,Cc1nc([nH]c1-c1ccc2OCCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342301,Cc1nc([nH]c1-c1ccc2OCCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342302,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(c([nH]1)-c1ccc(C)cc1)C(F)(F)F,Ki,nM,500
+342303,Cc1ccc(cc1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342304,Cc1nc([nH]c1-c1ccc(cc1)C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342305,Cc1nc([nH]c1-c1ccc(cc1)C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342306,Cc1nc([nH]c1-c1ccc2OCOc2c1)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342307,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342308,CCC1(CCN(CC1)c1ncnc2[nH]c(C)cc12)c1nc(C)c([nH]1)-c1ccc(OC)cc1,Ki,nM,500
+342309,CCC1(CCN(CC1)c1ncnc2[nH]c(C)cc12)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342310,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(CC)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342311,CCC1(CCN(CC1)c1ncnc2[nH]c(C)cc12)c1nc(C)c([nH]1)-c1ccc2OCOc2c1,Ki,nM,500
+342312,CCC1(CCN(CC1)c1ncnc2[nH]c(C)cc12)c1nc(C)c([nH]1)-c1ccc2OCCOc2c1,Ki,nM,500
+342313,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(CC)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342314,COc1ccc(cc1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+342315,COc1ccc(cc1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+342316,COc1ccc(cc1)-c1[nH]c(nc1C(F)(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342317,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)(F)F,Ki,nM,500
+342318,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc2OCOc2c1,Ki,nM,500
+342319,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc2OCCOc2c1,Ki,nM,500
+342320,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc2OC(F)(F)Oc2c1,Ki,nM,500
+342321,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342322,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342323,Cc1nc([nH]c1-c1ccc2OCOc2c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342324,COc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OC)nc1,Ki,nM,500
+342325,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342326,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc2OCOc2c1,Ki,nM,500
+342327,Cc1nc([nH]c1-c1ccc2OCOc2c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342328,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342329,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342330,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342331,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342332,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342333,Cc1cc2c(ncnc2[nH]1)N1CCC(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)(F)F,Ki,nM,500
+342334,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342335,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342336,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342337,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OC)nc1,Ki,nM,500
+342338,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342339,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OC)nc1,Ki,nM,500
+342340,COc1ccc(cn1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342341,COc1ncc(cc1F)-c1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342342,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(Cl)cc1,Ki,nM,500
+342343,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342344,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(Cl)cc1,Ki,nM,500
+342345,Cc1nc([nH]c1-c1ccc(cc1)C(F)(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342346,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)(F)F,Ki,nM,500
+342347,Cc1nc([nH]c1-c1ccc(cc1)C(F)(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342348,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342349,COc1ncc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342350,COc1ccc(cn1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342351,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342352,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)F,Ki,nM,500
+342353,COc1ncc(cc1F)-c1nc([nH]c1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342354,COc1ccc(cn1)-c1nc([nH]c1C)C1(C)CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+342355,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342356,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(F)c1,Ki,nM,500
+342357,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342358,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)F,Ki,nM,500
+342359,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1cccc(OC(F)F)c1,Ki,nM,500
+342360,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342361,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1cccc(OC(F)F)c1,Ki,nM,500
+342362,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342363,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342364,Cc1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC(F)F)cc1,Ki,nM,500
+342365,CCc1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342366,CCc1[nH]c(nc1C)C1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N,Ki,nM,500
+342367,Cc1nc([nH]c1-c1ccc(Cl)cc1)C1(C)CCN(CC1)c1ncnc2[nH]nc(C)c12,Ki,nM,500
+342368,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]nc(C)c12,Ki,nM,500
+342369,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]nc(C)c12,Ki,nM,500
+342370,Cc1nc([nH]c1-c1ccc2OC(F)(F)Oc2c1)C1(C)CCN(CC1)c1ncnc2[nH]nc(C)c12,Ki,nM,500
+342371,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(O)=O,Ki,nM,500
+342372,CCOc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OC)nc1,Ki,nM,500
+342373,CCOc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342374,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C#N,Ki,nM,500
+342375,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342376,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342377,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342378,COc1ccc(cc1F)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342379,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342380,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342381,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(C)c1,Ki,nM,500
+342382,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342383,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC)c(F)c1,Ki,nM,500
+342384,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342385,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1cccc(OC)c1,Ki,nM,500
+342386,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342387,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342388,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342389,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C(=O)NC,Ki,nM,500
+342390,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342391,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342392,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342393,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342394,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342395,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342396,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342397,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342398,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(cc1)C(F)F,Ki,nM,500
+342399,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1cccc(OC(F)F)c1,Ki,nM,500
+342400,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342401,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342402,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342403,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342404,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342405,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342406,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342407,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(OCC(O)=O)cc1,Ki,nM,500
+342408,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(c1)C(F)F,Ki,nM,500
+342409,CNC(=O)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(C)(CC1)c1nc(C)c([nH]1)-c1ccc(OC(F)F)cc1,Ki,nM,500
+342410,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C(=O)NC,Ki,nM,500
+342411,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342412,CCOc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)N1CCOCC1,Ki,nM,500
+342413,COc1ccc(cc1C)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C#N,Ki,nM,500
+342414,CCOc1ccc(cc1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C#N,Ki,nM,500
+342415,Cc1nc([nH]c1-c1ccc(cc1)C(F)F)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342416,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C(N)=O,Ki,nM,500
+342417,Cc1nc([nH]c1-c1ccc(OC(F)F)cc1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(NS(C)(=O)=O)cc1,Ki,nM,500
+342418,Cc1nc([nH]c1-c1cccc(OC(F)F)c1)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C#N,Ki,nM,500
+342419,COc1cccc(c1)-c1[nH]c(nc1C)C1(C)CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(nc1)C#N,Ki,nM,500
+350085,CNCc1ccc(cc1)-c1cc(on1)-c1nc(cnc1N)-c1ccc(cc1)S(=O)(=O)C(C)C,Ki,nM,39
+368753,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(C)nc1)c1cccc(Cl)c1 |r|,Ki,nM,500
+368754,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(C)nc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+368755,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(C)cc12 |r|,Ki,nM,500
+368756,COc1cc(ccc1F)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+368757,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(F)c1 |r|,Ki,nM,500
+368758,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+368759,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(C)nc1)c1cccc(F)c1 |r|,Ki,nM,500
+368760,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(Cl)c1 |r|,Ki,nM,500
+368761,COc1cccc(c1)C(C)NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+368762,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)c1nc2ccccc2[nH]1,Ki,nM,500
+368763,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)c1nc2ccccc2[nH]1,Ki,nM,500
+368764,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN(C(=O)N[C@@H](C)c2cccc(OC(F)F)c2)C(C)(C)C1 |r|,Ki,nM,500
+368765,Cc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)c1nc2ccccc2[nH]1,Ki,nM,500
+368766,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+368767,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+368768,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(c1)N(C)C |r|,Ki,nM,500
+368770,COc1ccc(cc1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+368774,C[C@@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368775,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368776,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1 |r|,Ki,nM,500
+368779,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(Cl)c1 |r|,Ki,nM,500
+368780,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+368781,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368782,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368785,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(c1)C(F)(F)F |r|,Ki,nM,500
+368788,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(F)c1 |r|,Ki,nM,500
+368790,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1 |r|,Ki,nM,500
+368792,C[C@H]1CN(CCN1C(=O)NCc1cccc(Cl)c1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368793,C[C@H]1CN(CCN1C(=O)NCc1ccc(F)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368794,C[C@H]1CN(CCN1C(=O)Nc1ccc(OC(F)(F)F)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368795,C[C@H]1CN(CCN1C(=O)NCc1ccc(Cl)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368798,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)C#CC1CC1 |r|,Ki,nM,500
+368799,CCC(NC(=O)N1CCN(C[C@@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccccc1 |r|,Ki,nM,500
+368800,CC(NC(=O)N1CCN(C[C@@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368801,CC(NC(=O)N1CCN(C[C@@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368802,COc1cccc(c1)C(C)NC(=O)N1CCN(C[C@@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368805,CCC(NC(=O)N1CCN(CC1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccccc1,Ki,nM,500
+368806,C[C@@H]1CN(CCN1C(=O)Nc1ccc(C)nc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368807,C[C@@H]1CN(CCN1C(=O)NCc1cccc(Cl)c1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368808,COc1ccc(NC(=O)N2CCN(C[C@H]2C)c2ncnc3[nH]c(cc23)-c2ccncc2)cn1 |r|,Ki,nM,500
+368809,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368810,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368811,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368812,C[C@@H]1CN(CCN1C(=O)NCc1ccc(F)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368813,C[C@@H]1CN(CCN1C(=O)Nc1ccc(F)c(Cl)c1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368814,C[C@@H]1CN(CCN1C(=O)Nc1ccc(OC(F)(F)F)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368815,C[C@@H]1CN(CCN1C(=O)NCc1ccc(Cl)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368816,C[C@@H]1CN(CCN1C(=O)Nc1ccc(Cl)cc1)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368817,C[C@@H]1CN(CCN1C(=O)Nc1ccc(cc1)N(C)C)c1ncnc2[nH]c(cc12)-c1ccncc1 |r|,Ki,nM,500
+368818,Fc1ccccc1-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368820,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N |r|,Ki,nM,500
+368823,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+368828,CS(=O)(=O)Nc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368829,NC(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368830,Cc1ncc(s1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368831,Cc1ncc(s1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368832,CNC(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368833,CC(=O)Nc1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368834,NS(=O)(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368835,CC(=O)Nc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368836,CN(C)C(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368837,FC(F)(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(cc2)C#N)cc1,Ki,nM,500
+368838,COc1ncc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1F,Ki,nM,500
+368841,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+368842,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)F)cc1,Ki,nM,500
+368843,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368844,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1 |r|,Ki,nM,500
+368845,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(F)cc1 |r|,Ki,nM,500
+368846,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368847,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(F)cc1,Ki,nM,500
+368848,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(Cl)cc1,Ki,nM,500
+368850,NS(=O)(=O)c1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368851,NS(=O)(=O)c1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368852,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccncc2)cc1,Ki,nM,500
+368853,FC(F)(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccncc2)cc1,Ki,nM,500
+368854,Cc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368856,NS(=O)(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368858,CS(=O)(=O)Nc1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368859,NC(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(F)cc1,Ki,nM,500
+368864,FC(F)(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(cc2)C2(CC2)C#N)cc1,Ki,nM,500
+368865,CN(C)c1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368866,Cc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368867,CNC(=O)c1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368868,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368869,COc1ccc(cn1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368870,CS(=O)(=O)Nc1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368871,CC(=O)Nc1cccc(c1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368874,Clc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)nc1,Ki,nM,500
+368876,FC(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+368877,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+368880,COc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cn1,Ki,nM,500
+368884,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)Nc1ccc(OC(F)(F)F)cc1,Ki,nM,500
+368885,FC(F)(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(Cl)cc2)cc1,Ki,nM,500
+368887,Clc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)C2CC2)cc1,Ki,nM,500
+368900,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCc1ccc(Cl)cc1,Ki,nM,500
+368903,COc1cccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)c1,Ki,nM,500
+368904,COc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+368909,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)N1CCN(CC1)C(=O)NCCc1ccccc1,Ki,nM,500
+368923,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368930,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368931,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cccnc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+368950,Clc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(Cl)cc2)cc1,Ki,nM,500
+368951,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccc(Cl)cc2)cc1,Ki,nM,500
+368953,Clc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccccc2)cc1,Ki,nM,500
+368959,CCOc1cccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)c1,Ki,nM,500
+368960,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)cc1,Ki,nM,500
+368962,FC(F)(F)Oc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)cc1,Ki,nM,500
+368963,CCOc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)cc1,Ki,nM,500
+368968,COc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2cccnc2)cc1,Ki,nM,500
+368976,COc1cccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccccc2)c1,Ki,nM,500
+368978,COc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccccc2)cc1,Ki,nM,500
+368980,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccccc2)cc1,Ki,nM,500
+368981,Fc1ccc(NC(=O)N2CCN(CC2)c2ncnc3[nH]c(cc23)-c2ccccc2)cc1,Ki,nM,500
+368983,COc1cc2ncnc(-c3ccc(cc3F)S(=O)(=O)Nc3ccc(Cl)cc3)c2cc1OCCCN1CCOCC1,Ki,nM,500
+368985,COc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2cc(OC)c(OCCCN3CCOCC3)cc12,Ki,nM,500
+368986,COc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(Cl)cc4)cc3F)c2cc1OCCCN1CCOCC1,Ki,nM,500
+368987,COc1cc2ncnc(-c3ccc(NS(=O)(=O)C4CC4)cc3F)c2cc1OCCCN1CCOCC1,Ki,nM,500
+368988,COc1cc2ncnc(-c3ccc(NS(C)(=O)=O)cc3F)c2cc1OCCCN1CCOCC1,Ki,nM,500
+368989,COc1cc2c(ncnc2cc1OCCCN1CCCCC1)-c1ccc(NS(=O)(=O)N2CCCC2)cc1F,Ki,nM,500
+368990,COc1cc2c(ncnc2cc1OCCCN1CCCCC1)-c1ccc(NS(C)(=O)=O)cc1F,Ki,nM,500
+368991,COc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2cc(OCCCN3CCCCC3)c(OC)cc12,Ki,nM,500
+368992,COc1cc2c(ncnc2cc1OCCCN1CCCCC1)-c1ccc(NS(=O)(=O)c2ccc(Cl)cc2)cc1F,Ki,nM,500
+368993,COc1cc2c(ncnc2cc1OCCCN1CCCCC1)-c1ccc(NS(=O)(=O)C2CC2)cc1F,Ki,nM,500
+368995,COCCOc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(OC(F)F)cc4)cc3F)c2cc1OCCOC,Ki,nM,500
+368996,COCCOc1cc2ncnc(-c3ccc(NS(=O)(=O)c4cccc(F)c4)cc3F)c2cc1OCCOC,Ki,nM,500
+368997,COCCOc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(Cl)cc4)cc3F)c2cc1OCCOC,Ki,nM,500
+368998,COCCOc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(OC)cc4)cc3F)c2cc1OCCOC,Ki,nM,500
+368999,COCCOc1cc2ncnc(-c3ccc(NS(=O)(=O)C4CC4)cc3F)c2cc1OCCOC,Ki,nM,500
+369000,COCCOc1cc2ncnc(-c3ccc(NS(C)(=O)=O)cc3F)c2cc1OCCOC,Ki,nM,500
+369003,COc1cc2ncnc(-c3ccc(N)cc3F)c2cc1OC,Ki,nM,500
+369004,COc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(Cl)cc4)cc3F)c2cc1OC,Ki,nM,500
+369005,CCCS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2cc(OC)c(OC)cc12,Ki,nM,500
+369006,COc1cc2ncnc(-c3ccc(NS(=O)(=O)C4CC4)cc3F)c2cc1OC,Ki,nM,500
+369007,COc1cc2ncnc(-c3ccc(NS(C)(=O)=O)cc3F)c2cc1OC,Ki,nM,500
+369008,COc1cc2ncnc(-c3ccc(NS(C)(=O)=O)c(F)c3)c2cc1OC,Ki,nM,500
+369009,COc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1F)-c1ncnc2cc(OC)c(OC)cc12,Ki,nM,500
+369017,Cc1ccc(cn1)-c1cc2c(ncnc2[nH]1)C1=CCC(CC1)NS(=O)(=O)c1ccc(OC(F)(F)F)cc1 |t:19|,Ki,nM,500
+369018,CCCc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(C)cc12,Ki,nM,500
+369021,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)C1=CCC(CC1)NS(=O)(=O)c1ccc(OC(F)(F)F)cc1 |t:18|,Ki,nM,500
+369022,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(C)nc2)cc1F,Ki,nM,500
+369025,CCCS(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(C)cc12,Ki,nM,500
+369026,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)C1CCCC1,Ki,nM,500
+369027,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(C)s2)cc1F,Ki,nM,500
+369028,CCc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(C)cc12,Ki,nM,500
+369029,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(C)cc2)cc1F,Ki,nM,500
+369030,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc3OCOc3c2)cc1,Ki,nM,500
+369031,CC1(C)CC(=CC(C)(C)N1)c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(F)cc2)cc1 |c:4|,Ki,nM,500
+369032,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)C1=CCCC1 |t:30|,Ki,nM,500
+369037,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(C)nc2)cc1,Ki,nM,500
+369038,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc3CCCc3c2)cc1,Ki,nM,500
+369040,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2cc(Cl)cs2)cc1,Ki,nM,500
+369041,Cc1csc(c1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(C)cc12,Ki,nM,500
+369051,CCc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(C)cc12,Ki,nM,500
+369053,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(cc2)C(F)(F)F)cc1,Ki,nM,500
+369057,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)C1=CCCC1 |t:31|,Ki,nM,500
+369063,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(cc1F)S(=O)(=O)Nc1ccc(Cl)cc1,Ki,nM,500
+369064,Fc1ccc(NS(=O)(=O)c2ccc(c(F)c2)-c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+369068,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1F,Ki,nM,500
+369069,CS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1F,Ki,nM,500
+369072,Fc1ccc(F)c(c1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(Cl)cc2)cc1F,Ki,nM,500
+369074,CS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1cc(F)ccc1F,Ki,nM,500
+369075,Fc1ccc(-c2cc3c(ncnc3[nH]2)-c2ccc(NS(=O)(=O)C3CC3)cc2F)c(F)c1,Ki,nM,500
+369076,Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1F,Ki,nM,500
+369083,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccccc2F)c(F)c1,Ki,nM,500
+369087,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(Cl)cc2F)cc1F,Ki,nM,500
+369088,CS(=O)(=O)Nc1ccc(c(F)c1F)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369089,Fc1ccc(CNS(=O)(=O)c2ccc(c(F)c2)-c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+369090,CS(=O)(=O)Nc1cc(F)c(cc1F)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369094,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(Cl)cc2F)c(F)c1,Ki,nM,500
+369095,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(F)cc2)cc1F,Ki,nM,500
+369100,CS(=O)(=O)Nc1ccc(cc1F)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369101,CS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369105,NS(=O)(=O)c1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369109,CCS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369110,CS(=O)(=O)Nc1ccc(-c2cc3c(ncnc3[nH]2)-c2ccc(NS(C)(=O)=O)cc2F)c(F)c1,Ki,nM,500
+369114,Fc1cc(NSC2CC2)ccc1-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)C2CC2)cc1F,Ki,nM,500
+369115,CCCCS(=O)(=O)Nc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)CCCC)cc1,Ki,nM,500
+369116,O=S(=O)(Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(NSC2CC2)cc1)C1CC1,Ki,nM,500
+369117,Cc1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(C)cc2)cc1,Ki,nM,500
+369119,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccncc1,Ki,nM,500
+369120,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(F)cc1,Ki,nM,500
+369121,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(Cl)cc2)cc1F,Ki,nM,500
+369122,CCCS(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369126,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)C2CC2)cc1F,Ki,nM,500
+369127,COc1ccc(cc1)S(=O)(=O)Nc1ccc(c(F)c1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369128,CCCS(=O)(=O)Nc1ccc(cc1F)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369129,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)c2ccc(F)cc2)cc1,Ki,nM,500
+369134,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)C2CC2)c(F)c1,Ki,nM,500
+369138,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NCc2ccc(nc2)C(F)(F)F)nc1,Ki,nM,500
+369139,Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369141,NS(=O)(=O)c1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369142,CCCCS(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369143,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1ccc(NS(=O)(=O)C2CC2)cc1,Ki,nM,500
+369148,Fc1ccc(NS(=O)(=O)c2ccc(cc2)-c2ncnc3[nH]c(cc23)-c2ccc(F)cc2)cc1,Ki,nM,500
+369149,Fc1ccc(cc1)-c1cc2c(ncnc2[nH]1)-c1cccc(c1)S(=O)(=O)NC1CC1,Ki,nM,500
+369150,CNS(=O)(=O)c1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369151,CCS(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369152,CS(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369153,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]c(cc12)-c1ccc(F)cc1,Ki,nM,500
+369156,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(cc4)C(F)(F)F)cc3)c12,Ki,nM,500
+369157,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(F)cc4)cc3)c12,Ki,nM,500
+369158,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4cccc(F)c4)cc3)c12,Ki,nM,500
+369159,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(nc4)C(F)(F)F)cc3)c12,Ki,nM,500
+369160,CCc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]nc(C)c12,Ki,nM,500
+369161,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4cccc(Cl)c4)cc3)c12,Ki,nM,500
+369162,COc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2[nH]nc(C)c12,Ki,nM,500
+369163,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(Cl)cc4)cc3)c12,Ki,nM,500
+369164,Cc1n[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(C)cc4)cc3)c12,Ki,nM,500
+369165,Cc1c[nH]c2ncnc(-c3ccc(NS(=O)(=O)c4ccc(C)cc4)cc3)c12,Ki,nM,500
+369168,Cc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369169,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc2CCCc2c1,Ki,nM,500
+369170,Cc1csc(c1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369171,Cc1ccc(s1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369172,Cc1ccc2sc(cc2c1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369173,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc2OCOc2c1,Ki,nM,500
+369174,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc2OCCc2c1,Ki,nM,500
+369175,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(Cl)s1,Ki,nM,500
+369178,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1cc(Cl)c(Cl)s1,Ki,nM,500
+369179,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1cc(Cl)cs1,Ki,nM,500
+369184,CC(C)Oc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(Cl)cc1,Ki,nM,500
+369185,CN(C)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369186,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1cc2ccccc2s1,Ki,nM,500
+369192,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(cc1)N1CCCC1=O,Ki,nM,500
+369195,CC(C)Oc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369197,Cn1cc(cn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(Cl)cc1,Ki,nM,500
+369199,COc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369236,COc1cccc(CNC(=O)N2CC3CCC2CN3c2ncnc3cc(sc23)-c2ccc(F)cc2)c1,Ki,nM,500
+369240,"C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)C1CC1)c1cccc(Cl)c1 |r,t:25|",Ki,nM,500
+369241,"C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)C1=CCN(CC1)S(C)(=O)=O)c1cccc(Cl)c1 |r,t:25|",Ki,nM,500
+369242,O=C(N1CCOCC1)N1CCC(=CC1)c1cc2ncnc(-c3ccc(NS(=O)(=O)C4CC4)cc3)c2s1 |c:12|,Ki,nM,500
+369243,CS(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)N1CCOCC1 |t:23|,Ki,nM,500
+369244,COc1cc(ccn1)-c1cc2ncnc(N3CCN(C(=O)N[C@@H](C)c4cccc(Cl)c4)C(C)(C)C3)c2s1 |r|,Ki,nM,500
+369245,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1sc(C)nc1C)c1cccc(Cl)c1 |r|,Ki,nM,500
+369246,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)N1CCOCC1)c1cccc(Cl)c1 |r|,Ki,nM,500
+369247,CC(=N)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)N1CCOCC1 |t:22|,Ki,nM,500
+369248,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)N1CCOCC1 |r|,Ki,nM,500
+369249,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)N1CCOCC1 |t:30|,Ki,nM,500
+369250,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1cccc(Cl)c1 |r|,Ki,nM,500
+369253,COc1cccc(c1)[C@H](C)NC(=O)N1C2CCC1CN(C2)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369254,CS(=O)(=O)N1CCC(=CC1)c1cc2ncnc(N3CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1 |c:7|,Ki,nM,500
+369255,"C[C@H](NC(=O)N1CCN(CC1)c1ncnc2cc(sc12)C1=CC(C)(C)NC(C)(C)C1)c1cccc(Cl)c1 |r,t:23|",Ki,nM,500
+369256,Fc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)C1CC1 |t:30|,Ki,nM,500
+369257,O=C(C1CC1)N1CCC(=CC1)c1cc2ncnc(-c3ccc(NS(=O)(=O)C4CC4)cc3)c2s1 |c:9|,Ki,nM,500
+369258,CS(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)C1CC1 |t:23|,Ki,nM,500
+369260,"COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1)c1ncnc2cc(sc12)C1=CC(C)(C)NC(C)(C)C1 |r,t:32|",Ki,nM,500
+369261,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369262,COc1ccc(cc1)[C@H](C)NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369263,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369266,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1cccc(Cl)c1 |r|,Ki,nM,500
+369267,"COc1cccc(c1)[C@H](C)NC(=O)N1CCC(=CC1)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r,c:17|",Ki,nM,500
+369268,"COc1cccc(c1)[C@H](C)NC(=O)N1CCC(=CC1)c1ncnc2cc(sc12)-c1cn(C)nc1C |r,c:17|",Ki,nM,500
+369269,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)C1CC1 |t:30|,Ki,nM,500
+369270,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1cccc(F)c1 |r|,Ki,nM,500
+369272,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369273,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369274,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3cc(sc23)C2CCN(CC2)C(=O)C2CC2)cc1,Ki,nM,500
+369275,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2cc(sc12)N1CCOCC1)c1ccc(F)cc1 |r|,Ki,nM,500
+369276,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)N1CCOCC1 |t:30|,Ki,nM,500
+369277,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1cccc(Cl)c1 |r|,Ki,nM,500
+369278,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1CCNCC1,Ki,nM,500
+369279,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+369280,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369284,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C |r|,Ki,nM,500
+369285,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369286,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369288,C[C@@H]1CN(CCN1C(=O)NCc1ccc(F)cc1)c1ncnc2cc(sc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369290,Cc1nn(C)cc1-c1cc2ncnc(C3CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1,Ki,nM,500
+369294,COc1cccc(c1)[C@@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C |r|,Ki,nM,500
+369295,C[C@@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2cc(sc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369296,C[C@@H]1CN(CCN1C(=O)NCc1ccc(F)cc1)c1ncnc2cc(sc12)-c1cn(C)nc1C |r|,Ki,nM,500
+369297,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCNCC1 |t:30|,Ki,nM,500
+369298,Cc1nn(C)cc1-c1cc2ncnc(C3=CCN(CC3)C(=O)Nc3ccc(Cl)cc3)c2s1 |t:15|,Ki,nM,500
+369299,Cc1nn(C)cc1-c1cc2ncnc(C3=CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1 |t:15|,Ki,nM,500
+369300,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)C1=CCN(CC1)C(=O)OC(C)(C)C |t:30|,Ki,nM,500
+369301,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3cc(sc23)C2=CCNCC2)cc1 |t:27|,Ki,nM,500
+369302,CC(C)(C)OC(=O)N1CCC(=CC1)c1cc2ncnc(N3CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1 |c:10|,Ki,nM,500
+369305,Cc1nn(C)cc1-c1cc2ncnc(N3CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1,Ki,nM,500
+369306,Cc1c(cnn1C)-c1cc2ncnc(N3CCN(CC3)C(=O)NCc3ccc(F)cc3)c2s1,Ki,nM,500
+369309,Cc1cc2ncnc(-c3ccc(NS(=O)(=O)c4ccc(C)cc4)cc3)c2s1,Ki,nM,500
+369310,Fc1ccc(CNC(=O)N2CCN(CC2)c2ncnc3cc(sc23)-c2cnn(CCN3CCOCC3)c2)cc1,Ki,nM,500
+369314,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)-c1cnn(C)c1,Ki,nM,500
+369319,Fc1ccc(cc1)-c1cc2ncnc(-c3ccc(cc3)S(=O)(=O)NCc3ccccc3)c2s1,Ki,nM,500
+369320,Cc1ccc(cc1)S(=O)(=O)Nc1ccc(cc1)-c1ncnc2cc(sc12)-c1ccc(F)cc1,Ki,nM,500
+369324,Fc1ccc(NC(=O)N2CCN(CC2)c2ncnc3ccsc23)cc1,Ki,nM,500
+369325,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(C)cc12)c1cccc(Cl)c1 |r|,Ki,nM,500
+369326,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(F)cc1 |r|,Ki,nM,500
+369327,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN(C(=O)N[C@@H](C)c2ccc(F)cc2)C(C)(C)C1 |r|,Ki,nM,500
+369331,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(C)cc12)c1cccc(Cl)c1 |r|,Ki,nM,500
+369332,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(C)cc12)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369333,COc1cc(ccc1Cl)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1 |r|,Ki,nM,500
+369334,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN(C(=O)N[C@@H](C)c2cccc(Cl)c2)C(C)(C)C1 |r|,Ki,nM,500
+369335,CCCc1ccc(cc1)S(=O)(=O)NC1CCC(=CC1)c1ncnc2[nH]c(C)cc12 |c:17|,Ki,nM,500
+369338,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)C1=CCC(CC1)NS(=O)(=O)c1ccc(OC(F)(F)F)cc1 |t:20|,Ki,nM,500
+369343,Cc1nn(C)cc1-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(C)cc1,Ki,nM,500
+369344,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(C)cc1,Ki,nM,500
+369348,Cc1nc(C)c(s1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(OC(F)(F)F)cc1,Ki,nM,500
+369349,CCc1ccc(s1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369350,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(Cl)cc1,Ki,nM,500
+369351,Cc1nn(C)cc1-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(Cl)cc1,Ki,nM,500
+369352,Cc1nn(C)cc1-c1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(OC(F)(F)F)cc1,Ki,nM,500
+369353,FC(F)(F)Oc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)C1=CCCC1 |t:34|,Ki,nM,500
+369355,CC1CN(CCC1NS(=O)(=O)c1ccc(C)cc1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369359,CCc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cnn(C)c1,Ki,nM,500
+369362,CC(C)(NC(=O)N1CCC(=CC1)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1ccccc1 |c:9|,Ki,nM,500
+369363,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(CC1(C)C)c1ncnc2cc(sc12)N1CCC(F)(F)CC1 |r|,Ki,nM,500
+369364,CCOC(=O)N1CCN(CC1)c1cc2ncnc(N3CCN(C(=O)N[C@@H](C)c4cccc(OC)c4)C(C)(C)C3)c2s1 |r|,Ki,nM,500
+369367,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(C)cc12)c1cccc(F)c1 |r|,Ki,nM,500
+369371,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(F)c1 |r|,Ki,nM,500
+369372,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(Cl)c1 |r|,Ki,nM,500
+369373,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1ccc(F)cc1 |r|,Ki,nM,500
+369374,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369375,COc1cccc(c1)[C@H](C)NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N |r|,Ki,nM,500
+369376,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(F)c1 |r|,Ki,nM,500
+369377,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(Cl)c1 |r|,Ki,nM,500
+369378,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN([C@H](C)C1)C(=O)N[C@@H](C)c1ccc(F)cc1 |r|,Ki,nM,500
+369379,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1ccc(F)cc1 |r|,Ki,nM,500
+369380,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(Cl)c1 |r|,Ki,nM,500
+369381,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369382,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1cccc(OC(F)F)c1 |r|,Ki,nM,500
+369383,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369384,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1cccc(Cl)c1 |r|,Ki,nM,500
+369385,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(cc1)C#N)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369386,CC(NC(=O)N1CCN(CC1)c1ncnc2cc(sc12)-c1ccc(F)cc1)c1ccc(C)s1,Ki,nM,500
+369387,C[C@@H](NC(=O)N1CC2CCC1CN2c1ncnc2cc(sc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369388,Fc1ccc(cc1)-c1cc2ncnc(N3CCN(CC3)C(=O)NCc3cccs3)c2s1,Ki,nM,500
+369389,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN(C(=O)N[C@@H](C)c2ccc(Cl)cc2)C(C)(C)C1 |r|,Ki,nM,500
+369390,COc1cc(ccn1)-c1cc2c(ncnc2[nH]1)N1CCN([C@H](C)C1)C(=O)N[C@@H](C)c1cccc(Cl)c1 |r|,Ki,nM,500
+369391,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(C)cc1 |r|,Ki,nM,500
+369392,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(C)cc1 |r|,Ki,nM,500
+369394,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369395,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369396,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369397,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369398,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1ccc(F)cc1)c1ccc(C)cc1 |r|,Ki,nM,500
+369399,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(F)cc1 |r|,Ki,nM,500
+369400,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369401,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369402,C[C@H](NC(=O)N1CCN(CC1(C)C)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(Cl)cc1 |r|,Ki,nM,500
+369403,C[C@H](NC(=O)N1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C)c1ccc(F)cc1 |r|,Ki,nM,500
+369404,C[C@H](NC(=O)N1CCN(C[C@H]1C)c1ncnc2[nH]c(cc12)-c1cnn(C)c1)c1ccc(F)cc1 |r|,Ki,nM,500
+369405,CCc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1cn(C)nc1C,Ki,nM,500
+369406,CCc1ccc(cc1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(cc12)-c1ccnc(OC)c1,Ki,nM,500
+369407,Cc1cc2c(ncnc2[nH]1)N1CCC(CC1)NS(=O)(=O)c1ccc(Cl)cc1,Ki,nM,500
+369408,Cc1cc2c(ncnc2[nH]1)C1=CCC(CC1)NS(=O)(=O)c1ccc(Cl)cc1 |t:12|,Ki,nM,500
+369409,CCc1ccc(s1)S(=O)(=O)NC1CCN(CC1)c1ncnc2[nH]c(C)cc12,Ki,nM,500
+447508,COc1ccc(COc2ccc(Nc3ccc4ncc(OC)nc4c3C#N)cc2OC)cc1,Ki,nM,275
+447509,COc1cnc2ccc(Nc3ccc(NCc4ccc(cc4)C(F)(F)F)nc3)c(C#N)c2n1,Ki,nM,>500
+447511,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N(C)C)cc2OC)cc1,Ki,nM,27.5
+447513,CNc1cnc2ccc(Nc3ccc(OCc4ccc(OC)cc4)c(OC)c3)c(C#N)c2n1,Ki,nM,27.5
+447514,COc1ccc(COc2ccc(Nc3ccc4ncc(OCCN(C)C)nc4c3C#N)cc2OC)cc1,Ki,nM,>500
+447515,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1,Ki,nM,27.5
+447516,COc1ccc(COc2ccc(Nc3ccc4ncc(NC(C)C)nc4c3C#N)cc2OC)cc1,Ki,nM,27.5
+447518,CCOc1ccc(COc2ccc(Nc3ccc4ncc(OC)nc4c3C#N)cc2OC)cc1,Ki,nM,27.5
+447520,CNc1cnc2ccc(Nc3ccc(OCc4ccc(OC)cc4)c(OC)c3)cc2n1,Ki,nM,27.5
+447522,COc1ccc(COc2ccc(Oc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1,Ki,nM,275
+447529,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(C)CC3)cc2OC)cc1,Ki,nM,27.5
+447530,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(OC(F)(F)F)cc1,Ki,nM,27.5
+447531,CCc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1,Ki,nM,27.5
+447532,CCOc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1,Ki,nM,27.5
+447533,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCC1CC1,Ki,nM,275
+447535,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2)cc1,Ki,nM,27.5
+447536,COc1ccc(CNc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1,Ki,nM,275
+447538,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cccnc1,Ki,nM,27.5
+447539,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc2OCCc2c1,Ki,nM,27.5
+447540,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccncc1,Ki,nM,275
+447541,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1nccn1C,Ki,nM,>500
+447542,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(Cl)cc1,Ki,nM,27.5
+447543,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,275
+447544,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnccn1,Ki,nM,27.5
+447545,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cn2)cc1,Ki,nM,275
+447546,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)c(F)c2)cc1,Ki,nM,>500
+447547,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447548,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cncn1C,Ki,nM,>500
+447549,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2F)cc1,Ki,nM,275
+447550,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccccn1,Ki,nM,>500
+447551,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1OC,Ki,nM,27.5
+447552,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCNCC3)cc2OC)cn1,Ki,nM,275
+447553,COc1ccc(COc2ccc(cc2OC)N(C)c2ccc3ncc(nc3c2C#N)N2CCOCC2)cc1,Ki,nM,>500
+447554,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cc(C)on1,Ki,nM,27.5
+447555,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCCC3)cc2OC)cc1,Ki,nM,27.5
+447567,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(cc1)C#N,Ki,nM,27.5
+447569,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cccc(c1)C#N,Ki,nM,275
+447570,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CCO)CC3)cc2OC)cc1,Ki,nM,27.5
+447571,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCNCC2)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447572,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC(CC3)OC(C)=O)cc2OC)cc1,Ki,nM,27.5
+447575,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC(COC(C)=O)CC3)cc2OC)cc1,Ki,nM,27.5
+447582,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CC3)C(C)=O)cc2OC)cc1,Ki,nM,27.5
+447583,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(nc1)C(F)(F)F,Ki,nM,27.5
+447585,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CCOC(C)=O)CC3)cc2OC)cn1,Ki,nM,27.5
+447586,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CCO)CC3)cc2OC)cn1,Ki,nM,275
+447587,COc1ccc(COc2ccc(Nc3ccc4ncc(NCCN5CCOCC5)nc4c3C#N)cc2OC)cc1,Ki,nM,>500
+447588,COc1ccc(COc2ccc(Nc3ccc4ncc(NC5CCN(Cc6ccccc6)CC5)nc4c3C#N)cc2OC)cc1,Ki,nM,>500
+447589,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCN(C)CC2)ccc1OCc1cccc(c1)C#N,Ki,nM,275
+447590,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCCC3)cc2OC)cn1,Ki,nM,27.5
+447591,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CC3)C(C)C)cc2OC)cc1,Ki,nM,27.5
+447593,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc2OCOc2c1,Ki,nM,>500
+447594,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC(CC3)N(C)C)cc2OC)cn1,Ki,nM,275
+447595,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC3)cc2OC)cc1,Ki,nM,27.5
+447596,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCC(CC2)N(C)C)ccc1OCc1cccc(c1)C#N,Ki,nM,27.5
+447597,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC(CC3)N(C)C)cc2OC)cc1F,Ki,nM,27.5
+447598,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC3)cc2OC)cn1,Ki,nM,275
+447599,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCC2)ccc1OCc1cccc(c1)C#N,Ki,nM,275
+447600,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccccc1,Ki,nM,27.5
+447603,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCC(CC2)N(C)C)ccc1OCc1cccc(F)c1,Ki,nM,27.5
+447604,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCNCC3)cc2OC)cc1,Ki,nM,27.5
+447606,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cccc(F)c1,Ki,nM,275
+447608,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCC#C,Ki,nM,275
+447609,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1F,Ki,nM,27.5
+447611,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)c(F)c1,Ki,nM,27.5
+447612,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(C)CC3)cc2OC)cn1,Ki,nM,275
+447613,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cc1C#N,Ki,nM,275
+447614,COCCN1CCN(CC1)c1cnc2ccc(Nc3ccc(OCc4ccc(OC)nc4)c(OC)c3)c(C#N)c2n1,Ki,nM,275
+447615,CCCc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,27.5
+447617,COCCN1CCN(CC1)c1cnc2ccc(Nc3ccc(OCc4ccc(C)nc4)c(OC)c3)c(C#N)c2n1,Ki,nM,275
+447618,CCc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,27.5
+447619,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCC(CC3)N3CCOCC3)cc2OC)cn1,Ki,nM,275
+447620,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(nc1)C(C)C,Ki,nM,27.5
+447621,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(nc1)N(C)C,Ki,nM,27.5
+447622,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnn(C)c1,Ki,nM,27.5
+447623,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3)C(C)=C)cc2OC)cc1,Ki,nM,>500
+447624,COCc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,275
+447627,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(CF)nc1,Ki,nM,275
+447628,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(nc1)C(F)F,Ki,nM,275
+447629,CCOc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,27.5
+447630,COc1cc(Nc2ccc3ncc(nc3c2C#N)C2=CCOCC2)ccc1OCc1ccc(C)nc1 |t:20|,Ki,nM,27.5
+447631,COc1cc(Nc2ccc3ncc(nc3c2C#N)C2CCOCC2)ccc1OCc1ccc(C)nc1,Ki,nM,>500
+447632,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(CN(C)C)nc1,Ki,nM,>500
+447633,CCn1cc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)cn1,Ki,nM,275
+447635,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnn(c1)C(C)C,Ki,nM,>500
+447636,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCN(CC3)C3CC3)cc2OC)cn1,Ki,nM,275
+447641,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(nc1)C1CC1,Ki,nM,27.5
+447642,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccoc1,Ki,nM,275
+447643,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccco1,Ki,nM,27.5
+447644,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCC1CCCO1,Ki,nM,>500
+447645,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccc(C)s1,Ki,nM,27.5
+447646,COCc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)nc1,Ki,nM,27.5
+447647,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1ccsc1,Ki,nM,27.5
+447648,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cccs1,Ki,nM,27.5
+447649,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnc(C)nc1,Ki,nM,>500
+447650,COc1cc(ccc1OCc1ccc(C)nc1)N(C)c1ccc2ncc(nc2c1C#N)N1CCOCC1,Ki,nM,>500
+447651,COc1cc(ccc1OCc1ccc(nc1)C1CC1)N(C)c1ccc2ncc(nc2c1C#N)N1CCOCC1,Ki,nM,27.5
+447652,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnn(CCF)c1,Ki,nM,>500
+447653,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N3CCOCC3)cc2OC)nc1,Ki,nM,>500
+447654,COc1cc(Nc2ccc3ncc(nc3c2C#N)N(C)C)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447656,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnn(c1)C1CC1,Ki,nM,27.5
+447657,COc1cc(Nc2ccc3ncc(nc3c2C(N)=O)N2CCOCC2)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447665,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CC(C2)N(C)C)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447666,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N(C)C)cc2OC)cn1,Ki,nM,27.5
+447667,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CC(C)(C2)OC)ccc1OCc1ccc(C)nc1,Ki,nM,27.5
+447668,COc1ccc(COc2ccc(Nc3ccc4ncc(nc4c3C#N)N(C)C)cc2OC)cc1C#N,Ki,nM,275
+447673,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCc1cnn(CC2CC2)c1,Ki,nM,27.5
+447674,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)cnc1OCc1ccc(C)nc1,Ki,nM,>500
+447678,COc1cc(Nc2ccc3ncc(nc3c2C#N)N2C[C@H](C)O[C@H](C)C2)ccc1OCc1ccc(C)nc1 |r|,Ki,nM,275
+447680,"COc1cc(Nc2ccc3ncc(nc3c2C#N)N2CCOCC2)ccc1OCC1=C[N](O)=C(C)C=C1 |c:39,t:33,36|",Ki,nM,275
+481104,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cccnc3)c2)CC1 |c:39,t:37|",Ki,nM,6.80
+481105,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ccccn3)c2)CC1 |c:39,t:37|",Ki,nM,6.70
+481106,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ccnc(C)c3)c2)CC1 |c:39,t:37|",Ki,nM,7.70
+481107,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ccn[nH]3)c2)CC1 |c:39,t:37|",Ki,nM,7.20
+481108,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3[nH]ncc3C)c2)CC1 |c:39,t:37|",Ki,nM,7.40
+481109,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cc(C)n[nH]3)c2)CC1 |c:39,t:37|",Ki,nM,7.50
+481110,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cc(n[nH]3)C(O)=O)c2)CC1 |c:39,t:37|",Ki,nM,32.4
+481111,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cc(n[nH]3)C(N)=O)c2)CC1 |c:39,t:37|",Ki,nM,8.90
+481112,"CNC(=O)c1cc(NC(=O)C2=NN=C(C2)c2cncc(c2)-c2ccnc(Nc3cc(NC(=O)c4ccc(CN5CCN(C)CC5)cc4)ccc3C)n2)[nH]n1 |c:12,t:10|",Ki,nM,11.6
+481113,"CN(C)C(=O)c1cc(NC(=O)C2=NN=C(C2)c2cncc(c2)-c2ccnc(Nc3cc(NC(=O)c4ccc(CN5CCN(C)CC5)cc4)ccc3C)n2)[nH]n1 |c:13,t:11|",Ki,nM,5.70
+481114,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cn[nH]c3)c2)CC1 |c:39,t:37|",Ki,nM,8.40
+481115,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cn[nH]c3C)c2)CC1 |c:39,t:37|",Ki,nM,4.00
+481116,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ncco3)c2)CC1 |c:39,t:37|",Ki,nM,19.3
+481117,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3nc(C)co3)c2)CC1 |c:39,t:37|",Ki,nM,31.1
+481118,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3nc(co3)C(N)=O)c2)CC1 |c:39,t:37|",Ki,nM,47.1
+481119,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cc(C)no3)c2)CC1 |c:39,t:37|",Ki,nM,12.2
+481120,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)c3nccn3)c2)CC1 |c:39,t:37|",Ki,nM,18.9
+481121,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)N3CCCC3)c2)CC1 |c:39,t:37|",Ki,nM,9.20
+481122,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ccccc3)c2)CC1 |c:39,t:37|",Ki,nM,14.0
+481123,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3cccc(C)c3)c2)CC1 |c:39,t:37|",Ki,nM,12.4
+481124,"CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)C3=NN=C(C3)C(=O)Nc3ccc(C)cc3)c2)CC1 |c:39,t:37|",Ki,nM,11.1
+481125,"COc1cccc(NC(=O)C2=NN=C(C2)c2cncc(c2)-c2ccnc(Nc3cc(NC(=O)c4ccc(CN5CCN(C)CC5)cc4)ccc3C)n2)c1 |c:12,t:10|",Ki,nM,5.80
+481126,"COc1ccc(NC(=O)C2=NN=C(C2)c2cncc(c2)-c2ccnc(Nc3cc(NC(=O)c4ccc(CN5CCN(C)CC5)cc4)ccc3C)n2)cc1 |c:11,t:9|",Ki,nM,5.90
+481127,Cc1cc(on1)-c1cncc(c1)-c1ccnc(Nc2cc(NC(=O)c3ccc(CN4CCNCC4)cc3)ccc2C)n1,Ki,nM,13.0
+481128,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3oncc3C)c2)CC1,Ki,nM,7.80
+481129,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3ccc(C)cn3)c2)CC1,Ki,nM,10.00
+481130,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3cc(C)ccn3)c2)CC1,Ki,nM,6.00
+481131,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3ccn(C)n3)c2)CC1,Ki,nM,4.00
+481132,Cc1ccc(NC(=O)c2ccc(CN3CCNCC3)cc2)cc1Nc1nccc(n1)-c1cncc(c1)-c1ccccn1,Ki,nM,12.0
+481133,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nnco3)c2)CC1,Ki,nM,27.0
+481134,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nnc(C)o3)c2)CC1,Ki,nM,44.0
+481135,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3ccns3)c2)CC1,Ki,nM,11.0
+481136,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3sncc3C)c2)CC1,Ki,nM,13.0
+481137,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3cc(C)ns3)c2)CC1,Ki,nM,9.70
+481138,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3cnsc3)c2)CC1,Ki,nM,4.30
+481140,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3snnc3C)c2)CC1,Ki,nM,39.0
+481141,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nncs3)c2)CC1,Ki,nM,15.0
+481142,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nnc(C)s3)c2)CC1,Ki,nM,16.0
+481143,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nccs3)c2)CC1,Ki,nM,4.90
+481144,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3ncc(C)s3)c2)CC1,Ki,nM,6.20
+481145,CN1CCN(Cc2ccc(cc2)C(=O)Nc2ccc(C)c(Nc3nccc(n3)-c3cncc(c3)-c3nc(C)cs3)c2)CC1,Ki,nM,5.70
+50020310,CN1CCN(CCC(=O)Nc2c(C)[nH]c(\C=C3/C(=O)Nc4ccc(F)cc34)c2C)CC1,Ki,nM,200
+50237710,Cc1cn(cn1)-c1cc(NC(=O)c2ccc(C)c(Nc3nccc(n3)-c3cccnc3)c2)cc(c1)C(F)(F)F,Ki,nM,2
+50300196,Oc1ccc(cc1)C1c2c[nH]c3nccc(-c4ccccc4NC1=O)c23,Ki,nM,1.9E2
+50341519,CNc1cncc(n1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCC[C@H]2CN2CCCC2)c1 |r|,Ki,nM,200
+50341520,O=C(Nc1cc(c[nH]c1=O)-c1ccncc1)c1ccc(cc1)N1CCCCC1,Ki,nM,12
+50341521,CNc1cc(ccn1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,12
+50341522,CNc1cc(ncn1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,83
+50341523,CNc1cccc(c1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,81
+50341524,CNc1cccc(n1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,148
+50341525,CNc1cncc(n1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,155
+50341526,CNc1cncc(c1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,270
+50341528,CNc1cc(F)cc(c1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCC[C@H]2CN2CCCC2)c1 |r|,Ki,nM,400
+50341529,CNc1cc(cc(c1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCC[C@H]2CN2CCCC2)c1)C#N |r|,Ki,nM,400
+50341530,CNc1nccc(n1)-c1c[nH]c(=O)c(NC(=O)c2ccc(cc2)N2CCCCC2)c1,Ki,nM,<10
+50341540,CC(C)(C)c1ccc(cc1)C(=O)Nc1cc(c[nH]c1=O)-c1ccncc1,Ki,nM,27
+50341542,CN(C)c1ccc(cc1)C(=O)Nc1cc(c[nH]c1=O)-c1ccncc1,Ki,nM,46
+50355464,COc1ccc(Nc2nc(N)n(n2)-c2ccccn2)cc1OC,Ki,nM,9
+50355465,COc1ccccc1Nc1nc(N)n(n1)-c1ccccn1,Ki,nM,12
+50355467,COc1ccc(cc1Nc1nc(N)n(n1)-c1ccccn1)N1CCOCC1,Ki,nM,60
+50355468,Nc1nc(Nc2cc(ccc2F)N2CCOCC2)nn1-c1ccccn1,Ki,nM,37
+50355470,COc1cc(ccc1Nc1nc(N)n(n1)-c1ccc(cn1)C#N)N1CCOCC1,Ki,nM,205
+50355479,COc1ccccc1Nc1nc(N)n(n1)-c1cc(NCCN(C)C)ncn1,Ki,nM,270
+50355480,Nc1nc(Nc2ccc(cc2)N2CCOCC2)nn1-c1ccccn1,Ki,nM,18
+50355482,Nc1nc(Nc2ccc(cc2)C(=O)NCCN2CCOCC2)nn1-c1ccccn1,Ki,nM,38
+50355485,Nc1nc(Nc2ccc(cc2)C(=O)N2CCOCC2)nn1-c1ccccn1,Ki,nM,21
+50355486,Nc1nc(Nc2cccc(c2)C(=O)N2CCOCC2)nn1-c1ccccn1,Ki,nM,10
+50355487,CC(=O)Nc1ccc(Nc2nc(N)n(n2)-c2ccccn2)cc1,Ki,nM,240
+50355488,CC(=O)Nc1cccc(Nc2nc(N)n(n2)-c2ccccn2)c1,Ki,nM,180
+50381719,C[C@@H](O)Cn1cc(cn1)-c1cnc(N)c2c(csc12)-c1ccc(NC(=O)Nc2cccc(F)c2)cc1 |r|,Ki,nM,40
+50388875,C[C@@H](O)Cn1cc(cn1)-c1cnc(N)c2c(csc12)-c1ccc(NC(=O)Nc2cccc(C)c2)cc1 |r|,Ki,nM,10

@@ -1,0 +1,35 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+60665,COc1cc(Nc2ncc(F)c(Nc3ccc4OC(C)(C)C(=O)Nc4n3)n2)cc(OC)c1OC,Ki,nM,30
+350085,CNCc1ccc(cc1)-c1cc(on1)-c1nc(cnc1N)-c1ccc(cc1)S(=O)(=O)C(C)C,Ki,nM,190
+50221517,COCCOc1cc2ncc(C#N)c(N[C@@H]3C[C@H]3c3ccccc3)c2cc1OC,Ki,nM,160
+50221518,COc1cc2ncc(C#N)c(N[C@@H]3C[C@H]3c3ccccc3)c2cc1OC,Ki,nM,250
+50221522,NCc1ccc(cc1)-c1ccc2ncc(C#N)c(N[C@@H]3C[C@H]3c3ccccc3)c2c1,Ki,nM,450
+50221524,COc1cc2c(N[C@@H]3C[C@H]3c3ccccc3)c(cnc2cc1OCCCc1cccnc1)C#N,Ki,nM,140
+50221529,N#Cc1cnc2cc(ccc2c1N[C@@H]1C[C@H]1c1ccccc1)-c1ccc(CN2CCOCC2)cc1,Ki,nM,300
+50221531,COc1cc2c(N[C@@H]3C[C@H]3c3ccccc3)c(cnc2cc1OCCCN1CCN(C)CC1)C#N,Ki,nM,41
+50249090,Oc1cccc(Nc2ncc(F)c(Nc3cccc(O)c3)n2)c1,Ki,nM,96
+50249226,N(c1cccc(Oc2ccccc2)c1)c1nccc(n1)-c1nccs1,Ki,nM,630
+50249284,Cc1nc(sc1CCO)-c1ccnc(Nc2cc(C)cc(c2)C(F)(F)F)n1,Ki,nM,22
+50249286,OCCCOc1cc(Nc2nccc(n2)-c2nccs2)cc(c1)C(F)(F)F,Ki,nM,26
+50249318,Cc1nc(sc1CCO)-c1ccnc(Nc2cc(C)cc(C)c2)n1,Ki,nM,32
+50249356,Cc1csc(n1)-c1ccnc(Nc2cc(C)cc(C)c2)n1,Ki,nM,56
+50249416,Cc1cc(Nc2nccc(n2)-c2nccs2)cc(c1)C(F)(F)F,Ki,nM,110
+50249540,C[C@H](CO)NC(=O)c1sc(nc1C)-c1ccnc(Nc2cc(C)cc(C)c2)n1 |r|,Ki,nM,210
+50275355,COc1cc(Nc2nccc(n2)-c2nc(CO)cs2)cc(c1)C(F)(F)F,Ki,nM,33
+50275356,OCc1csc(n1)-c1ccnc(Nc2cc(O)cc(c2)C(F)(F)F)n1,Ki,nM,50
+50275357,COc1cc(Nc2nccc(n2)-c2ncc(C)s2)cc(c1)C(F)(F)F,Ki,nM,23
+50275358,Cc1cc(Nc2nccc(n2)-c2nc(CO)cs2)cc(c1)C(F)(F)F,Ki,nM,10
+50275934,Cc1cc(C)cc(Nc2nccc(n2)-c2ncc(CO)s2)c1,Ki,nM,4
+50275935,C[C@@H](CO)NC(=O)c1sc(nc1C)-c1ccnc(Nc2cc(C)cc(C)c2)n1 |r|,Ki,nM,9
+50276015,Cc1cc(C)cc(Nc2nccc(n2)-c2nccs2)c1,Ki,nM,8
+50276016,COc1cc(Nc2nccc(n2)-c2nccs2)cc(c1)C(F)(F)F,Ki,nM,28
+50276017,Oc1cc(Nc2nccc(n2)-c2nccs2)cc(c1)C(F)(F)F,Ki,nM,44
+50276018,COc1cc(Nc2nccc(n2)-c2nccs2)cc(OC)c1,Ki,nM,14
+50276063,Cc1cccc(Nc2nccc(n2)-c2nccs2)c1,Ki,nM,82
+50276064,Cc1cnc(s1)-c1ccnc(Nc2cc(C)cc(C)c2)n1,Ki,nM,23
+50276065,Cc1cc(C)cc(Nc2nccc(n2)-c2nc(CO)cs2)c1,Ki,nM,10
+50290422,CN1CCN(Cc2ccc(cc2)C(=O)Nc2cccc(Nc3nccc(n3)-c3cccnc3)c2)CC1,Ki,nM,160
+50313050,COc1ccc(cc1)-c1[nH][nH]c(=O)c1N=Nc1cccc(OC)c1 |w:14.15|,Ki,nM,690
+50325991,COc1ccc(cc1OC)-c1cc2nccn2c(Nc2ncccc2C(N)=O)n1,Ki,nM,7.5
+50396071,CNC(=O)COc1cccc(Nc2ncc(F)c(Nc3ccc4OC(F)(F)C(=O)Nc4c3)n2)c1,Ki,nM,1.8
+50396074,COc1ccc(cc1OC)-c1cc2nccn2c(Nc2ccc3cn[nH]c3c2)n1,Ki,nM,10

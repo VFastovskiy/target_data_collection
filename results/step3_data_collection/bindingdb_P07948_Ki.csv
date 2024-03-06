@@ -1,0 +1,9 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+1773,Nc1ncnc2n(nc(-c3ccc(Oc4ccccc4)cc3)c12)C1CCCN(C1)C(=O)C=C,Ki,nM,14
+50089575,Nc1ncnc2n(CC(Cl)c3ccccc3)nc(-c3ccc(Cl)cc3)c12,Ki,nM,190
+50198782,Cc1cc(cc2nnc(Nc3ccc(OCCN4CCCC4)cc3)nc12)-c1c(Cl)cccc1Cl,Ki,nM,25.9
+50206819,Cc1cc(Nc2cc(C)c(C#N)c(NCCOc3ccc(C)nc3)n2)n[nH]1,Ki,nM,490
+50355491,"Nc1nc(Nc2ccc(cc2)[C@H]2CC[C@@H](CC2)N2CCOCC2)nn1-c1ccccn1 |r,wU:11.11,wD:14.18,(-9.05,.18,;-7.58,.64,;-7.09,2.1,;-5.55,2.08,;-4.8,3.43,;-3.26,3.44,;-2.48,2.12,;-.94,2.14,;-.18,3.48,;-.98,4.81,;-2.52,4.79,;1.35,3.5,;2.1,4.85,;3.65,4.86,;4.44,3.53,;3.68,2.19,;2.14,2.18,;5.97,3.55,;6.75,2.22,;8.29,2.23,;9.05,3.57,;8.27,4.9,;6.73,4.89,;-5.09,.62,;-6.35,-.28,;-6.36,-1.81,;-5.04,-2.59,;-5.05,-4.13,;-6.39,-4.89,;-7.72,-4.11,;-7.71,-2.57,)|",Ki,nM,400
+50376901,Cc1cc(cc2nnc(Nc3ccc(OCC[N+]4([O-])CCCC4)cc3)nc12)-c1c(Cl)cccc1Cl,Ki,nM,4.19
+50396071,CNC(=O)COc1cccc(Nc2ncc(F)c(Nc3ccc4OC(F)(F)C(=O)Nc4c3)n2)c1,Ki,nM,30
+50515526,Nc1ncnc2n(CC(Cl)c3ccccc3)nc(-c3ccc(CO)cc3)c12,Ki,nM,190

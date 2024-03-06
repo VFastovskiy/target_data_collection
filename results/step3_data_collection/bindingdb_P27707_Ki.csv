@@ -1,0 +1,16 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+50031337,COc1ccc(cc1OCCNS(C)(=O)=O)-c1nc([C@@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,Ki,nM,9.2
+50031338,COc1ccc(cc1OCCNS(C)(=O)=O)-c1nc([C@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,Ki,nM,585
+50031339,CCOc1cc(ccc1OCCOCCOCCOC)-c1nc([C@@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,Ki,nM,14
+50031349,COc1ccc(cc1OCCF)-c1nc(C(C)Sc2nc(N)cc(N)n2)c(C)s1,Ki,nM,6.8
+50031350,CCCc1sc(nc1C(C)Sc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCF)c1,Ki,nM,17
+50031351,CCCc1sc(nc1CSc1cc(N)nc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,Ki,nM,735
+50031352,CCCc1sc(nc1CSc1nccc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,Ki,nM,1.8
+50440140,COc1ccc(cc1OCCF)-c1nc(CSc2nc(N)cc(N)n2)c(C)s1,Ki,nM,9.5
+50440151,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCF)c1,Ki,nM,1.5
+50440172,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCNS(C)(=O)=O)c1,Ki,nM,0.500000
+50440173,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,Ki,nM,0.800000
+50440176,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCO)c1,Ki,nM,0.500000
+50440178,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(O)c1,Ki,nM,8.9
+50440179,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OCCO)c(OCCO)c1,Ki,nM,2.0
+50440181,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(OCCNS(C)(=O)=O)c1,Ki,nM,1.9

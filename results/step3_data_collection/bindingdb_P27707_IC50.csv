@@ -1,0 +1,93 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+50031337,COc1ccc(cc1OCCNS(C)(=O)=O)-c1nc([C@@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,IC50,nM,3.7
+50031338,COc1ccc(cc1OCCNS(C)(=O)=O)-c1nc([C@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,IC50,nM,94
+50031339,CCOc1cc(ccc1OCCOCCOCCOC)-c1nc([C@@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,IC50,nM,1.3
+50031340,CCOc1cc(ccc1OCCOCCOCCOC)-c1nc([C@H](C)Sc2nc(N)cc(N)n2)c(C)s1 |r|,IC50,nM,430
+50031349,COc1ccc(cc1OCCF)-c1nc(C(C)Sc2nc(N)cc(N)n2)c(C)s1,IC50,nM,7.0
+50031350,CCCc1sc(nc1C(C)Sc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCF)c1,IC50,nM,10.0
+50031351,CCCc1sc(nc1CSc1cc(N)nc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,IC50,nM,395
+50031352,CCCc1sc(nc1CSc1nccc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,IC50,nM,11
+50311539,O=C(CN1CCN(CC1)c1cc(ncn1)-c1cc2ccccc2s1)N1CCCC1,IC50,nM,510
+50311541,Nc1nc(Oc2cc(ncn2)-c2cc3ccccc3s2)ncc1F,IC50,nM,720
+50311542,Nc1nc(OC2CCN(CC2)c2cc(ncn2)-c2cc3ccccc3s2)ncc1F,IC50,nM,38
+50311543,Nc1nc(OCC2CCN(CC2)c2cc(ncn2)-c2cc3ccccc3s2)ncc1F,IC50,nM,34
+50311544,Nc1nc(OCCC2CCN(CC2)c2cc(ncn2)-c2cc3ccccc3s2)ncc1F,IC50,nM,3
+50311545,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccccc3)ncn2)ncc1F,IC50,nM,95
+50311546,COc1ccc(Oc2cc(ncn2)N2CCC(CC2)Oc2ncc(F)c(N)n2)cc1,IC50,nM,33
+50311547,COc1cccc(Oc2cc(ncn2)N2CCC(CC2)Oc2ncc(F)c(N)n2)c1,IC50,nM,23
+50311548,COc1ccccc1Oc1cc(ncn1)N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,5
+50311549,Cc1ccc(Oc2cc(ncn2)N2CCC(CC2)Oc2ncc(F)c(N)n2)cc1,IC50,nM,21
+50311550,Cc1ccccc1Oc1cc(ncn1)N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,9
+50311551,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccccc3-c3ccccc3)ncn2)ncc1F,IC50,nM,3
+50311552,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccc(Cl)cc3)ncn2)ncc1F,IC50,nM,19
+50311553,Nc1nc(OC2CCN(CC2)c2cc(Oc3cccc(Cl)c3)ncn2)ncc1F,IC50,nM,22
+50311554,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccccc3Cl)ncn2)ncc1F,IC50,nM,3
+50311555,CCc1ccccc1Oc1cc(ncn1)N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,10
+50311556,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccccc3C#N)ncn2)ncc1F,IC50,nM,3
+50311557,Nc1nc(OC2CCN(CC2)c2cc(Oc3cccc(c3)C#N)ncn2)ncc1F,IC50,nM,13
+50311558,Nc1nc(OC2CCN(CC2)c2cc(Oc3ccccc3F)ncn2)ncc1F,IC50,nM,6
+50311559,Cc1cc(Cl)ccc1Oc1cc(ncn1)N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,9
+50311560,COc1ccc(Oc2cc(ncn2)N2CCC(CC2)Oc2ncc(F)c(N)n2)c(c1)C#N,IC50,nM,3
+50311561,Cc1c(Oc2ccccc2C#N)ncnc1N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,21
+50311562,Cc1nc(Oc2ccccc2C#N)cc(n1)N1CCC(CC1)Oc1ncc(F)c(N)n1,IC50,nM,10
+50311563,Nc1nc(OC2CCN(CC2)c2ncnc(Oc3ccccc3C#N)c2Br)ncc1F,IC50,nM,5
+50311564,Nc1nc(OC2CCN(CC2)c2ncnc(Oc3ccccc3C#N)c2F)ncc1F,IC50,nM,1
+50311565,COc1ccc(Oc2ncnc(N3CCC(CC3)Oc3ncc(F)c(N)n3)c2F)cc1,IC50,nM,4
+50311566,Nc1nc(OC2CCN(CC2)c2ncnc(Oc3cccc(c3)C#N)c2F)ncc1F,IC50,nM,4
+50311567,Nc1nc(OC2CCN(CC2)c2ncnc(Oc3ccc(cc3)C#N)c2F)ncc1F,IC50,nM,5
+50311568,COc1ccc(cc1Oc1ncnc(N2CCC(CC2)Oc2ncc(F)c(N)n2)c1F)C#N,IC50,nM,1
+50311569,COc1ccc(Oc2ncnc(N3CCC(CC3)Oc3ncc(F)c(N)n3)c2F)c(c1)C#N,IC50,nM,2
+50311570,Nc1ccnc(OC2CCN(CC2)c2ncnc(Oc3ccccc3C#N)c2F)n1,IC50,nM,0.7
+50311571,Nc1ccn(OC2CCN(CC2)c2ncnc(Oc3ccccc3C#N)c2F)c(=O)n1,IC50,nM,63
+50311590,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1ccc(cc1)-c1ccccc1 |r|,IC50,nM,350
+50311592,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1ccccc1 |r|,IC50,nM,120
+50311593,Cc1ccc(cc1)-c1cccc(c1)S(=O)(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,110
+50311594,COc1ccc(cc1)-c1cccc(c1)S(=O)(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,64
+50311595,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1ccc(cc1)C#N |r|,IC50,nM,49
+50311596,CS(=O)(=O)c1ccc(cc1)-c1cccc(c1)S(=O)(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,63
+50311597,NC(=O)c1ccc(cc1)-c1cccc(c1)S(=O)(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,89
+50311599,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1ccc(Cl)cc1 |r|,IC50,nM,51
+50311600,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1cccc(Cl)c1 |r|,IC50,nM,79
+50311601,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1ccccc1Cl |r|,IC50,nM,45
+50311602,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NS(=O)(=O)c1cccc(c1)-c1ccc(Cl)cc1Cl |r|,IC50,nM,21
+50311603,Cc1cc(Cl)ccc1-c1cccc(c1)S(=O)(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,21
+50311604,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NC(=O)c1cccc(c1)-c1ccccc1 |r|,IC50,nM,260
+50311605,COc1ccc(cc1)-c1cccc(c1)C(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,30
+50311606,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NC(=O)c1cccc(c1)-c1ccc(Cl)cc1 |r|,IC50,nM,42
+50311607,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NC(=O)c1cccc(c1)-c1cccc(Cl)c1 |r|,IC50,nM,23
+50311608,Cc1cc(Cl)ccc1-c1cccc(c1)C(=O)N[C@H]1CC[C@@H](C1)n1cc(F)c(N)nc1=O |r|,IC50,nM,21
+50311609,Nc1nc(=O)n(cc1F)[C@H]1CC[C@@H](C1)NC(=O)c1cc(ccn1)-c1cc2ccccc2s1 |r|,IC50,nM,1.7
+50440140,COc1ccc(cc1OCCF)-c1nc(CSc2nc(N)cc(N)n2)c(C)s1,IC50,nM,18
+50440143,COc1ccc(cc1OCCCF)-c1nc(CSc2nc(N)cc(N)n2)cs1,IC50,nM,197
+50440145,CCOc1ccc(cc1OCCF)-c1nc(CSc2nc(N)cc(N)n2)cs1,IC50,nM,251
+50440146,COc1ccc(cc1OCCF)-c1nc(CSc2nc(N)cc(N)n2)cs1,IC50,nM,230
+50440147,COc1cc(ccc1OCCF)-c1nc(CSc2nc(N)cc(N)n2)cs1,IC50,nM,421
+50440148,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(F)c1,IC50,nM,31
+50440149,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(F)cc1,IC50,nM,37
+50440150,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cc(F)cc(F)c1,IC50,nM,173
+50440151,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCF)c1,IC50,nM,3.0
+50440152,CCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(F)c1,IC50,nM,11
+50440153,CCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(F)cc1,IC50,nM,83
+50440154,CCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cc(F)cc(F)c1,IC50,nM,162
+50440155,CCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCF)c1,IC50,nM,7.0
+50440156,COc1ccc(OCCF)cc1-c1nc(CSc2nc(N)nc(N)n2)cs1,IC50,nM,849
+50440157,COc1ccc(cc1OCCCF)-c1nc(CSc2nc(N)nc(N)n2)cs1,IC50,nM,297
+50440159,CCOc1ccc(cc1OCCF)-c1nc(CSc2nc(N)nc(N)n2)cs1,IC50,nM,512
+50440160,COc1ccc(cc1OCCF)-c1nc(CSc2nc(N)nc(N)n2)cs1,IC50,nM,506
+50440161,COc1cc(ccc1OCCF)-c1nc(CSc2nc(N)nc(N)n2)cs1,IC50,nM,534
+50440162,Cc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(F)c1,IC50,nM,92
+50440163,Cc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(F)cc1,IC50,nM,230
+50440164,Cc1sc(nc1CSc1nc(N)cc(N)n1)-c1cc(F)cc(F)c1,IC50,nM,150
+50440172,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCNS(C)(=O)=O)c1,IC50,nM,4.9
+50440173,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCC(C)(C)O)c1,IC50,nM,1.4
+50440174,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCC(C)O)c1,IC50,nM,2.9
+50440175,CCCc1sc(nc1CSc1nccc(N)n1)-c1ccc(OC)c(OCCO)c1,IC50,nM,2.9
+50440176,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCO)c1,IC50,nM,1.2
+50440177,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(OCCCO)c1,IC50,nM,1.6
+50440178,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OC)c(O)c1,IC50,nM,19
+50440179,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(OCCO)c(OCCO)c1,IC50,nM,0.900000
+50440180,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cc(F)cc(OCCNS(C)(=O)=O)c1,IC50,nM,8.0
+50440181,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(OCCNS(C)(=O)=O)c1,IC50,nM,12
+50440182,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cc(F)cc(OCCO)c1,IC50,nM,2.8
+50440183,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1ccc(F)c(OCCO)c1,IC50,nM,1.1
+50440184,CCCc1sc(nc1CSc1nc(N)cc(N)n1)-c1cccc(OCCO)c1,IC50,nM,2.5

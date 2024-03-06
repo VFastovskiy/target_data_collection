@@ -1,0 +1,10 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+2579,CN[C@@H]1C[C@H]2O[C@@](C)([C@@H]1OC)n1c3ccccc3c3c4CNC(=O)c4c4c5ccccc5n2c4c13 |r|,IC50,nM,20
+93207,Cc1ccc(NC(=O)c2cccc(c2)C(F)(F)F)cc1-c1ccc2nc(Nc3ccc(OCCN)cc3)ncc2c1,IC50,nM,<10.0
+50299218,"COc1ccccc1-n1c(cn2c1nc1n(C)c(=O)[nH]c(=O)c21)-c1cc(O)ccc1C |(16.89,-42.99,;16.89,-41.45,;18.23,-40.68,;19.55,-41.45,;20.88,-40.68,;20.88,-39.14,;19.55,-38.38,;18.23,-39.15,;16.9,-38.38,;16.91,-36.84,;15.44,-36.35,;14.53,-37.6,;15.43,-38.85,;14.53,-40.09,;13.06,-39.61,;11.74,-40.37,;11.73,-41.91,;10.41,-39.61,;9.07,-40.38,;10.41,-38.07,;11.74,-37.29,;11.74,-35.75,;13.06,-38.07,;18.24,-36.06,;19.58,-36.83,;20.9,-36.05,;22.24,-36.81,;20.9,-34.51,;19.55,-33.75,;18.23,-34.53,;16.89,-33.77,)|",IC50,nM,40
+50345579,CNC(=O)c1ncc(C#Cc2cc(ccc2C)C(=O)Nc2ccc(CN3CCN(CCO)CC3)c(c2)C(F)(F)F)n1C,IC50,nM,1.2
+50430875,Oc1cccc(Nc2ccnc3cc(sc23)-c2cccc(CN3CCOCC3)c2)c1,IC50,nM,5.1
+50536675,FC(F)(F)CNC(=O)c1cc(cs1)-c1cnn2cc(cnc12)-c1ccc(OCCN2CCCCC2)cc1,IC50,nM,180
+50536678,Cn1cc(cn1)-c1cnc2c(cnn2c1)-c1csc(c1)C(=O)NCC(F)(F)F,IC50,nM,52
+50536679,Cn1cc(cn1)-c1cnc2c(cnn2c1)-c1csc(c1)C(=O)N[C@@H]1CCCC[C@@H]1N |r|,IC50,nM,22
+50563891,CC(C)(C)c1cc(NC(=O)Nc2ccc(Nc3ncnc4NCCCOc34)cc2)no1,IC50,nM,552

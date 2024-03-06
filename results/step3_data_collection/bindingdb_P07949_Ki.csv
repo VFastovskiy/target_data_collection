@@ -1,0 +1,4 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+50020310,CN1CCN(CCC(=O)Nc2c(C)[nH]c(\C=C3/C(=O)Nc4ccc(F)cc34)c2C)CC1,Ki,nM,18
+50198782,Cc1cc(cc2nnc(Nc3ccc(OCCN4CCCC4)cc3)nc12)-c1c(Cl)cccc1Cl,Ki,nM,407
+50331094,COc1cc2nccc(Oc3ccc(NC(=O)NC4CC4)c(Cl)c3)c2cc1C(N)=O,Ki,nM,1.5

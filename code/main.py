@@ -1,6 +1,8 @@
 from parsing import parsing
 from visualization import visualization
 from uniprot_mapper_request import uniprot_mapper
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 import pandas as pd
 import os
@@ -34,6 +36,38 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 
+def print_boxplot(column, name):
+
+    # Convert the column of strings to numeric values
+    data_to_plot = pd.to_numeric(column, errors='coerce')
+    print(data_to_plot)
+
+    # Create a horizontal box plot with seaborn for better styling
+    plt.figure(figsize=(8, 6))  # Adjust the figure size as needed
+    sns.boxplot(y=data_to_plot, orient='h', width=0.5, color='skyblue', fliersize=5)
+
+    plt.title(f'Horizontal Box Plot {name}')
+    plt.xlabel(name)
+
+    plt.savefig(f'../results/step3_data_collection/{name}_horizontal_boxplot.svg',
+                bbox_inches='tight')  # Save the figure with tight layout
+
+
+
+def print_histogram(column, name):
+    data_to_plot = pd.to_numeric(column, errors='coerce')
+
+    # Create a histogram or kernel density plot
+    plt.figure(figsize=(8, 6))
+    sns.distplot(data_to_plot, bins=30, kde=True, hist_kws={'edgecolor': 'black'})
+    plt.title(f'Distribution of {name}')
+    plt.xlabel(name)
+    plt.ylabel('Density')
+
+    plt.savefig(f'../results/step3_data_collection/{name}_histogram.svg',
+                bbox_inches='tight')  # Save the figure with tight layout
+
+
 
 
 
@@ -49,14 +83,16 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
         params["IC50cutoff"] = affinity_cutoff
     response = requests.get(api_url, params=params)
 
+    vals = {uniprot_id: {'IC50': [], 'Ki': []}}
 
     if response.status_code == 200:
 
-        xml_file_path = f'../results/step3_data_collection/bindingdb_xml_response_{uniprot_id}.xml'
-        with open(xml_file_path, 'w', encoding='utf-8') as xml_file:
-            xml_file.write(response.text)
+        #xml_file_path = f'../results/step3_data_collection/bindingdb_xml_response_{uniprot_id}.xml'
+        #with open(xml_file_path, 'w', encoding='utf-8') as xml_file:
+        #    xml_file.write(response.text)
 
         for filter in filters_list:
+            print(filter)
             data_rows = parse_bindingdb_response(response.text, filter)
 
             if data_rows:
@@ -68,31 +104,47 @@ def get_data_from_binding_db(uniprot_id, affinity_cutoff=None):
                 input_file_path = output_file_path
                 df = pd.read_csv(input_file_path)
 
-                # Filter rows where the last column contains '>' or '<'
-                filtered_df = df.loc[~df['Affinity_Value'].str.contains('[<>]')]
+                # Convert 'Affinity_Value' column to strings
+                # df['Affinity_Value'] = df['Affinity_Value'].astype(str)
+                # Convert 'Affinity_Value' column to strings
+                #df['Affinity_Value'] = df['Affinity_Value'].astype(str)
 
-                # If 'Ki' values are stored as strings, convert them to numeric for sorting
-                filtered_df['Affinity_Value'] = pd.to_numeric(filtered_df['Affinity_Value'], errors='coerce')
+                # Filter rows where the 'Affinity_Value' column does not start with '>' or '<'
+                #filtered_df = df.loc[~df['Affinity_Value'].str.match('[<>]')]
+
+                #df['Affinity_Value'] = df['Affinity_Value'].astype(float)
 
                 # Use .loc to avoid SettingWithCopyWarning
-                filtered_df = filtered_df.sort_values(by='Affinity_Value', ascending=False)
+                #filtered_df = filtered_df.sort_values(by='Affinity_Value', ascending=False)
+
+                #vals[uniprot_id][filter].append(filtered_df['Affinity_Value'].count())
+                vals[uniprot_id][filter] = int(df['Affinity_Value'].count())
 
                 # Save the filtered DataFrame to a new CSV file
                 output_file_path = f"../results/step3_data_collection/bindingdb_{uniprot_id}_{filter}_clean.csv"
-                filtered_df.to_csv(output_file_path, index=False)
+                df.to_csv(output_file_path, index=False)
+
+                #name = f'{uniprot_id}_{filter}'
+                #print_boxplot(filtered_df['Affinity_Value'], name)
+                #print_histogram(filtered_df['Affinity_Value'], name)
 
                 # Collect SMILES strings for a STD
-                input_file_path = output_file_path
-                smiles_column = filtered_df['SMILES']
+                #input_file_path = output_file_path
+                #smiles_column = filtered_df['SMILES']
 
                 # Save SMILES to a .smi file with each SMILES on a new line
-                with open(f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}_clean.smi", "w") as smi_file:
-                    for smiles in smiles_column:
-                        smi_file.write(f"{smiles}\n")
+                #with open(f"../results/step3_data_collection/ligands_data_bindingdb_{uniprot_id}_{filter}_clean.smi", "w") as smi_file:
+                #    for smiles in smiles_column:
+                #        smi_file.write(f"{smiles}\n")
+
             else:
                 print("No data to write.")
+        print(f'inside f\n')
+        print(vals)
+        return vals
     else:
         print(f"Error for UNIPROT ID {uniprot_id}: {response.status_code} - {response.text}")
+        return vals
 
 
 
@@ -113,6 +165,7 @@ def get_data_from_chembl(uniprot_id, affinity_cutoff=None):
     )
 
     targets_df = pd.DataFrame.from_records(targets)
+    print(targets_df)
 
     if not targets_df.empty:
         target = targets_df.iloc[0]
@@ -120,7 +173,7 @@ def get_data_from_chembl(uniprot_id, affinity_cutoff=None):
         print(f"ChEMBL ID: {chembl_id}")
 
         bioactivities = bioactivities_api.filter(
-            target_chembl_id=chembl_id, type__in=["IC50", "Ki"], relation="=", assay_type="B"
+            target_chembl_id=chembl_id, type="Ki", relation="=", assay_type="B"
         ).only(
             "activity_id",
             "assay_chembl_id",
@@ -138,6 +191,35 @@ def get_data_from_chembl(uniprot_id, affinity_cutoff=None):
 
         print(f"Length and type of first element: {len(bioactivities[0])}, {type(bioactivities[0])}")
         print(bioactivities[0])
+
+        bioactivities_df = pd.DataFrame.from_dict(bioactivities)
+        print(f"DataFrame shape: {bioactivities_df.shape}")
+        print(bioactivities_df["units"].unique())
+        print(bioactivities_df.dtypes)
+        bioactivities_df = bioactivities_df.astype({"standard_value": "float64"})
+        print(bioactivities_df.dtypes)
+
+        bioactivities_df.dropna(axis=0, how="any", inplace=True)
+        print(f"DataFrame shape: {bioactivities_df.shape}")
+
+        print(f"Units in downloaded data: {bioactivities_df['standard_units'].unique()}")
+        print(
+            f"Number of non-nM entries:\
+            {bioactivities_df[bioactivities_df['standard_units'] != 'nM'].shape[0]}"
+        )
+
+        bioactivities_df = bioactivities_df[bioactivities_df["standard_units"] == "nM"]
+        print(f"Units after filtering: {bioactivities_df['standard_units'].unique()}")
+
+        bioactivities_df.drop_duplicates("molecule_chembl_id", keep="first", inplace=True)
+        print(f"DataFrame shape: {bioactivities_df.shape}")
+
+        bioactivities_df.reset_index(drop=True, inplace=True)
+        print(bioactivities_df)
+        #bioactivities_df.head()
+
+
+
     else:
         print("No target information found.")
 
@@ -222,6 +304,48 @@ def parse_uniprot_to_chembl_json(from_bd, to_bd, json_response_input):
 
 
 
+def print_collected_data(collected_data_report):
+
+
+    # Read the JSON file and parse its contents into a dictionary
+    with open(collected_data_report, 'r', encoding='utf-8') as json_file:
+        data_dictionary = json.load(json_file)
+
+    # Iterate through the dictionary and replace empty lists with 0 for both 'IC50' and 'Ki'
+    for protein_id, values in data_dictionary.items():
+        for key in ['IC50', 'Ki']:
+            if isinstance(values[key], list) and not values[key]:
+                data_dictionary[protein_id][key] = 0
+
+
+    # Extract protein IDs and corresponding data points
+    protein_ids = list(data_dictionary.keys())
+    ic50_points = [entry['IC50'] for entry in data_dictionary.values()]
+    ki_points = [entry['Ki'] for entry in data_dictionary.values()]
+
+    # Plotting the bar chart
+    bar_width = 0.1
+    index = range(len(protein_ids))
+
+    fig, ax = plt.subplots()
+    bar1 = ax.bar(index, ic50_points, bar_width, label='IC50')
+    bar2 = ax.bar([i + bar_width for i in index], ki_points, bar_width, label='Ki', color='red')
+
+    ax.set_xlabel('UniProt_ID', fontsize=6)
+    ax.set_ylabel('# of Data Points')
+    ax.set_title('# of Ki and IC50 Data Points for Each Protein')
+    ax.set_xticks([i + bar_width / 2 for i in index])
+    ax.set_xticklabels(protein_ids, rotation=45, ha='right', fontsize=2)
+    ax.set_xticklabels(protein_ids)
+    ax.legend()
+
+    plt.savefig('../results/step3_data_collection/collected_data_raw.svg')
+
+
+
+
+
+
 
 def main():
 
@@ -272,10 +396,39 @@ def main():
     # Step 3. Data collection for a chosen target CDK2 (Protein_Name) P24941 (Uniprot_ID)
     # 3.1. bindingDB request
     if data_collection_flag:
-        uniprot_id = 'P24941'
-        chembl_id = 'CHEMBL301'
-        affinity_cutoff = None
-        get_data_from_binding_db(uniprot_id, affinity_cutoff)
+
+        #uniprot_id = 'P24941'
+        #chembl_id = 'CHEMBL301'
+        #mapped_csv = os.path.join(current_dir, '../results/step2_mapping/PDB_to_UniProtKB_mapping_results_clean.csv')
+
+
+        #df = pd.read_csv(mapped_csv)
+        #protein_lst = df['UNIPROT_ID'].unique().tolist()
+        #print(protein_lst)
+        #print(len(protein_lst)) # 115 proteins
+
+        #protein_lst_slice = protein_lst[0:9]
+        #print(protein_lst_slice)
+
+
+        #affinity_cutoff = None
+        #proteins_data_points = {}
+
+        #for protein_id in protein_lst:
+        #    print(protein_id + '\n')
+        #    data_points = get_data_from_binding_db(protein_id, affinity_cutoff)
+        #    proteins_data_points.update(data_points)
+
+        output_file_path = '../results/step3_data_collection/collected_data.json'
+
+        # Writing the dictionary to a JSON file with indentation for alignment
+        #with open(output_file_path, 'w', encoding='utf-8') as json_file:
+        #    json.dump(proteins_data_points, json_file, indent=4)
+
+        print_collected_data(output_file_path)
+
+
+        #    print(proteins_data_points)
         #get_data_from_chembl(uniprot_id, affinity_cutoff)
 
 

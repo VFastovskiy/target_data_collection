@@ -1,0 +1,12 @@
+Monomer_ID,SMILES,Affinity_Type,Affinity_Unit,Affinity_Value
+2579,CN[C@@H]1C[C@H]2O[C@@](C)([C@@H]1OC)n1c3ccccc3c3c4CNC(=O)c4c4c5ccccc5n2c4c13 |r|,IC50,nM,1.5
+4552,COc1cc(Nc2c(cnc3cc(OCCCN4CCN(C)CC4)c(OC)cc23)C#N)c(Cl)cc1Cl,IC50,nM,358
+482158,COc1cc(ccc1Nc1ncc(Cl)c(Nc2ccccc2S(=O)(=O)C(C)C)n1)N1CCC(CC1)N1CCN(C)CC1,IC50,nM,569
+50018830,C[C@H]1Oc2cc(cnc2N)-c2c(CN(C)C(=O)c3ccc(F)cc13)nn(C)c2C#N |r|,IC50,nM,6.0
+50242740,CN1C(=O)N(Cc2cnc(N)nc12)c1cc(NC(=O)c2cccc(c2)C(F)(F)F)ccc1C,IC50,nM,1
+50389154,"COc1c(Nc2ncc(Cl)c(N[C@@H]3[C@@H]4C[C@@H](C=C4)[C@@H]3C(N)=O)n2)ccc2CC[C@@H](CCc12)N1CCOCC1 |r,c:16|",IC50,nM,99
+50448785,C[C@@H](Oc1cc(cnc1N)-c1sc(nc1C)[C@](C)(O)CO)c1cc(F)ccc1-n1nccn1 |r|,IC50,nM,5.0
+50515040,COc1cc(ccc1Nc1nc(Nc2ccccc2S(=O)(=O)C(C)C)c2cn[nH]c2n1)N1CCC(O)CC1,IC50,nM,494
+50515041,CCN1CCN(Cc2ccc(NC(=O)c3ccc(C)c(Oc4ccnc5[nH]ccc45)c3)cc2C(F)(F)F)CC1,IC50,nM,527
+50577169,CCN1CCN(CC1)c1ccc(Nc2ncc3scc(-c4cccc(NS(C)(=O)=O)c4)c3n2)cc1,IC50,nM,4.9
+50584720,Cc1cc(NC(=O)Nc2cc(nn2-c2ccc(Cl)cc2)C(C)(C)C)ccc1Nc1ncnc2NC(=O)C(C)(C)Oc12,IC50,nM,269
