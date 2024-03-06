@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import pandas as pd
+import numpy as np
 import os
 import glob
 import requests
@@ -49,8 +50,8 @@ def print_boxplot(column, name):
     plt.title(f'Horizontal Box Plot {name}')
     plt.xlabel(name)
 
-    plt.savefig(f'../results/step3_data_collection/{name}_horizontal_boxplot.svg',
-                bbox_inches='tight')  # Save the figure with tight layout
+    plt.savefig(f'../results/step3_data_collection/target_data/{name}_horizontal_boxplot.svg',
+                bbox_inches='tight')
 
 
 
@@ -64,8 +65,8 @@ def print_histogram(column, name):
     plt.xlabel(name)
     plt.ylabel('Density')
 
-    plt.savefig(f'../results/step3_data_collection/{name}_histogram.svg',
-                bbox_inches='tight')  # Save the figure with tight layout
+    plt.savefig(f'../results/step3_data_collection/target_data/{name}_histogram.svg',
+                bbox_inches='tight')
 
 
 
@@ -304,7 +305,7 @@ def parse_uniprot_to_chembl_json(from_bd, to_bd, json_response_input):
 
 
 
-def print_collected_data(collected_data_report):
+def print_collected_data_report(collected_data_report):
 
 
     # Read the JSON file and parse its contents into a dictionary
@@ -397,6 +398,8 @@ def main():
     # 3.1. bindingDB request
     if data_collection_flag:
 
+        ######### PART 1. Define the target. P00918 with 6K Ki. ###################
+
         #uniprot_id = 'P24941'
         #chembl_id = 'CHEMBL301'
         #mapped_csv = os.path.join(current_dir, '../results/step2_mapping/PDB_to_UniProtKB_mapping_results_clean.csv')
@@ -419,17 +422,69 @@ def main():
         #    data_points = get_data_from_binding_db(protein_id, affinity_cutoff)
         #    proteins_data_points.update(data_points)
 
-        output_file_path = '../results/step3_data_collection/collected_data.json'
+        #output_file_path = '../results/step3_data_collection/collected_data.json'
 
         # Writing the dictionary to a JSON file with indentation for alignment
         #with open(output_file_path, 'w', encoding='utf-8') as json_file:
         #    json.dump(proteins_data_points, json_file, indent=4)
 
-        print_collected_data(output_file_path)
+        #print_collected_data_report(output_file_path)
 
 
         #    print(proteins_data_points)
         #get_data_from_chembl(uniprot_id, affinity_cutoff)
+
+        ######### PART 2. Clean and Report the target data ###################
+
+        # 2.1. Filter out >< values
+        input_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki.csv'
+        df = pd.read_csv(input_file_path)
+
+        total_rows = len(df)
+        condition = ~df['Affinity_Value'].str.match('[<>]')
+        filtered_df = df[condition]
+        filtered_rows = len(filtered_df)
+        percentage_filtered_out = ((total_rows - filtered_rows) / total_rows) * 100
+        print(f"Percentage of filtered out rows: {percentage_filtered_out:.2f}% which is {total_rows - filtered_rows} rows in total.")
+
+
+        # 2.2. Drop Duplicates
+        duplicates = filtered_df.duplicated(subset=['Monomer_ID'])
+
+        print("Duplicated Rows:")
+        print(filtered_df[duplicates])
+        num_duplicates = duplicates.sum()
+        print(f"Number of duplicate rows: {num_duplicates}")
+
+        clean_df = filtered_df.drop_duplicates(subset=['Monomer_ID'], keep=False, inplace=False, ignore_index=True)
+        num_dropped_rows = filtered_rows - len(clean_df)
+        percentage_dropped_out = (num_dropped_rows / total_rows) * 100
+        print(
+            f"Percentage of filtered out rows: {percentage_dropped_out:.2f}% which is {num_dropped_rows} rows in total")
+
+
+        # 2.3. Ki -> pKi: nM->M then np.log10
+        clean_df = clean_df.astype({"Affinity_Value": "float64"})
+        print(clean_df.dtypes)
+
+        clean_df['Affinity_Value'] = (-np.log10(clean_df['Affinity_Value'] * 1e-9)).round(3)
+        clean_df.drop('Affinity_Unit', axis=1, inplace=True)
+        clean_df.rename(columns={'Affinity_Value': 'pKi'}, inplace=True)
+
+        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean.csv'
+        clean_df.to_csv(output_file_path, index=False)
+
+
+        # 2.4. Standartization of smiles
+
+
+
+
+
+
+
+
+
 
 
 
