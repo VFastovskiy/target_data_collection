@@ -465,17 +465,26 @@ def main():
 
         # 2.3. Ki -> pKi: nM->M then np.log10
         clean_df = clean_df.astype({"Affinity_Value": "float64"})
-        print(clean_df.dtypes)
 
         clean_df['Affinity_Value'] = (-np.log10(clean_df['Affinity_Value'] * 1e-9)).round(3)
         clean_df.drop('Affinity_Unit', axis=1, inplace=True)
         clean_df.rename(columns={'Affinity_Value': 'pKi'}, inplace=True)
+        clean_df.sort_values(by='pKi', ascending=False, inplace=True)
+
+        # 2.4. Save SMILES to a .smi file with each SMILES on a new line for STD
+        smiles_column = clean_df['SMILES']
+
+        with open("../results/step3_data_collection/target_data/bindingdb_P00918_clean.smi", "w") as smi_file:
+            for i, smiles in enumerate(smiles_column):
+                smi_file.write(smiles)
+                if i < len(smiles_column) - 1:
+                    smi_file.write("\n")
 
         output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean.csv'
         clean_df.to_csv(output_file_path, index=False)
 
 
-        # 2.4. Standartization of smiles
+        # 2.4. Standardization of smiles
 
 
 
