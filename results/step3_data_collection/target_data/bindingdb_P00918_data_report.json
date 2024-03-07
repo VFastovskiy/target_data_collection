@@ -5,7 +5,7 @@
         "duplicated_rows_num": 7,
         "duplicated_rows_perc": 0.114,
         "invalid_smiles_num": 164,
-        "invalid_smiles_perc": 2.68,
+        "invalid_smiles_perc": 2.677,
         "dtypes": {
             "Monomer_ID": "int64",
             "Internal_ID": "int64",
