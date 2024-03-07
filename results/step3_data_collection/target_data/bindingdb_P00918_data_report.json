@@ -1,18 +1,18 @@
 {
     "P00918": {
-        "1. inaccurate_values_num": 26,
-        "1. inaccurate_values_perc": 0.424,
-        "2. duplicated_rows_num": 7,
-        "2. duplicated_rows_perc": 0.114,
-        "3. invalid_smiles_num": 164,
-        "3. invalid_smiles_perc": 2.68,
-        "4. dtypes": {
+        "inaccurate_values_num": 26,
+        "inaccurate_values_perc": 0.424,
+        "duplicated_rows_num": 7,
+        "duplicated_rows_perc": 0.114,
+        "invalid_smiles_num": 164,
+        "invalid_smiles_perc": 2.68,
+        "dtypes": {
             "Monomer_ID": "int64",
             "Internal_ID": "int64",
             "SMILES": "object",
             "pKi": "float64"
         },
-        "5. pKi_statistics": {
+        "pKi_statistics": {
             "mean": 7.588,
             "std": 0.954,
             "25%": 6.883,
@@ -20,7 +20,9 @@
             "75%": 8.174,
             "max": 12.097
         },
-        "6. dropped_num": 197,
-        "6. dropped_perc": 3.216
+        "dropped_points_num": 197,
+        "dropped_points_perc": 3.216,
+        "raw_amount_of_points": 6126,
+        "resulting_amount_of_points": 5929
     }
 }
