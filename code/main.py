@@ -24,6 +24,7 @@ import json
 import zlib
 from urllib.parse import urlparse, parse_qs, urlencode
 from requests.adapters import HTTPAdapter, Retry
+import matplotlib.ticker as ticker
 
 
 POLLING_INTERVAL = 3
@@ -36,37 +37,63 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 
-
 def print_boxplot(column, name):
-
-    # Convert the column of strings to numeric values
     data_to_plot = pd.to_numeric(column, errors='coerce')
-    print(data_to_plot)
 
-    # Create a horizontal box plot with seaborn for better styling
-    plt.figure(figsize=(8, 6))  # Adjust the figure size as needed
-    sns.boxplot(y=data_to_plot, orient='h', width=0.5, color='skyblue', fliersize=5)
+    fig, ax = plt.subplots(figsize=(10, 7))
+    bp = ax.boxplot(data_to_plot, patch_artist=True, notch=True, vert=False)
+    colors = ['#0000FF', '#00FF00', '#FFFF00', '#FF00FF']
 
-    plt.title(f'Horizontal Box Plot {name}')
-    plt.xlabel(name)
+    for patch, color in zip(bp['boxes'], colors):
+        patch.set_facecolor(color)
 
-    plt.savefig(f'../results/step3_data_collection/target_data/{name}_horizontal_boxplot.svg',
-                bbox_inches='tight')
+    for whisker in bp['whiskers']:
+        whisker.set(color='#8B008B', linewidth=1.5, linestyle=":")
+
+    for cap in bp['caps']:
+        cap.set(color='#8B008B', linewidth=2)
+
+    for median in bp['medians']:
+        median.set(color='red', linewidth=3)
+
+    for flier in bp['fliers']:
+        flier.set(marker='.', color='#e7298a', alpha=0.5)
+
+    ax.set_yticklabels(['pKi', 'data_2', 'data_3', 'data_4'])
+    plt.title(f'Box Plot - {name}')
+
+    # Set x-axis ticks and labels (adjust the frequency as needed)
+    x_ticks = np.arange(np.floor(data_to_plot.min()), np.ceil(data_to_plot.max()) + 0.2, step=0.5)
+    ax.set_xticks(x_ticks)
+    ax.set_xticklabels([f'{tick:.1f}' for tick in x_ticks])
+
+    # Remove top and right axes ticks
+    ax.get_xaxis().tick_bottom()
+    ax.get_yaxis().tick_left()
+
+    plt.savefig(f'../results/step3_data_collection/target_data/{name}_boxplot.svg', bbox_inches='tight')
+
 
 
 
 def print_histogram(column, name):
+    x_ticks_step = 0.2
     data_to_plot = pd.to_numeric(column, errors='coerce')
 
     # Create a histogram or kernel density plot
     plt.figure(figsize=(8, 6))
-    sns.distplot(data_to_plot, bins=30, kde=True, hist_kws={'edgecolor': 'black'})
-    plt.title(f'Distribution of {name}')
+    sns.distplot(data_to_plot, bins=60, kde=True, hist_kws={'edgecolor': 'black'})
+
+    # Control x ticks
+    x_ticks = np.arange(data_to_plot.min(), data_to_plot.max() + 1, x_ticks_step)
+    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(lambda x, _: '{:.1f}'.format(x)))
+    plt.xticks(x_ticks, fontsize=3)
+
+    plt.title(f'Distribution of pKi')
     plt.xlabel(name)
     plt.ylabel('Density')
 
-    plt.savefig(f'../results/step3_data_collection/target_data/{name}_histogram.svg',
-                bbox_inches='tight')
+    plt.savefig(f'../results/step3_data_collection/target_data/{name}_histogram.svg', bbox_inches='tight')
 
 
 
@@ -302,50 +329,77 @@ def parse_uniprot_to_chembl_json(from_bd, to_bd, json_response_input):
     df.to_csv(output_file_path, index=False)
 
 
-
-
-
 def print_collected_data_report(collected_data_report):
-
-
-    # Read the JSON file and parse its contents into a dictionary
     with open(collected_data_report, 'r', encoding='utf-8') as json_file:
         data_dictionary = json.load(json_file)
 
-    # Iterate through the dictionary and replace empty lists with 0 for both 'IC50' and 'Ki'
+    # Data for some proteins was not absent, and we should change [] to a 0
     for protein_id, values in data_dictionary.items():
         for key in ['IC50', 'Ki']:
             if isinstance(values[key], list) and not values[key]:
                 data_dictionary[protein_id][key] = 0
 
-
-    # Extract protein IDs and corresponding data points
     protein_ids = list(data_dictionary.keys())
     ic50_points = [entry['IC50'] for entry in data_dictionary.values()]
     ki_points = [entry['Ki'] for entry in data_dictionary.values()]
 
-    # Plotting the bar chart
+    sorted_indices = sorted(range(len(ki_points)), key=lambda k: ki_points[k], reverse=True)
+    protein_ids_sorted = [protein_ids[i] for i in sorted_indices]
+    ic50_points_sorted = [ic50_points[i] for i in sorted_indices]
+    ki_points_sorted = [ki_points[i] for i in sorted_indices]
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+
+    # Plotting the bar chart for all data points
     bar_width = 0.1
-    index = range(len(protein_ids))
+    index = range(len(protein_ids_sorted))
 
-    fig, ax = plt.subplots()
-    bar1 = ax.bar(index, ic50_points, bar_width, label='IC50')
-    bar2 = ax.bar([i + bar_width for i in index], ki_points, bar_width, label='Ki', color='red')
+    bar1 = ax1.bar(index, ic50_points_sorted, bar_width, label='IC50', color='blue', edgecolor='black', linewidth=0.1)
+    bar2 = ax1.bar([i + bar_width for i in index], ki_points_sorted, bar_width, label='Ki', color='red',
+                   edgecolor='black', linewidth=0.1)
 
-    ax.set_xlabel('UniProt_ID', fontsize=6)
-    ax.set_ylabel('# of Data Points')
-    ax.set_title('# of Ki and IC50 Data Points for Each Protein')
-    ax.set_xticks([i + bar_width / 2 for i in index])
-    ax.set_xticklabels(protein_ids, rotation=45, ha='right', fontsize=2)
-    ax.set_xticklabels(protein_ids)
-    ax.legend()
+    ax1.set_ylabel('# of Data Points', fontsize=12)
+    ax1.set_title('# of Data Points per Protein', fontsize=12)
+    ax1.set_xticks([i + bar_width / 2 for i in index])
+    ax1.set_xticklabels(protein_ids_sorted, rotation=45, ha='right', fontsize=4)
+    ax1.legend(fontsize=5)
 
-    plt.savefig('../results/step3_data_collection/collected_data_raw.svg')
+    # Add value labels on top of Ki bars
+    for bar, values in zip([bar2], [ki_points_sorted]):
+        for i, value in enumerate(values):
+            ax1.text(bar[i].get_x() + bar[i].get_width() / 2, value + 0.1, str(value), ha='center', va='bottom',
+                     fontsize=3)
 
+    # Plotting the bar chart for Ki > 100
+    ki_threshold = 100
+    ki_indices_gt_100 = [i for i, ki in enumerate(ki_points_sorted) if ki > ki_threshold]
+    ki_protein_ids_gt_100 = [protein_ids_sorted[i] for i in ki_indices_gt_100]
+    ki_points_gt_100 = [ki_points_sorted[i] for i in ki_indices_gt_100]
 
+    bar3 = ax2.bar(ki_indices_gt_100, ki_points_gt_100, bar_width, label='Ki', color='red', edgecolor='black',
+                   linewidth=0.1)
 
+    ax2.set_xlabel('UniProt_ID', fontsize=12)
+    ax2.set_ylabel('# of Data Points per Protein (Ki > 100)', fontsize=12)
+    ax2.set_xticks([i for i in ki_indices_gt_100])
+    ax2.set_xticklabels(ki_protein_ids_gt_100, rotation=45, ha='right', fontsize=4)
+    ax2.legend(fontsize=5)
 
+    # Add value labels on top of Ki bars (Ki > 100)
+    for bar, values in zip([bar3], [ki_points_gt_100]):
+        for i, value in enumerate(values):
+            ax2.text(bar[i].get_x() + bar[i].get_width() / 2, value + 0.1, str(value), ha='center', va='bottom',
+                     fontsize=3)
 
+    # Set a different scale for the y-axis in the second subplot
+    ax2.set_ylim(0, max(ki_points_gt_100) + 400)
+
+    # Adjust x-axis limits for the second subplot
+    #ax2.set_xlim(-1, len(ki_indices_gt_100))
+
+    # Adjust layout and save the plot
+    plt.tight_layout()
+    plt.savefig('../results/step3_data_collection/collected_data_raw_with_subplots.png', dpi=300)
 
 
 def main():
@@ -362,6 +416,7 @@ def main():
     vz_flag = False
     mapping_flag = False
     data_collection_flag = True
+    conformer_generation = False
 
 
     # Step 1. Parsing: pdf -> csv; cvs files creating at ../results/step1_pdf_parsing/no_mapping_csvs
@@ -378,7 +433,6 @@ def main():
     if mapping_flag:
 
         # 2.1. PDB_ID -> UniProt_ID
-
         # Retrieve a JSON formatted response from Uniprot Mapper
         json_response_path = uniprot_mapper('PDB_ID', 'PDB', 'UniProtKB', joined_csv)
 
@@ -387,6 +441,7 @@ def main():
 
 
         # 2.2. UniProt_ID -> ChEMBL_ID
+        # Retrieve a JSON formatted response from Uniprot Mapper
         json_response_path = uniprot_mapper('UNIPROT_ID', 'UniProtKB_AC-ID', 'ChEMBL', pdb_to_uniprot_mapping)
 
         # Converte response to a CSV file (columns: UniProt_ID, ChEMBL_ID)
@@ -398,7 +453,7 @@ def main():
     # 3.1. bindingDB request
     if data_collection_flag:
 
-        ######### PART 1. Define the target. P00918 with 6K Ki. ###################
+        ######### PART 1. Define the target. -> P00918 with 6K Ki. ###################
 
         #uniprot_id = 'P24941'
         #chembl_id = 'CHEMBL301'
@@ -422,71 +477,17 @@ def main():
         #    data_points = get_data_from_binding_db(protein_id, affinity_cutoff)
         #    proteins_data_points.update(data_points)
 
-        #output_file_path = '../results/step3_data_collection/collected_data.json'
+        output_file_path = '../results/step3_data_collection/collected_data.json'
 
         # Writing the dictionary to a JSON file with indentation for alignment
         #with open(output_file_path, 'w', encoding='utf-8') as json_file:
         #    json.dump(proteins_data_points, json_file, indent=4)
 
-        #print_collected_data_report(output_file_path)
+        print_collected_data_report(output_file_path)
 
 
         #    print(proteins_data_points)
         #get_data_from_chembl(uniprot_id, affinity_cutoff)
-
-        ######### PART 2. Clean and Report the target data ###################
-
-        # 2.1. Filter out >< values
-        input_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki.csv'
-        df = pd.read_csv(input_file_path)
-
-        total_rows = len(df)
-        condition = ~df['Affinity_Value'].str.match('[<>]')
-        filtered_df = df[condition]
-        filtered_rows = len(filtered_df)
-        percentage_filtered_out = ((total_rows - filtered_rows) / total_rows) * 100
-        print(f"Percentage of filtered out rows: {percentage_filtered_out:.2f}% which is {total_rows - filtered_rows} rows in total.")
-
-
-        # 2.2. Drop Duplicates
-        duplicates = filtered_df.duplicated(subset=['Monomer_ID'])
-
-        print("Duplicated Rows:")
-        print(filtered_df[duplicates])
-        num_duplicates = duplicates.sum()
-        print(f"Number of duplicate rows: {num_duplicates}")
-
-        clean_df = filtered_df.drop_duplicates(subset=['Monomer_ID'], keep=False, inplace=False, ignore_index=True)
-        num_dropped_rows = filtered_rows - len(clean_df)
-        percentage_dropped_out = (num_dropped_rows / total_rows) * 100
-        print(
-            f"Percentage of filtered out rows: {percentage_dropped_out:.2f}% which is {num_dropped_rows} rows in total")
-
-
-        # 2.3. Ki -> pKi: nM->M then np.log10
-        clean_df = clean_df.astype({"Affinity_Value": "float64"})
-
-        clean_df['Affinity_Value'] = (-np.log10(clean_df['Affinity_Value'] * 1e-9)).round(3)
-        clean_df.drop('Affinity_Unit', axis=1, inplace=True)
-        clean_df.rename(columns={'Affinity_Value': 'pKi'}, inplace=True)
-        clean_df.sort_values(by='pKi', ascending=False, inplace=True)
-
-        # 2.4. Save SMILES to a .smi file with each SMILES on a new line for STD
-        smiles_column = clean_df['SMILES']
-
-        with open("../results/step3_data_collection/target_data/bindingdb_P00918_clean.smi", "w") as smi_file:
-            for i, smiles in enumerate(smiles_column):
-                smi_file.write(smiles)
-                if i < len(smiles_column) - 1:
-                    smi_file.write("\n")
-
-        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean.csv'
-        clean_df.to_csv(output_file_path, index=False)
-
-
-        # 2.4. Standardization of smiles
-
-
 
 
 

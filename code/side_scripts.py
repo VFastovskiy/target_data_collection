@@ -405,3 +405,289 @@ def vz_graph(df, columns_list, df_name, common_values):
                                 'P00742': {'IC50': 1821, 'Ki': 2556},
                                 'P04035': {'IC50': 168, 'Ki': 9},
                                 'P01116': {'IC50': 3117, 'Ki': 6}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # 2.3. Handle duplicates: mean val for monomer_id with more than 1 entry
+        grouped_df = filtered_df.groupby('Monomer_ID')['pKi'].mean().reset_index()
+        clean_df = pd.merge(filtered_df, grouped_df, on='Monomer_ID', how='inner', suffixes=('', '_mean'))
+        clean_df.drop('pKi', axis=1, inplace=True)
+        clean_df.rename(columns={'pKi_mean': 'pKi'}, inplace=True)
+        clean_df = clean_df.drop_duplicates(subset=['Monomer_ID'], ignore_index=True)
+
+        print("Duplicated Rows:")
+        print(filtered_df[filtered_df.duplicated(subset=['Monomer_ID'])])
+        num_duplicates = len(filtered_df) - len(clean_df)
+        print(f"Number of duplicate rows: {num_duplicates}")
+        num_dropped_rows = len(filtered_df) - len(clean_df)
+        percentage_dropped_out = (num_dropped_rows / total_rows) * 100
+        print(
+            f"Percentage of filtered out rows: {percentage_dropped_out:.2f}% which is {num_dropped_rows} rows in total")
+
+
+        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_dropped_dupl.csv'
+        clean_df.to_csv(output_file_path)
+
+
+
+
+
+
+
+        # 2.4. Save SMILES to a .smi file with each SMILES on a new line for Standardization
+        smiles_column = clean_df['SMILES']
+
+        with open("../results/step3_data_collection/target_data/bindingdb_P00918_clean.smi", "w") as smi_file:
+            for i, smiles in enumerate(smiles_column):
+                smi_file.write(smiles)
+                if i < len(smiles_column) - 1:
+                    smi_file.write("\n")
+
+        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean.csv'
+        clean_df.to_csv(output_file_path, index=False)
+
+
+        # 2.4. Standardization of smiles
+        # indigo_std_v2_static_Ubuntu22
+        # input: bindingdb_P00918_clean.smi
+        # output: bindingdb_P00918_clean_std.smi
+
+        # 2.5 filter out non-valid smiles
+
+        input_smiles_file_path = "../results/step3_data_collection/target_data/bindingdb_P00918_clean_std.smi"
+        output_csv_file_path = "../results/step3_data_collection/target_data/bindingdb_P00918_clean_std.csv"
+
+
+        # 2.5.1. Read SMILES file and assign internal IDs to drop non-valid smiles on 2.5.3.
+        smiles_list = []
+        to_drop_ids = []
+        with open(input_smiles_file_path, "r") as smi_file:
+            for i, line in enumerate(smi_file, start=1):
+                smiles = line.strip()
+                if smiles == 'O':
+                    to_drop_ids.append(int(i))
+                smiles_list.append({"Internal_ID": i, "SMILES": smiles})
+
+        invalid_smiles = "../results/step3_data_collection/target_data/bindingdb_P00918_invalid_smiles_ids.out"
+
+        with open(invalid_smiles, 'w') as file:
+            for value in to_drop_ids:
+                file.write(f'{value}\n')
+
+
+        # 2.5.2. Write data to CSV file
+        fieldnames = ["Internal_ID", "SMILES"]
+        with open(output_csv_file_path, "w", newline="", encoding="utf-8") as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+            # Write header
+            writer.writeheader()
+
+            # Write rows
+            writer.writerows(smiles_list)
+
+
+        # 2.5.3. filter out non-standard smiles
+        input_csv_file_path = "../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean.csv"
+        output_csv_file_path = "../results/step3_data_collection/target_data/bindingdb_P00918_Ki_clean_std_final.csv"
+
+        df = pd.read_csv(input_csv_file_path)
+
+        # Remove rows with specified IDs
+        df = df[~df['Internal_ID'].isin(to_drop_ids)]
+        df.to_csv(output_csv_file_path)
+
+
+
+
+
+
+
+
+
+
+def print_boxplot(column, name):
+
+    # Convert the column of strings to numeric values
+    data_to_plot = pd.to_numeric(column, errors='coerce')
+    print(data_to_plot)
+
+    # Create a horizontal box plot with seaborn for better styling
+    plt.figure(figsize=(8, 6))  # Adjust the figure size as needed
+    sns.boxplot(y=data_to_plot, orient='h', width=0.5, color='skyblue', fliersize=5)
+
+    plt.title(f'Box Plot {name}')
+    plt.xlabel(name)
+
+    plt.savefig(f'../results/step3_data_collection/target_data/{name}_horizontal_boxplot.svg',
+                bbox_inches='tight')
+
+
+
+
+
+
+
+
+
+
+   ######### PART 2. Clean and Report the target data ###################
+
+        report_dict = {'P00918': {}}
+
+
+
+        # 2.1. Filter out >< values
+        input_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki.csv'
+        df = pd.read_csv(input_file_path)
+
+        total_rows = len(df)
+        condition = ~df['Affinity_Value'].str.match('[<>]')
+        filtered_df = df[condition]
+        filtered_rows = len(filtered_df)
+        filtered_out_rows = total_rows - filtered_rows
+        percentage_filtered_out = (filtered_out_rows / total_rows) * 100
+        rounded = round(percentage_filtered_out, 3)
+        report_dict['P00918']['inaccurate_values_num'] = filtered_out_rows
+        report_dict['P00918']['inaccurate_values_perc'] = rounded
+        print(f"Percentage of filtered out rows: {percentage_filtered_out:.2f}% which is {filtered_out_rows} rows in total.")
+
+
+        # 2.2. Ki -> pKi: nM->M then np.log10 then round vals
+        filtered_df = filtered_df.astype({"Affinity_Value": "float64"})
+        filtered_df['Affinity_Value'] = (-np.log10(filtered_df['Affinity_Value'] * 1e-9)).round(3)
+        filtered_df.drop(['Affinity_Unit', 'Affinity_Type'], axis=1, inplace=True)
+        filtered_df.rename(columns={'Affinity_Value': 'pKi'}, inplace=True)
+
+
+        # 2.3. Handle duplicates: mean val for monomer_id with more than 1 entry
+        grouped_df = filtered_df.groupby('Monomer_ID')['pKi'].mean().round(3).reset_index()
+        clean_df = pd.merge(filtered_df, grouped_df, on='Monomer_ID', how='inner', suffixes=('', '_mean'))
+        clean_df.drop('pKi', axis=1, inplace=True)
+        clean_df.rename(columns={'pKi_mean': 'pKi'}, inplace=True)
+        clean_df = clean_df.drop_duplicates(subset=['Monomer_ID'], ignore_index=True)
+        clean_df.sort_values(by='pKi', ascending=False, inplace=True)
+
+        # Add internal_id to delete non-valid rows on step 2.5.3.
+        clean_df['Internal_ID'] = list(range(1, len(clean_df) + 1))
+        column_order = ['Monomer_ID', 'Internal_ID', 'SMILES', 'pKi']
+        clean_df = clean_df[column_order]
+
+        print("Duplicated Rows:")
+        print(filtered_df[filtered_df.duplicated(subset=['Monomer_ID'])])
+        num_duplicates = len(filtered_df) - len(clean_df)
+        print(f"Number of duplicated rows: {num_duplicates}")
+        num_dropped_rows = len(filtered_df) - len(clean_df)
+        percentage_dropped_out = (num_dropped_rows / total_rows) * 100
+        rounded = round(percentage_dropped_out, 3)
+        report_dict['P00918']['duplicated_rows_num'] = num_dropped_rows
+        report_dict['P00918']['duplicated_rows_perc'] = rounded
+        print(
+            f"Percentage of filtered out rows: {percentage_dropped_out:.2f}% which is {num_dropped_rows} rows in total")
+
+        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_dropped_dupl.csv'
+        clean_df.to_csv(output_file_path, index=False)
+
+
+        # 2.4. Save SMILES to a .smi file with each SMILES on a new line for Standardization
+        smiles_column = clean_df['SMILES']
+        smiles_to_std = '../results/step3_data_collection/target_data/bindingdb_P00918_clean.smi'
+
+        with open(smiles_to_std, "w") as smi_file:
+            for i, smiles in enumerate(smiles_column):
+                smi_file.write(smiles)
+                if i < len(smiles_column) - 1:
+                    smi_file.write("\n")
+
+
+
+        # 2.5. Standardization of smiles
+        # indigo_std_v2_static_Ubuntu22
+        # input: bindingdb_P00918_clean.smi
+        # output: bindingdb_P00918_clean_STDRTSED.smi
+
+
+        # 2.6 filter out non-valid smiles
+
+        # 2.6.1. Read SMILES file and assign internal IDs to drop non-valid smiles on 2.6.2.
+        input_smiles_file_path = "../results/step3_data_collection/target_data/bindingdb_P00918_clean_STDRTSED.smi"
+
+        smiles_list = []
+        to_drop_ids = []
+        with open(input_smiles_file_path, "r") as smi_file:
+            for i, line in enumerate(smi_file, start=1):
+                smiles = line.strip()
+                if smiles == 'O':
+                    to_drop_ids.append(int(i))
+                smiles_list.append({"Internal_ID": i, "SMILES": smiles})
+
+        invalid_smiles_num = len(to_drop_ids)
+        invalid_smiles_perc = ((invalid_smiles_num / total_rows) * 100)
+        rounded_invalid_smiles_perc = round(invalid_smiles_perc, 3)
+
+        report_dict['P00918']['invalid_smiles_num'] = invalid_smiles_num
+        report_dict['P00918']['invalid_smiles_perc'] = rounded_invalid_smiles_perc
+
+
+
+        # Collect invalid ids as a part of data preparation report
+        invalid_smiles = "../results/step3_data_collection/target_data/bindingdb_P00918_invalid_smiles_ids.out"
+
+        with open(invalid_smiles, 'w') as file:
+            for value in to_drop_ids:
+                file.write(f'{value}\n')
+
+
+        # 2.6.2. drop non-valid smiles using invalid_smiles_id from to_drop_ids
+        output_file_path = '../results/step3_data_collection/target_data/bindingdb_P00918_Ki_dropped_dupl_and_inalid_smiles.csv'
+
+        clean_df = clean_df[~clean_df['Internal_ID'].isin(to_drop_ids)]
+        clean_df['SMILES'] = clean_df['SMILES'].astype(str)
+        clean_df.to_csv(output_file_path, index=False)
+
+
+        # 2.6.3. Target Data Report
+        dtypes = clean_df.dtypes
+        report_dict['P00918']['dtypes'] = dtypes.to_dict()
+        dtypes_str = {key: str(value) for key, value in dtypes.items()}
+        report_dict['P00918']['dtypes'] = dtypes_str
+
+        pKi_statistics = clean_df['pKi'].describe()
+        report_dict['P00918']['pKi_statistics'] = {
+            'mean': (pKi_statistics['mean']).round(3),
+            'std': (pKi_statistics['std']).round(3),
+            '25%': pKi_statistics['25%'],
+            '50%': pKi_statistics['50%'],
+            '75%': pKi_statistics['75%'],
+            'max': pKi_statistics['max']
+        }
+
+        loss = filtered_out_rows + num_dropped_rows + invalid_smiles_num
+        loss_perc = ((filtered_out_rows + num_dropped_rows + invalid_smiles_num) / total_rows) * 100
+        loss_perc_round = round(loss_perc, 3)
+
+        report_dict['P00918']['dropped_points_num'] = loss
+        report_dict['P00918']['dropped_points_perc'] = loss_perc_round
+        report_dict['P00918']['raw_amount_of_points'] = total_rows
+        report_dict['P00918']['resulting_amount_of_points'] = len(clean_df)
+
+        output_path = '../results/step3_data_collection/target_data/bindingdb_P00918_data_report.json'
+
+        # Convert the dictionary to JSON with indentation
+        with open(output_path, 'w') as json_file:
+            json.dump(report_dict, json_file, indent=4)
+
+
+
+        print_boxplot(clean_df['pKi'], 'P00918')
+        print_histogram(clean_df['pKi'], 'P00918')
